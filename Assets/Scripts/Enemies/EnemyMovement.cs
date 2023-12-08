@@ -90,7 +90,6 @@ public class EnemyMovement : MonoBehaviour
             }
         }
         targetCell = closeCells[Random.Range(0, closeCells.Count)];
-        GoToCell();
     }
     private Cell GetCloseCell(int x, int y)
     {

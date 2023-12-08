@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Character : MonoBehaviour
 {
-    [SerializeField] float pv;
+    public float pv { get; private set; }
+    public float energy { get; private set; }
+    public Sprite characterImage;
+
     [SerializeField] float def;
-    [SerializeField] float energy;
 
     [SerializeField] float cacDmgMult;
     [SerializeField] float distDmgMult;
@@ -15,14 +18,19 @@ public class Character : MonoBehaviour
     [SerializeField] float energyGainMult;
     [SerializeField] float healMult;
 
-    private float pvMax;
-    private float energyMax; 
+    public float pvMax;
+    public float energyMax; 
     private float dgt;
+
+    public bool dead;
+
+    public UnityEvent PvChangeEvent { get; private set; } = new();
+    public UnityEvent EnergyChangeEvent { get; private set; } = new();
 
     void Start()
     {
-        energyMax = 100;
-        pvMax = pv;
+        energy = energyMax;
+        pv = pvMax;
     }
 
     public void TakeDamage(float amount)
@@ -36,7 +44,9 @@ public class Character : MonoBehaviour
         if (pv == 0)
         {
             //tuer personage
+            dead = true;
         }
+        PvChangeEvent.Invoke();
     }
 
     public void EnvironmentDamage(float amount)
@@ -49,7 +59,9 @@ public class Character : MonoBehaviour
         if (pv == 0)
         {
             //tuer personage
+            dead = true;
         }
+        PvChangeEvent.Invoke();
     }
 
 
@@ -62,14 +74,16 @@ public class Character : MonoBehaviour
 
     public void Heal(float amount)
     {
-        pv += amount * healMult;
+        pv += amount;
         pv = Mathf.Clamp(pv, 0, pvMax);
+        PvChangeEvent.Invoke();
     }
 
-    public void consumeEnergy(float amount) 
+    public void ConsumeEnergy(float amount) 
     {
         energy -= amount;
         energy = Mathf.Clamp(energy, 0, energyMax);
+        EnergyChangeEvent.Invoke();
     }
 
     public float atkLeft()

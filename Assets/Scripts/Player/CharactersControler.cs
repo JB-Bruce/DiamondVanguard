@@ -9,28 +9,40 @@ public class CharactersControler : MonoBehaviour
     [SerializeField] Character left;
     [SerializeField] Character back;
 
+    private void Start()
+    {
+        InvokeRepeating("test", 1, 0.3f);
+    }
+
+    private void test() 
+    {
+        TakeDamage(Random.Range(5, 10));
+    }
 
     public void TakeDamage(float amount)
     {
+        if (back.dead && left.dead && right.dead && front.dead)
+            return;
+
         float randomchar;
 
         Character characterSelected = null;
         while (characterSelected == null)
         {
             randomchar = Random.Range(0f, 100f);
-            if (randomchar >= 0 && randomchar <= 1)
+            if (randomchar >= 0 && randomchar <= 1 && !back.dead)
             {
                 characterSelected = back;
             }
-            else if (randomchar >= 1 && randomchar < 21)
+            else if (randomchar >= 1 && randomchar < 21 && !right.dead)
             {
                 characterSelected = right;
             }
-            else if (randomchar >= 21 && randomchar < 41)
+            else if (randomchar >= 21 && randomchar < 41 && !left.dead)
             {
                 characterSelected = left;
             }
-            else if (randomchar >= 41 && randomchar <= 100)
+            else if (randomchar >= 41 && randomchar <= 100f && !front.dead)
             {
                 characterSelected = front;
             }

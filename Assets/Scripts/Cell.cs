@@ -3,8 +3,8 @@ using UnityEngine;
 [System.Serializable]
 public class Cell
 {
-    public Vector3 pos { get; private set; }
-    private Entity entity;
+    public Vector3 pos { get; private set; } = Vector3.zero;
+    public Entity entity;
     [HideInInspector] public (int, int) gridPos;
 
 
@@ -12,6 +12,16 @@ public class Cell
     {
         this.pos = pos;
         this.gridPos = gridPos;
+    }
+
+    public void DeleteEntity()
+    {
+        this.entity = null;
+    }
+
+    public void SetEntity(Entity entity)
+    {
+        this.entity = entity;
     }
 
 }

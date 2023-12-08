@@ -13,9 +13,33 @@ public class CharacterUIStatsUpdater : MonoBehaviour
 
     private void Start()
     {
+        SetUpCharacter(currentCharacter);
+    }
+
+    private void SetUpCharacter(Character character)
+    {
+        currentCharacter = character;
         imgPersonage.sprite = currentCharacter.characterImage;
         currentCharacter.PvChangeEvent.AddListener(pvGaugeUi);
         currentCharacter.EnergyChangeEvent.AddListener(energyGaugeUi);
+        pvGaugeUi();
+        energyGaugeUi();
+    }
+
+    public void ResetCharacter()
+    {
+        currentCharacter.PvChangeEvent.RemoveListener(pvGaugeUi);
+        currentCharacter.PvChangeEvent.RemoveListener(energyGaugeUi);
+        currentCharacter = null;
+        pvSlider.value = 0;
+        energySlider.value = 0;
+        imgPersonage.sprite = null;
+    }
+
+    public void SetNewCharacter(Character character)
+    {
+        ResetCharacter();
+        SetUpCharacter(character);
     }
 
     public void pvGaugeUi()

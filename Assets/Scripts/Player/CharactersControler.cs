@@ -9,8 +9,17 @@ public class CharactersControler : MonoBehaviour
     [SerializeField] Character left;
     [SerializeField] Character back;
 
+    [SerializeField] CharacterUIStatsUpdater frontUI ;
+    [SerializeField] CharacterUIStatsUpdater rightUI;
+    [SerializeField] CharacterUIStatsUpdater leftUI;
+    [SerializeField] CharacterUIStatsUpdater backUI;
+
     private void Start()
     {
+        front.controler = this;
+        right.controler = this;
+        left.controler = this;
+        back.controler = this;
         InvokeRepeating("test", 1, 0.3f);
     }
 
@@ -48,5 +57,82 @@ public class CharactersControler : MonoBehaviour
             }
         }
         characterSelected.TakeDamage(amount);
+    }
+
+    public void Die(Character isdead)
+    {
+        if (isdead == front)
+        {
+            if (!right.dead)
+            {
+                frontUI.SetNewCharacter(right);
+                if (!left.dead)
+                {
+                    rightUI.SetNewCharacter(left);
+                    if (!back.dead)
+                    {
+                        leftUI.SetNewCharacter(back);
+                        backUI.ResetCharacter();
+                    }
+                    else
+                    {
+                        leftUI.ResetCharacter();
+                    }
+                }
+                else
+                {
+                    rightUI.ResetCharacter();
+                }
+            }
+            else
+            {
+                frontUI.ResetCharacter();
+                GameOver();
+            }
+        }
+
+        else if (isdead == right)
+        {
+            if (!left.dead)
+            {
+                rightUI.SetNewCharacter(left);
+                if (!back.dead)
+                {
+                    leftUI.SetNewCharacter(back);
+                    backUI.ResetCharacter();
+                }
+                else
+                {
+                    leftUI.ResetCharacter();
+                }
+            }
+            else
+            {
+                rightUI.ResetCharacter();
+            }
+        }
+
+        else if (isdead == left)
+        {
+            if (!back.dead)
+            {
+                leftUI.SetNewCharacter(back);
+                backUI.ResetCharacter();
+            }
+            else
+            {
+                leftUI.ResetCharacter();
+            }
+        }
+
+        else if (isdead == back)
+        {
+            backUI.ResetCharacter();
+        }
+    }
+
+    private void GameOver()
+    {
+
     }
 }

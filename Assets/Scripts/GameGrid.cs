@@ -32,7 +32,7 @@ public class GameGrid : MonoBehaviour
             grid.Add(new());
             for (int j = 0; j < gridHeight; j++)
             {
-                Cell cell = new(new Vector3(gridCenter.position.x + i - (gridWidth - 1) / 2, gridCenter.position.y, gridCenter.position.z + j - (gridHeight - 1) / 2), (i, j));
+                Cell cell = new(new Vector3(gridCenter.position.x + (i - (gridWidth - 1) / 2)*cellSpacement, gridCenter.position.y, gridCenter.position.z + (j - (gridHeight - 1) / 2)*cellSpacement), (i, j));
                 grid[i].Add(cell);
             }
         }

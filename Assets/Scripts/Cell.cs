@@ -24,4 +24,10 @@ public class Cell
         this.entity = entity;
     }
 
+    public bool HasEntity() 
+    { 
+        if (this.entity == null) return false;
+        return true;
+    }
+
 }

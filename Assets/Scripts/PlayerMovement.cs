@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         if (movement.x == 1)
         {
             Cell targetCell = grid.GetCell(cellOn.gridPos.Item1 + 1, cellOn.gridPos.Item2);
-            if (targetCell != null) 
+            if (targetCell != null && !WallDetection(cellOn.pos, targetCell.pos) && !targetCell.HasEntity()) 
             {
                 MoveToCell(targetCell);
             }
@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
         else if (movement.x == -1)
         {
             Cell targetCell = grid.GetCell(cellOn.gridPos.Item1 - 1, cellOn.gridPos.Item2);
-            if (targetCell != null)
+            if (targetCell != null && !WallDetection(cellOn.pos,targetCell.pos) && !targetCell.HasEntity())
             {
                 MoveToCell(targetCell);
             }
@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
         else if (movement.y == 1)
         {
             Cell targetCell = grid.GetCell(cellOn.gridPos.Item1, cellOn.gridPos.Item2 + 1);
-            if (targetCell != null)
+            if (targetCell != null && !WallDetection(cellOn.pos, targetCell.pos) && !targetCell.HasEntity())
             {
                 MoveToCell(targetCell);
             }
@@ -106,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
         else if (movement.y == -1)
         {
             Cell targetCell = grid.GetCell(cellOn.gridPos.Item1, cellOn.gridPos.Item2 - 1);
-            if (targetCell != null)
+            if (targetCell != null && !WallDetection(cellOn.pos, targetCell.pos) && !targetCell.HasEntity())
             {
                 MoveToCell(targetCell);
             }
@@ -150,6 +150,16 @@ public class PlayerMovement : MonoBehaviour
         }
         isRotating = true;
         timer = 0f;
+    }
+
+    public bool WallDetection(Vector3 startPos, Vector3 endPos)
+    {
+        Debug.DrawRay(startPos, (endPos - startPos) * Vector3.Distance(startPos, endPos), Color.red, 2);
+        if (Physics.Raycast(startPos, endPos - startPos, Vector3.Distance(startPos, endPos)))
+        {
+            return true;
+        }
+        return false;
     }
 
 }

@@ -161,6 +161,36 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 262.13446
       objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: def
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: pvMax
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: healMult
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: tauxCrit
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: cacDmgMult
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: distDmgMult
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 1470879239076981737, guid: c78252308eee41142827ded8a505af15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -211,6 +241,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2053329229377915085, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 177.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2208346118560884014, guid: c78252308eee41142827ded8a505af15,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -234,7 +269,7 @@ PrefabInstance:
     - target: {fileID: 3497894227190608205, guid: c78252308eee41142827ded8a505af15,
         type: 3}
       propertyPath: m_Name
-      value: CharUiElement
+      value: UIGrosBras
       objectReference: {fileID: 0}
     - target: {fileID: 7781248243726349079, guid: c78252308eee41142827ded8a505af15,
         type: 3}
@@ -674,6 +709,31 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 141.93445
       objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: pvMax
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: healMult
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: tauxCrit
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: cacDmgMult
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: distDmgMult
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1470879239076981737, guid: c78252308eee41142827ded8a505af15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -724,6 +784,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2053329229377915085, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 177.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2053329229377915085, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -197.9
+      objectReference: {fileID: 0}
     - target: {fileID: 2208346118560884014, guid: c78252308eee41142827ded8a505af15,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -747,7 +817,7 @@ PrefabInstance:
     - target: {fileID: 3497894227190608205, guid: c78252308eee41142827ded8a505af15,
         type: 3}
       propertyPath: m_Name
-      value: CharUiElement (3)
+      value: UICharcuDoc
       objectReference: {fileID: 0}
     - target: {fileID: 7781248243726349079, guid: c78252308eee41142827ded8a505af15,
         type: 3}
@@ -864,6 +934,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 199.6
       objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: healMult
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: tauxCrit
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: cacDmgMult
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: distDmgMult
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1470879239076981737, guid: c78252308eee41142827ded8a505af15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -914,6 +1004,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2053329229377915085, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 83.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2053329229377915085, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -140.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2208346118560884014, guid: c78252308eee41142827ded8a505af15,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -937,7 +1037,7 @@ PrefabInstance:
     - target: {fileID: 3497894227190608205, guid: c78252308eee41142827ded8a505af15,
         type: 3}
       propertyPath: m_Name
-      value: CharUiElement (2)
+      value: UIHacker
       objectReference: {fileID: 0}
     - target: {fileID: 7781248243726349079, guid: c78252308eee41142827ded8a505af15,
         type: 3}
@@ -1102,6 +1202,36 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 199.6
       objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: pvMax
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: healMult
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: tauxCrit
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: cacDmgMult
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: distDmgMult
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334614835980848326, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1470879239076981737, guid: c78252308eee41142827ded8a505af15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1152,6 +1282,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2053329229377915085, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 272.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2053329229377915085, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -140.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2208346118560884014, guid: c78252308eee41142827ded8a505af15,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1175,7 +1315,7 @@ PrefabInstance:
     - target: {fileID: 3497894227190608205, guid: c78252308eee41142827ded8a505af15,
         type: 3}
       propertyPath: m_Name
-      value: CharUiElement (1)
+      value: UITireur
       objectReference: {fileID: 0}
     - target: {fileID: 7781248243726349079, guid: c78252308eee41142827ded8a505af15,
         type: 3}

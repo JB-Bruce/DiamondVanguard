@@ -90,6 +90,12 @@ public class EnemyMovement : MonoBehaviour
             }
         }
         targetCell = closeCells[Random.Range(0, closeCells.Count)];
+        closeCells.Clear();
+        if (targetCell != null)
+        {
+            Debug.Log(targetCell);
+            GoToCell();
+        }
     }
     private Cell GetCloseCell(int x, int y)
     {
@@ -113,7 +119,7 @@ public class EnemyMovement : MonoBehaviour
         }
         while (cellOn != targetCell)
         {
-            MoveToCell(cellOn);
+            MoveToCell(targetCell);
         }
     }
     public bool WallDetection(Vector3 startPos, Vector3 endPos)

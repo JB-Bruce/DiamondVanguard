@@ -7,6 +7,8 @@ public class Character : MonoBehaviour
 {
     public float pv { get; private set; }
     public float energy { get; private set; }
+    public Sprite characterImage;
+
     [SerializeField] float def;
 
     [SerializeField] float cacDmgMult;

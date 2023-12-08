@@ -9,9 +9,11 @@ public class CharacterUIStatsUpdater : MonoBehaviour
 
     public Slider pvSlider;
     public Slider energySlider;
+    public Image imgPersonage;
 
     private void Start()
     {
+        imgPersonage.sprite = currentCharacter.characterImage;
         currentCharacter.PvChangeEvent.AddListener(pvGaugeUi);
         currentCharacter.EnergyChangeEvent.AddListener(energyGaugeUi);
     }

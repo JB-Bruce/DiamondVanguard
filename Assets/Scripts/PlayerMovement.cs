@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] public Cell cellOn;
 
+    public PlayerAttack attack;
+
     private Vector3 lastPosition, targetPosition;
 
     public GameGrid grid;
@@ -36,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
         entity = GetComponent<Entity>();
 
         cellOn = grid.GetCell((grid.gridWidth - 1) / 2, (grid.gridHeight - 1) / 2);
+
+        cellOn.SetEntity(entity);
 
         transform.position = cellOn.pos;
 

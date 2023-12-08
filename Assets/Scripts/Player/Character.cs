@@ -27,10 +27,16 @@ public class Character : MonoBehaviour
     public UnityEvent PvChangeEvent { get; private set; } = new();
     public UnityEvent EnergyChangeEvent { get; private set; } = new();
 
+    public Weapons rightWeapon;
+    public Weapons leftWeapon;
+
+    private PlayerAttack attack;
+
     void Start()
     {
         energy = energyMax;
         pv = pvMax;
+        attack = PlayerAttack.Instance;
     }
 
     public void TakeDamage(float amount)
@@ -94,5 +100,29 @@ public class Character : MonoBehaviour
     public float atkRight() 
     {
         return dgt;
+    }
+
+    public void LeftWeaponAttack()
+    {
+        if (leftWeapon == null)
+        {
+            
+        }
+        else
+        {
+
+        }
+    }
+
+    public void RightWeaponAttack()
+    {
+        if (rightWeapon == null)
+        {
+
+        }
+        else
+        {
+
+        }
     }
 }

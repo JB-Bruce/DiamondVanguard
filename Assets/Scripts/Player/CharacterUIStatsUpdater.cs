@@ -5,10 +5,25 @@ using UnityEngine.UI;
 
 public class CharacterUIStatsUpdater : MonoBehaviour
 {
-    public Slider slider;
+    [SerializeField] Character currentCharacter;
 
-    public void gaugeUi(int amount)
+    public Slider pvSlider;
+    public Slider energySlider;
+
+    private void Start()
     {
-        slider.value = amount;
+        currentCharacter.PvChangeEvent.AddListener(pvGaugeUi);
+        currentCharacter.EnergyChangeEvent.AddListener(energyGaugeUi);
     }
+
+    public void pvGaugeUi()
+    {
+        pvSlider.value = currentCharacter.pv/currentCharacter.pvMax;
+    }
+
+    public void energyGaugeUi() 
+    {
+        energySlider.value =currentCharacter.energy/currentCharacter.energyMax;
+    }
+
 }

@@ -17,7 +17,7 @@ public class PlayerPickUp : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Item item = hit.transform.gameObject.GetComponent<item3d>().item;
+                Item item = hit.transform.gameObject.GetComponent<LootBox>().item;
                 inventory.addItem(item);
                 Debug.Log("tryAdd");
                 hit.transform.gameObject.SetActive(false);

@@ -47,7 +47,6 @@ public class InventoryManager : MonoBehaviour
             }
             if (results.Count > 0)
             {
-               
                 if (Input.GetMouseButtonDown(0) && results[0].gameObject.tag == "Slots" && results[0].gameObject.GetComponent<ItemContainer>().item != null)
                 {
                     GameObject itemContainer = results[0].gameObject;
@@ -59,6 +58,21 @@ public class InventoryManager : MonoBehaviour
                 if (Input.GetMouseButtonUp(0) && draging)
                 {
                     draging = false;
+
+                    if (results[0].gameObject.tag == "Equipement" && results[0].gameObject.GetComponent<EquipementSlot>().item == null && results[0].gameObject.GetComponent<EquipementSlot>().TryAddEquipement(item))
+                    {
+                        Debug.Log("reussi");
+                        results[0].gameObject.GetComponent<EquipementSlot>().addItem(item);
+                        results[0].gameObject.GetComponent<EquipementSlot>().imageUpdate();
+                        item = null;
+                        draging = false;
+                        LastItemContainer.item = null;
+                        LastItemContainer.GetComponent<ItemContainer>().imageUpdate();
+                        LastItemContainer.GetComponent<ItemContainer>().itemImage.transform.position = LastItemContainer.transform.position;
+
+                    }
+
+
                     if (results[0].gameObject.tag == "Slots" && results[0].gameObject.GetComponent<ItemContainer>().item == null)
                     {
                         results[0].gameObject.GetComponent<ItemContainer>().addItem(item);

@@ -4,15 +4,52 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public static PlayerAttack Instance;
+
     [SerializeField] private PlayerMovement playerMovement;
+    GameGrid grid;
+
+    public static PlayerAttack Instance;
+
     private void Awake()
     {
         Instance = this;
     }
 
+    private void Start()
+    {
+        grid = GameGrid.instance;
+    }
+
     public void Attack (float amount)
     {
-        Vector3 targetCell = new Vector3(playerMovement.cellOn.gridPos.Item1 + 1, 0, playerMovement.cellOn.gridPos.Item2) ;
+        float angle = transform.eulerAngles.y;
+
+        int x, z;
+
+        if(angle >= 315f || angle < 45f)
+        {
+            x = 0; z = 1;
+        }
+        else if (angle >= 45f && angle < 135f)
+        {
+            x = 1; z = 0;
+        }
+        else if (angle >= 135f && angle < 225f)
+        {
+            x = 0; z = -1;
+        }
+        else
+        {
+            x = -1; z = 0;
+        }
+
+        Cell targetCell = grid.GetCell(playerMovement.cellOn.gridPos.Item1 + x, playerMovement.cellOn.gridPos.Item2 + z);
+
+        if (targetCell.HasEntity())
+        {
+            targetCell.entity.transform.GetComponent<EnnemyTest>().TakeDamage(amount);
+            return;
+        }
+
     }
 }

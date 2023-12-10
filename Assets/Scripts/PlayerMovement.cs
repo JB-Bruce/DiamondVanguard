@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -79,43 +81,40 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
+
         Vector2 movement = ctx.ReadValue<Vector2>();
+
+        float angle = transform.eulerAngles.y;
+
+        Vector3Int right = Vector3Int.RoundToInt(transform.right);
+        Vector3Int forward = Vector3Int.RoundToInt(transform.forward);
+
         if (movement.x == 1)
         {
-            Cell targetCell = grid.GetCell(cellOn.gridPos.Item1 + 1, cellOn.gridPos.Item2);
-            if (targetCell != null && !WallDetection(cellOn.pos, targetCell.pos) && !targetCell.HasEntity()) 
-            {
-                MoveToCell(targetCell);
-            }
-            return;
+            MoveTo(right.x, right.z);
         }
         else if (movement.x == -1)
         {
-            Cell targetCell = grid.GetCell(cellOn.gridPos.Item1 - 1, cellOn.gridPos.Item2);
-            if (targetCell != null && !WallDetection(cellOn.pos,targetCell.pos) && !targetCell.HasEntity())
-            {
-                MoveToCell(targetCell);
-            }
-            return;
+            MoveTo(-right.x, -right.z);
         }
         else if (movement.y == 1)
         {
-            Cell targetCell = grid.GetCell(cellOn.gridPos.Item1, cellOn.gridPos.Item2 + 1);
-            if (targetCell != null && !WallDetection(cellOn.pos, targetCell.pos) && !targetCell.HasEntity())
-            {
-                MoveToCell(targetCell);
-            }
-            return;
+            MoveTo(forward.x, forward.z);
         }
         else if (movement.y == -1)
         {
-            Cell targetCell = grid.GetCell(cellOn.gridPos.Item1, cellOn.gridPos.Item2 - 1);
-            if (targetCell != null && !WallDetection(cellOn.pos, targetCell.pos) && !targetCell.HasEntity())
-            {
-                MoveToCell(targetCell);
-            }
-            return;
+            MoveTo(-forward.x, -forward.z);
         }
+    }
+
+    private void MoveTo(int x, int z)
+    {
+        Cell targetCell = grid.GetCell(cellOn.gridPos.Item1 + x, cellOn.gridPos.Item2 + z);
+        if (targetCell != null && !WallDetection(cellOn.pos, targetCell.pos) && !targetCell.HasEntity())
+        {
+            MoveToCell(targetCell);
+        }
+        return;
     }
 
     void MoveToCell(Cell cell)

@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class EnnemyTest : MonoBehaviour
 {
     [SerializeField] public Cell cellOn;
     public GameGrid grid;
     private Entity entity;
+
+    [SerializeField] float life;
+
     void Start()
     {
         grid = GameGrid.instance;
@@ -21,8 +21,8 @@ public class EnnemyTest : MonoBehaviour
         transform.position = cellOn.pos;
     }
 
-    void Update()
+    public void TakeDamage(float amount)
     {
-        
+        life -= amount;
     }
 }

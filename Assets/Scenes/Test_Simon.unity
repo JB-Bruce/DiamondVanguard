@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1612,6 +1612,7 @@ MonoBehaviour:
   cellOn:
     entity: {fileID: 0}
   grid: {fileID: 1495968844}
+  life: 100
 --- !u!114 &757617899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3545,6 +3546,7 @@ MonoBehaviour:
   dgtCritMult: 1.5
   energyGainMult: 2
   healMult: 0.25
+  brutDamages: 10
   pvMax: 125
   energyMax: 100
   dead: 0
@@ -3570,6 +3572,7 @@ MonoBehaviour:
   dgtCritMult: 1.5
   energyGainMult: 2
   healMult: 0.5
+  brutDamages: 0
   pvMax: 100
   energyMax: 100
   dead: 0
@@ -3595,6 +3598,7 @@ MonoBehaviour:
   dgtCritMult: 1.5
   energyGainMult: 2
   healMult: 0.25
+  brutDamages: 0
   pvMax: 200
   energyMax: 100
   dead: 0
@@ -3620,6 +3624,7 @@ MonoBehaviour:
   dgtCritMult: 1.5
   energyGainMult: 2
   healMult: 1
+  brutDamages: 0
   pvMax: 75
   energyMax: 100
   dead: 0
@@ -4289,7 +4294,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 744, y: -436}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1982181718

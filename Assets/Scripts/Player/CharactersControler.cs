@@ -25,7 +25,7 @@ public class CharactersControler : MonoBehaviour
 
     private void test() 
     {
-        TakeDamage(Random.Range(5, 10));
+        TakeDamage(5);
     }
 
     public void TakeDamage(float amount)
@@ -61,78 +61,72 @@ public class CharactersControler : MonoBehaviour
 
     public void Die(Character isdead)
     {
-        if (isdead == front)
+        if (frontUI.currentCharacter != null && isdead == frontUI.currentCharacter)
         {
-            if (!right.dead)
-            {
-                frontUI.SetNewCharacter(right);
-                if (!left.dead)
-                {
-                    rightUI.SetNewCharacter(left);
-                    if (!back.dead)
-                    {
-                        leftUI.SetNewCharacter(back);
-                        backUI.ResetCharacter();
-                    }
-                    else
-                    {
-                        leftUI.ResetCharacter();
-                    }
-                }
-                else
-                {
-                    rightUI.ResetCharacter();
-                }
-            }
-            else
-            {
-                frontUI.ResetCharacter();
-                GameOver();
-            }
+            print("dead front");
+            ResetFront();
         }
 
-        else if (isdead == right)
+        else if (rightUI.currentCharacter != null && isdead == rightUI.currentCharacter)
         {
-            if (!left.dead)
-            {
-                rightUI.SetNewCharacter(left);
-                if (!back.dead)
-                {
-                    leftUI.SetNewCharacter(back);
-                    backUI.ResetCharacter();
-                }
-                else
-                {
-                    leftUI.ResetCharacter();
-                }
-            }
-            else
-            {
-                rightUI.ResetCharacter();
-            }
+            print("dead right");
+            ResetRight();
         }
 
-        else if (isdead == left)
+        else if (leftUI.currentCharacter != null && isdead == leftUI.currentCharacter)
         {
-            if (!back.dead)
-            {
-                leftUI.SetNewCharacter(back);
-                backUI.ResetCharacter();
-            }
-            else
-            {
-                leftUI.ResetCharacter();
-            }
+            print("dead left");
+            ResetLeft();
         }
 
-        else if (isdead == back)
+        else if (backUI.currentCharacter != null && isdead == backUI.currentCharacter)
         {
-            backUI.ResetCharacter();
+            print("dead back");
+            ResetBack();
         }
+    }
+
+    private void ResetFront()
+    {
+        frontUI.ResetCharacter();
+        if(rightUI.currentCharacter != null && !rightUI.currentCharacter.dead)
+        {
+            ResetRight();
+            frontUI.SetNewCharacter(right);
+        }
+        else
+        {
+            GameOver();
+        }
+    }
+
+    private void ResetRight()
+    {
+        rightUI.ResetCharacter();
+        if (leftUI.currentCharacter != null && !leftUI.currentCharacter.dead)
+        {
+            ResetLeft();
+            rightUI.SetNewCharacter(left);
+        }
+    }
+
+    private void ResetLeft()
+    {
+        leftUI.ResetCharacter();
+        if (backUI.currentCharacter != null && !backUI.currentCharacter.dead)
+        {
+            ResetBack();
+            leftUI.SetNewCharacter(back);
+        }
+    }
+
+    private void ResetBack()
+    {
+        backUI.ResetCharacter();
     }
 
     private void GameOver()
     {
-
+        print("GAMEOVER");
     }
 }

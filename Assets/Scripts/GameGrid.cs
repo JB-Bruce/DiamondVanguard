@@ -53,4 +53,17 @@ public class GameGrid : MonoBehaviour
             return null;
         }
     }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        for (int i = 0; i < gridWidth; i++)
+        {
+            for (int j = 0; j < gridHeight; j++)
+            {
+                Gizmos.DrawSphere(new Vector3(gridCenter.position.x + (i - (gridWidth - 1) / 2) * cellSpacement, gridCenter.position.y, gridCenter.position.z + (j - (gridHeight - 1) / 2) * cellSpacement), 0.1f);
+            }
+        }
+        
+    }
 }

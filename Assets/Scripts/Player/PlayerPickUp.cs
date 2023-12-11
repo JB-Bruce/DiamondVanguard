@@ -15,16 +15,12 @@ public class PlayerPickUp : MonoBehaviour
         RaycastHit hit;
         if ( Physics.Raycast(ray, out hit, itemMask))
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && hit.transform.gameObject.layer == 6)
             {
                 Item item = hit.transform.gameObject.GetComponent<LootBox>().item;
                 inventory.addItem(item);
-                Debug.Log("tryAdd");
                 hit.transform.gameObject.SetActive(false);
-            }
-            
-
-            
+            } 
         }
     }
 }

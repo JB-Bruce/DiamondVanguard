@@ -6,7 +6,7 @@ public class GameGrid : MonoBehaviour
     [SerializeField] public List<List<Cell>> grid = new();
     [SerializeField] public int gridWidth;
     [SerializeField] public int gridHeight;
-    [SerializeField] private float cellSpacement;
+    [SerializeField] public int cellSpacement;
     [SerializeField] private Transform gridCenter;
     public static GameGrid instance;
 

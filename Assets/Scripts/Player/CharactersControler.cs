@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharactersControler : MonoBehaviour
 {
+
     [SerializeField] Character grosBras;
     [SerializeField] Character tireur;
     [SerializeField] Character hacker;
@@ -13,6 +14,13 @@ public class CharactersControler : MonoBehaviour
     [SerializeField] CharacterUIStatsUpdater rightUI;
     [SerializeField] CharacterUIStatsUpdater leftUI;
     [SerializeField] CharacterUIStatsUpdater backUI;
+    
+    public static CharactersControler instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {

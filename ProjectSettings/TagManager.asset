@@ -8,6 +8,7 @@ TagManager:
   - ItemImage
   - Trash
   - door
+  - Equipement
   layers:
   - Default
   - TransparentFX

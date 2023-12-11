@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -55,22 +56,8 @@ public class EnemyMovement : MonoBehaviour
             transform.rotation = Quaternion.Lerp(lastRotation, targetRotation, timer);
             if (timer == 1f)
             {
-                if (nbRot > 1)
-                {
-                    nbRot--;
-                    RotateCell();
-                }
-                else if (nbRot < -1)
-                {
-                    nbRot++; 
-                    RotateCell();
-                }
-                else
-                {
-                    isRotating = false;
-                    nbRot = 0;
-                    MoveToCell(targetCell);
-                }
+                isRotating = false;
+                GoToCell();
             }
         }
         else
@@ -87,24 +74,16 @@ public class EnemyMovement : MonoBehaviour
         closeCells.Add(GetCloseCell(-1, 0));
         closeCells.Add(GetCloseCell(0, 1));
         closeCells.Add(GetCloseCell(0, -1));
+        for (int i = 0; i < closeCells.Count; i++)
+        {
+            if (closeCells[i] == null)
+            {
+                closeCells.Remove(closeCells[i]);
+            }
+        }
+        print(closeCells.Count);
         int randomIndex = Random.Range(0, closeCells.Count);
         targetCell = closeCells[randomIndex];
-        if (randomIndex == 0)
-        {
-            angleIndex = 90;
-        }
-        else if (randomIndex == 1)
-        {
-            angleIndex = 270;
-        }
-        else if (randomIndex == 2)
-        {
-            angleIndex = 0;
-        }
-        else if (randomIndex == 3)
-        {
-            angleIndex = 180;
-        }
         closeCells.Clear();
         if (targetCell != null)
         {
@@ -119,6 +98,18 @@ public class EnemyMovement : MonoBehaviour
             index++;
             return cell;
         }
+        else if (cell.entity != null)
+        {
+            return null;
+        }
+        else if (WallDetection(cellOn.pos, cell.pos))
+        {
+            return null;
+        }
+        else if (cell.gridPos.Item1 > 6 || cell.gridPos.Item2 > 6 || cell.gridPos.Item1 < -6 || cell.gridPos.Item2 < -6)
+        {
+            return null;
+        }
         else
         {
             return null;
@@ -131,7 +122,13 @@ public class EnemyMovement : MonoBehaviour
         {
             return;
         }
-        if (cellOn != targetCell)
+        Vector3Int forward = Vector3Int.RoundToInt(transform.forward);
+        Cell forwardCell = grid.GetCell(cellOn.gridPos.Item1 + forward.x, cellOn.gridPos.Item2 + forward.z);
+        if (forwardCell == targetCell)
+        {
+            MoveToCell(targetCell);
+        }
+        else
         {
             RotateCell();
         }
@@ -143,22 +140,21 @@ public class EnemyMovement : MonoBehaviour
         {
             return;
         }
-        print("RotateCell");
         lastRotation = transform.rotation;
-        int lastRotationangle = ((int)transform.rotation.eulerAngles.y);
-        int totalRotation = (angleIndex - lastRotationangle);
-        if (nbRot == 0)
-        {
-            nbRot = totalRotation / 90;
-        }
+        Quaternion target = Quaternion.FromToRotation(transform.forward, (targetCell.pos - transform.position).normalized);
+        print(target.eulerAngles.y);
 
-        if (nbRot > 0)
+        if (target.eulerAngles.y > 180)
+        {
+            targetRotation = transform.rotation * Quaternion.Euler(0, -90, 0);
+        }
+        else if (target.eulerAngles.y < 180)
         {
             targetRotation = transform.rotation * Quaternion.Euler(0, 90, 0);
         }
         else
         {
-            targetRotation = transform.rotation * Quaternion.Euler(0, -90, 0);
+            targetRotation = transform.rotation * Quaternion.Euler(0, 90, 0);
         }
         isRotating = true;
         timer = 0f;

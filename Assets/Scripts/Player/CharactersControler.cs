@@ -28,7 +28,6 @@ public class CharactersControler : MonoBehaviour
         tireur.controler = this;
         hacker.controler = this;
         healer.controler = this;
-        InvokeRepeating("test", 1, 0.1f);
     }
 
     private void test() 

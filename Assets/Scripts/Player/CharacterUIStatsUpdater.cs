@@ -26,9 +26,11 @@ public class CharacterUIStatsUpdater : MonoBehaviour
         energyGaugeUi();
     }
 
-    public void ResetCharacter()
+    public Character ResetCharacter()
     {
-        if(currentCharacter != null)
+        Character newChar = currentCharacter;
+
+        if (currentCharacter != null)
         {
             currentCharacter.PvChangeEvent.RemoveListener(pvGaugeUi);
             currentCharacter.PvChangeEvent.RemoveListener(energyGaugeUi);
@@ -38,10 +40,13 @@ public class CharacterUIStatsUpdater : MonoBehaviour
         pvSlider.value = 0;
         energySlider.value = 0;
         imgPersonage.sprite = null;
+
+        return newChar;
     }
 
     public void SetNewCharacter(Character character)
     {
+        print("Set : " + character.name + " in " + transform.name);
         ResetCharacter();
         SetUpCharacter(character);
     }

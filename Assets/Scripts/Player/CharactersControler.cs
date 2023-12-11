@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class CharactersControler : MonoBehaviour
 {
-    [SerializeField] Character front;
-    [SerializeField] Character right;
-    [SerializeField] Character left;
-    [SerializeField] Character back;
+    [SerializeField] Character grosBras;
+    [SerializeField] Character tireur;
+    [SerializeField] Character hacker;
+    [SerializeField] Character healer;
 
-    [SerializeField] CharacterUIStatsUpdater frontUI ;
+    [SerializeField] CharacterUIStatsUpdater frontUI;
     [SerializeField] CharacterUIStatsUpdater rightUI;
     [SerializeField] CharacterUIStatsUpdater leftUI;
     [SerializeField] CharacterUIStatsUpdater backUI;
 
     private void Start()
     {
-        front.controler = this;
-        right.controler = this;
-        left.controler = this;
-        back.controler = this;
+        grosBras.controler = this;
+        tireur.controler = this;
+        hacker.controler = this;
+        healer.controler = this;
         InvokeRepeating("test", 1, 0.3f);
     }
 
@@ -30,7 +30,7 @@ public class CharactersControler : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        if (back.dead && left.dead && right.dead && front.dead)
+        if (healer.dead && hacker.dead && tireur.dead && grosBras.dead)
             return;
 
         float randomchar;
@@ -39,21 +39,21 @@ public class CharactersControler : MonoBehaviour
         while (characterSelected == null)
         {
             randomchar = Random.Range(0f, 100f);
-            if (randomchar >= 0 && randomchar <= 1 && !back.dead)
+            if (randomchar >= 0 && randomchar <= 1 && !healer.dead)
             {
-                characterSelected = back;
+                characterSelected = healer;
             }
-            else if (randomchar >= 1 && randomchar < 21 && !right.dead)
+            else if (randomchar >= 1 && randomchar < 21 && !tireur.dead)
             {
-                characterSelected = right;
+                characterSelected = tireur;
             }
-            else if (randomchar >= 21 && randomchar < 41 && !left.dead)
+            else if (randomchar >= 21 && randomchar < 41 && !hacker.dead)
             {
-                characterSelected = left;
+                characterSelected = hacker;
             }
-            else if (randomchar >= 41 && randomchar <= 100f && !front.dead)
+            else if (randomchar >= 41 && randomchar <= 100f && !grosBras.dead)
             {
-                characterSelected = front;
+                characterSelected = grosBras;
             }
         }
         characterSelected.TakeDamage(amount);
@@ -92,7 +92,7 @@ public class CharactersControler : MonoBehaviour
         if(rightUI.currentCharacter != null && !rightUI.currentCharacter.dead)
         {
             ResetRight();
-            frontUI.SetNewCharacter(right);
+            frontUI.SetNewCharacter(rightUI.currentCharacter);
         }
         else
         {
@@ -100,29 +100,31 @@ public class CharactersControler : MonoBehaviour
         }
     }
 
-    private void ResetRight()
+    private Character ResetRight()
     {
-        rightUI.ResetCharacter();
+        Character newChar = rightUI.ResetCharacter();
         if (leftUI.currentCharacter != null && !leftUI.currentCharacter.dead)
         {
-            ResetLeft();
-            rightUI.SetNewCharacter(left);
+            Character newChar2 = ResetLeft();
+            rightUI.SetNewCharacter(newChar2);
         }
+        return newChar;
     }
 
-    private void ResetLeft()
+    private Character ResetLeft()
     {
-        leftUI.ResetCharacter();
+        Character newChar = leftUI.ResetCharacter();
         if (backUI.currentCharacter != null && !backUI.currentCharacter.dead)
         {
-            ResetBack();
-            leftUI.SetNewCharacter(back);
+            Character newChar2 = ResetBack();
+            leftUI.SetNewCharacter(newChar);
         }
+        return newChar;
     }
 
-    private void ResetBack()
+    private Character ResetBack()
     {
-        backUI.ResetCharacter();
+        return backUI.ResetCharacter();
     }
 
     private void GameOver()

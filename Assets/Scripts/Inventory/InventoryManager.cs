@@ -37,24 +37,26 @@ public class InventoryManager : MonoBehaviour
             List<RaycastResult> results = new List<RaycastResult>();
 
             m_Raycaster.Raycast(pointerEventData, results);
-            GameObject result = results[0].gameObject;
 
-            // drag and drop
-            if (draging)
-            {
-                LastItemContainer.GetComponent<ItemContainer>().itemImage.transform.SetParent(DragNDrop.transform);
-                DragNDrop.transform.position = MousePos;
-            }
-
-            // stop drag and drop
-            else if (!draging && LastItemContainer != null)
-            {
-                LastItemContainer.GetComponent<ItemContainer>().itemImage.transform.SetParent(LastItemContainer.transform);
-            }
 
             // if the mouse is in an element
             if (results.Count > 0)
             {
+                GameObject result = results[0].gameObject;
+
+                // drag and drop
+                if (draging)
+                {
+                    LastItemContainer.GetComponent<ItemContainer>().itemImage.transform.SetParent(DragNDrop.transform);
+                    DragNDrop.transform.position = MousePos;
+                }
+
+                // stop drag and drop
+                else if (!draging && LastItemContainer != null)
+                {
+                    LastItemContainer.GetComponent<ItemContainer>().itemImage.transform.SetParent(LastItemContainer.transform);
+                }
+
                 // draging item from slot
                 if (Input.GetMouseButtonDown(0) && ( (result.tag == "Slots" && result.GetComponent<ItemContainer>().item != null) 
                     || (result.tag == "Equipement" && (result.GetComponent<EquipementSlot>().item != handItem || result.GetComponent<ItemContainer>().item == null) )))

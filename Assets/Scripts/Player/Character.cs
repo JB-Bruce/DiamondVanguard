@@ -130,4 +130,14 @@ public class Character : MonoBehaviour
             pAttack.Attack(rightWeapon.damages);
         }
     }
+
+    public void EquipeRightWeapon(Weapons weapon)
+    {
+        rightWeapon = weapon;
+    }
+
+    public void EquipeLeftWeapon(Weapons weapon)
+    {
+        rightWeapon = weapon;
+    }
 }

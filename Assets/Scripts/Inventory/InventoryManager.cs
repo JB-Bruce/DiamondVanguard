@@ -79,6 +79,10 @@ public class InventoryManager : MonoBehaviour
                     {
                         SetItemInSlot(results);
                         SetItemInLastContainer(LastItemContainer);
+                        if(results[0].gameObject.tag == "Equipement" && results[0].gameObject.GetComponent<EquipementSlot>().item is Weapons)
+                        {
+                            results[0].gameObject.GetComponent<EquipementSlot>().UpdateStats((Weapons)item);
+                        }
                         item = null;
                     }
 

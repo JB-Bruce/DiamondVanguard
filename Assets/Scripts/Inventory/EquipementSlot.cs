@@ -11,7 +11,17 @@ public class EquipementSlot : ItemContainer
         Implant = 1
     }
 
+    [SerializeField] Item startingItem;
+
     public containerType type;
+
+    private void Start()
+    {
+        if (item == null)
+        {
+            SetHandItem();
+        }
+    }
 
     public bool TryAddEquipement(Item _item)
     {
@@ -27,5 +37,12 @@ public class EquipementSlot : ItemContainer
         {
             return false;
         }
+    }
+
+    public void SetHandItem()
+    {
+        item = startingItem;
+        itemImage.sprite = startingItem.icon;
+        itemImage.gameObject.SetActive(true);
     }
 }

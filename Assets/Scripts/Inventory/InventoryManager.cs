@@ -37,7 +37,7 @@ public class InventoryManager : MonoBehaviour
             List<RaycastResult> results = new List<RaycastResult>();
 
             m_Raycaster.Raycast(pointerEventData, results);
-
+            GameObject result = results[0].gameObject;
 
             // drag and drop
             if (draging)
@@ -56,10 +56,10 @@ public class InventoryManager : MonoBehaviour
             if (results.Count > 0)
             {
                 // draging item from slot
-                if (Input.GetMouseButtonDown(0) && ( (results[0].gameObject.tag == "Slots" && results[0].gameObject.GetComponent<ItemContainer>().item != null) 
-                    || (results[0].gameObject.tag == "Equipement" && (results[0].gameObject.GetComponent<EquipementSlot>().item != handItem || results[0].gameObject.GetComponent<ItemContainer>().item == null) )))
+                if (Input.GetMouseButtonDown(0) && ( (result.tag == "Slots" && result.GetComponent<ItemContainer>().item != null) 
+                    || (result.tag == "Equipement" && (result.GetComponent<EquipementSlot>().item != handItem || result.GetComponent<ItemContainer>().item == null) )))
                 {
-                    GameObject itemContainer = results[0].gameObject;
+                    GameObject itemContainer = result;
                     item = itemContainer.GetComponent<ItemContainer>().item;
                     LastItemContainer = itemContainer.GetComponent<ItemContainer>();
                     draging = true;
@@ -74,16 +74,20 @@ public class InventoryManager : MonoBehaviour
 
 
                     // if in a slot
-                    if ((results[0].gameObject.tag == "Equipement" && results[0].gameObject.GetComponent<EquipementSlot>().item == handItem && results[0].gameObject.GetComponent<EquipementSlot>().TryAddEquipement(item))
-                        || (results[0].gameObject.tag == "Slots" && results[0].gameObject.GetComponent<ItemContainer>().item == null))
+                    if ((result.tag == "Equipement" && result.GetComponent<EquipementSlot>().item == handItem && result.GetComponent<EquipementSlot>().TryAddEquipement(item))
+                        || (result.tag == "Slots" && result.GetComponent<ItemContainer>().item == null))
                     {
-                        SetItemInSlot(results);
+                        SetItemInSlot(result);
                         SetItemInLastContainer(LastItemContainer);
+                        if(result.tag == "Equipement" && result.GetComponent<EquipementSlot>().item is Weapons)
+                        {
+                            result.GetComponent<EquipementSlot>().UpdateStats((Weapons)item);
+                        }
                         item = null;
                     }
 
                     // if in trash
-                    else if(results[0].gameObject.tag == "Trash")
+                    else if(result.tag == "Trash")
                     {
                         item = null;
                         draging = false;
@@ -119,10 +123,10 @@ public class InventoryManager : MonoBehaviour
     }
 
     // methode to set item in a slot
-    private void SetItemInSlot(List<RaycastResult> results)
+    private void SetItemInSlot(GameObject result)
     {
-        results[0].gameObject.GetComponent<ItemContainer>().addItem(item);
-        results[0].gameObject.GetComponent<ItemContainer>().imageUpdate();
+        result.GetComponent<ItemContainer>().addItem(item);
+        result.GetComponent<ItemContainer>().imageUpdate();
     }
 
     private void SetItemInLastContainer(ItemContainer LastItemContainer)

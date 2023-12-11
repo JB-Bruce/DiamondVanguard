@@ -31,8 +31,6 @@ public class EnemyMovement : MonoBehaviour
         entity = GetComponent<Entity>();
         cellOn = grid.GetCell((grid.gridWidth - 1) / 2, (grid.gridHeight - 1) / 2);
         transform.position = cellOn.pos;
-        isMoving = false;
-        isRotating = false;
     }
 
     void Update()
@@ -57,8 +55,22 @@ public class EnemyMovement : MonoBehaviour
             transform.rotation = Quaternion.Lerp(lastRotation, targetRotation, timer);
             if (timer == 1f)
             {
-                isRotating = false;
-                MoveToCell(targetCell);
+                if (nbRot > 1)
+                {
+                    nbRot--;
+                    RotateCell();
+                }
+                else if (nbRot < -1)
+                {
+                    nbRot++; 
+                    RotateCell();
+                }
+                else
+                {
+                    isRotating = false;
+                    nbRot = 0;
+                    MoveToCell(targetCell);
+                }
             }
         }
         else
@@ -71,37 +83,19 @@ public class EnemyMovement : MonoBehaviour
     private void GetCloseCells()
     {
         //TO DO : verify the out of range
-        int directionx = 1;
-        int directiony = 0;
-        for (int i = 0; i < 4; i++) 
-        {
-            if (directionx == 1)
-            {
-                closeCells.Add(GetCloseCell(directionx, directiony));
-                directionx = -1;
-            }
-            if (directionx == -1)
-            {
-                closeCells.Add(GetCloseCell(directionx, directiony));
-                directionx = 0;
-                directiony = 1;
-            }
-            if (directiony == 1)
-            {
-                closeCells.Add(GetCloseCell(directionx, directiony));
-                directiony = -1;
-            }
-            if (directiony == -1) 
-            {
-                closeCells.Add(GetCloseCell(directionx, directiony));
-                directiony = 0;
-            }
-        }
-        int randomIndex = Random.Range(1, closeCells.Count);
+        closeCells.Add(GetCloseCell(1, 0));
+        closeCells.Add(GetCloseCell(-1, 0));
+        closeCells.Add(GetCloseCell(0, 1));
+        closeCells.Add(GetCloseCell(0, -1));
+        int randomIndex = Random.Range(0, closeCells.Count);
         targetCell = closeCells[randomIndex];
-        if (randomIndex == 1)
+        if (randomIndex == 0)
         {
-            angleIndex = -90;
+            angleIndex = 90;
+        }
+        else if (randomIndex == 1)
+        {
+            angleIndex = 270;
         }
         else if (randomIndex == 2)
         {
@@ -110,10 +104,6 @@ public class EnemyMovement : MonoBehaviour
         else if (randomIndex == 3)
         {
             angleIndex = 180;
-        }
-        else if (randomIndex == 4)
-        {
-            angleIndex = 90;
         }
         closeCells.Clear();
         if (targetCell != null)
@@ -153,25 +143,22 @@ public class EnemyMovement : MonoBehaviour
         {
             return;
         }
+        print("RotateCell");
         lastRotation = transform.rotation;
-        int lastRotationangle = ((int)transform.rotation.y);
+        int lastRotationangle = ((int)transform.rotation.eulerAngles.y);
         int totalRotation = (angleIndex - lastRotationangle);
-        Debug.Log(totalRotation);
-        nbRot = totalRotation / 90;
-        Debug.Log(nbRot);
-        while (nbRot != 0)
+        if (nbRot == 0)
         {
-            if (nbRot > 0)
-            {
-                targetRotation = transform.rotation * Quaternion.Euler(0, 90, 0);
-                Debug.Log(totalRotation);
-                nbRot -= 1;
-            }
-            else
-            {
-                targetRotation = transform.rotation * Quaternion.Euler(0, -90, 0);
-                nbRot += 1;
-            }
+            nbRot = totalRotation / 90;
+        }
+
+        if (nbRot > 0)
+        {
+            targetRotation = transform.rotation * Quaternion.Euler(0, 90, 0);
+        }
+        else
+        {
+            targetRotation = transform.rotation * Quaternion.Euler(0, -90, 0);
         }
         isRotating = true;
         timer = 0f;
@@ -192,6 +179,7 @@ public class EnemyMovement : MonoBehaviour
         {
             return;
         }
+        print("MoveToCell");
         lastPosition = cellOn.pos;
         targetPosition = cell.pos;
         cellOn.DeleteEntity();

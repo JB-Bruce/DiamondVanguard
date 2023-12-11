@@ -33,6 +33,15 @@ public class PlayerMovement : MonoBehaviour
 
     private Quaternion lastRotation, targetRotation;
 
+    public static PlayerMovement instance;
+
+    private float life;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         grid = GameGrid.instance;

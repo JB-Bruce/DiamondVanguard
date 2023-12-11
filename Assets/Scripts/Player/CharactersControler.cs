@@ -8,10 +8,16 @@ public class CharactersControler : MonoBehaviour
     [SerializeField] Character right;
     [SerializeField] Character left;
     [SerializeField] Character back;
+    public static CharactersControler instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
-        InvokeRepeating("test", 1, 0.3f);
+        //InvokeRepeating("test", 1, 0.3f);
     }
 
     private void test() 

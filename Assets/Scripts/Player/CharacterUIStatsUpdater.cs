@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CharacterUIStatsUpdater : MonoBehaviour
 {
-    [SerializeField] Character currentCharacter;
+    public Character currentCharacter;
 
     public Slider pvSlider;
     public Slider energySlider;
@@ -13,9 +13,41 @@ public class CharacterUIStatsUpdater : MonoBehaviour
 
     private void Start()
     {
+        SetUpCharacter(currentCharacter);
+    }
+
+    private void SetUpCharacter(Character character)
+    {
+        currentCharacter = character;
         imgPersonage.sprite = currentCharacter.characterImage;
         currentCharacter.PvChangeEvent.AddListener(pvGaugeUi);
         currentCharacter.EnergyChangeEvent.AddListener(energyGaugeUi);
+        pvGaugeUi();
+        energyGaugeUi();
+    }
+
+    public Character ResetCharacter()
+    {
+        Character newChar = currentCharacter;
+
+        if (currentCharacter != null)
+        {
+            currentCharacter.PvChangeEvent.RemoveListener(pvGaugeUi);
+            currentCharacter.PvChangeEvent.RemoveListener(energyGaugeUi);
+            currentCharacter = null;
+        }
+        
+        pvSlider.value = 0;
+        energySlider.value = 0;
+        imgPersonage.sprite = null;
+
+        return newChar;
+    }
+
+    public void SetNewCharacter(Character character)
+    {
+        ResetCharacter();
+        SetUpCharacter(character);
     }
 
     public void pvGaugeUi()

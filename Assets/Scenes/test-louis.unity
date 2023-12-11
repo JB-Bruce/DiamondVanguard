@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &31846460
 RectTransform:
   m_ObjectHideFlags: 0
@@ -239,7 +239,7 @@ PrefabInstance:
     - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
         type: 3}
       propertyPath: def
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
         type: 3}
@@ -266,6 +266,12 @@ PrefabInstance:
       propertyPath: distDmgMult
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: characterImage
+      value: 
+      objectReference: {fileID: 21300000, guid: b3b5fb3001484de478b1e51849e50e8f,
+        type: 3}
     - target: {fileID: 1470879239076981737, guid: c78252308eee41142827ded8a505af15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -396,6 +402,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIGrosBras
       objectReference: {fileID: 0}
+    - target: {fileID: 4426170288748822657, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5520002829245708575, guid: c78252308eee41142827ded8a505af15,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -500,6 +511,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da60444541dd8d6499bb2bc0774f45ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &211697447 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6514372533836075330, guid: c78252308eee41142827ded8a505af15,
+    type: 3}
+  m_PrefabInstance: {fileID: 211697445}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c74e71048bbfe7e49894844b47f4ba0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &330585543
@@ -842,7 +865,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &549333102
 RectTransform:
   m_ObjectHideFlags: 0
@@ -917,7 +940,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1088438978
 RectTransform:
   m_ObjectHideFlags: 0
@@ -992,7 +1015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1241903768
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1113,6 +1136,12 @@ PrefabInstance:
       propertyPath: distDmgMult
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: characterImage
+      value: 
+      objectReference: {fileID: 21300000, guid: a23956565aa0556439fc296ea5e70c23,
+        type: 3}
     - target: {fileID: 1470879239076981737, guid: c78252308eee41142827ded8a505af15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1238,6 +1267,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UICharcuDoc
       objectReference: {fileID: 0}
+    - target: {fileID: 4426170288748822657, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5135236506610075488, guid: c78252308eee41142827ded8a505af15,
         type: 3}
       propertyPath: m_Color.a
@@ -1359,6 +1393,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da60444541dd8d6499bb2bc0774f45ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1802931285 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6514372533836075330, guid: c78252308eee41142827ded8a505af15,
+    type: 3}
+  m_PrefabInstance: {fileID: 1802931283}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c74e71048bbfe7e49894844b47f4ba0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1834892390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1417,6 +1463,12 @@ PrefabInstance:
       propertyPath: distDmgMult
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: characterImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 8c29e5979b624d44fa2a47402d5faf23,
+        type: 3}
     - target: {fileID: 1470879239076981737, guid: c78252308eee41142827ded8a505af15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1542,6 +1594,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIHacker
       objectReference: {fileID: 0}
+    - target: {fileID: 4426170288748822657, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5135236506610075488, guid: c78252308eee41142827ded8a505af15,
         type: 3}
       propertyPath: m_Color.a
@@ -1663,6 +1720,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da60444541dd8d6499bb2bc0774f45ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1834892392 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6514372533836075330, guid: c78252308eee41142827ded8a505af15,
+    type: 3}
+  m_PrefabInstance: {fileID: 1834892390}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c74e71048bbfe7e49894844b47f4ba0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1849244231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1692,10 +1761,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337161fc18c34754e9357849c789de0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  front: {fileID: 211697446}
-  right: {fileID: 1860714384}
-  left: {fileID: 1834892391}
-  back: {fileID: 1802931284}
+  grosBras: {fileID: 211697446}
+  tireur: {fileID: 1860714384}
+  hacker: {fileID: 1834892391}
+  healer: {fileID: 1802931284}
+  frontUI: {fileID: 211697447}
+  rightUI: {fileID: 1860714385}
+  leftUI: {fileID: 1834892392}
+  backUI: {fileID: 1802931285}
 --- !u!4 &1849244233
 Transform:
   m_ObjectHideFlags: 0
@@ -1774,6 +1847,12 @@ PrefabInstance:
       propertyPath: distDmgMult
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1184369308407835973, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: characterImage
+      value: 
+      objectReference: {fileID: 21300000, guid: c4b290badf0158c41bad9e515128103d,
+        type: 3}
     - target: {fileID: 1334614835980848326, guid: c78252308eee41142827ded8a505af15,
         type: 3}
       propertyPath: m_Enabled
@@ -1904,6 +1983,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UITireur
       objectReference: {fileID: 0}
+    - target: {fileID: 4426170288748822657, guid: c78252308eee41142827ded8a505af15,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5135236506610075488, guid: c78252308eee41142827ded8a505af15,
         type: 3}
       propertyPath: m_Color.a
@@ -2013,6 +2097,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da60444541dd8d6499bb2bc0774f45ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1860714385 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6514372533836075330, guid: c78252308eee41142827ded8a505af15,
+    type: 3}
+  m_PrefabInstance: {fileID: 1860714383}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c74e71048bbfe7e49894844b47f4ba0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &1945526366 stripped

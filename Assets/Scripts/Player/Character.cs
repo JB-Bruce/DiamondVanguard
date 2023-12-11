@@ -18,6 +18,7 @@ public class Character : MonoBehaviour
     [SerializeField] float energyGainMult;
     [SerializeField] float healMult;
 
+    public CharactersControler controler;
     [SerializeField] float brutDamages;
 
     public float pvMax;
@@ -53,6 +54,7 @@ public class Character : MonoBehaviour
         {
             //tuer personage
             dead = true;
+            controler.Die(this);
         }
         PvChangeEvent.Invoke();
     }
@@ -68,6 +70,7 @@ public class Character : MonoBehaviour
         {
             //tuer personage
             dead = true;
+            controler.Die(this);
         }
         PvChangeEvent.Invoke();
     }

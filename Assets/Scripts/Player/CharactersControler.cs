@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class CharactersControler : MonoBehaviour
 {
-    [SerializeField] Character front;
-    [SerializeField] Character right;
-    [SerializeField] Character left;
-    [SerializeField] Character back;
+
+    [SerializeField] Character grosBras;
+    [SerializeField] Character tireur;
+    [SerializeField] Character hacker;
+    [SerializeField] Character healer;
+
+    [SerializeField] CharacterUIStatsUpdater frontUI;
+    [SerializeField] CharacterUIStatsUpdater rightUI;
+    [SerializeField] CharacterUIStatsUpdater leftUI;
+    [SerializeField] CharacterUIStatsUpdater backUI;
+    
     public static CharactersControler instance;
 
     private void Awake()
@@ -17,17 +24,21 @@ public class CharactersControler : MonoBehaviour
 
     private void Start()
     {
-        //InvokeRepeating("test", 1, 0.3f);
+        grosBras.controler = this;
+        tireur.controler = this;
+        hacker.controler = this;
+        healer.controler = this;
+        InvokeRepeating("test", 1, 0.1f);
     }
 
     private void test() 
     {
-        TakeDamage(Random.Range(5, 10));
+        TakeDamage(5);
     }
 
     public void TakeDamage(float amount)
     {
-        if (back.dead && left.dead && right.dead && front.dead)
+        if (healer.dead && hacker.dead && tireur.dead && grosBras.dead)
             return;
 
         float randomchar;
@@ -36,23 +47,92 @@ public class CharactersControler : MonoBehaviour
         while (characterSelected == null)
         {
             randomchar = Random.Range(0f, 100f);
-            if (randomchar >= 0 && randomchar <= 1 && !back.dead)
+            if (backUI.currentCharacter != null && randomchar >= 0 && randomchar <= 1 && !backUI.currentCharacter.dead)
             {
-                characterSelected = back;
+                characterSelected = backUI.currentCharacter;
             }
-            else if (randomchar >= 1 && randomchar < 21 && !right.dead)
+            else if (rightUI.currentCharacter != null && randomchar >= 1 && randomchar < 21 && !rightUI.currentCharacter.dead)
             {
-                characterSelected = right;
+                characterSelected = rightUI.currentCharacter;
             }
-            else if (randomchar >= 21 && randomchar < 41 && !left.dead)
+            else if (leftUI.currentCharacter != null && randomchar >= 21 && randomchar < 41 && !leftUI.currentCharacter.dead)
             {
-                characterSelected = left;
+                characterSelected = leftUI.currentCharacter;
             }
-            else if (randomchar >= 41 && randomchar <= 100f && !front.dead)
+            else if (frontUI.currentCharacter != null && randomchar >= 41 && randomchar <= 100f && !frontUI.currentCharacter.dead)
             {
-                characterSelected = front;
+                characterSelected = frontUI.currentCharacter;
             }
         }
         characterSelected.TakeDamage(amount);
+    }
+
+    public void Die(Character isdead)
+    {
+        if (frontUI.currentCharacter != null && isdead == frontUI.currentCharacter)
+        {
+            ResetFront();
+        }
+
+        else if (rightUI.currentCharacter != null && isdead == rightUI.currentCharacter)
+        {
+            ResetRight();
+        }
+
+        else if (leftUI.currentCharacter != null && isdead == leftUI.currentCharacter)
+        {
+            ResetLeft();
+        }
+
+        else if (backUI.currentCharacter != null && isdead == backUI.currentCharacter)
+        {
+            ResetBack();
+        }
+    }
+
+    private void ResetFront()
+    {
+        frontUI.ResetCharacter();
+        if(rightUI.currentCharacter != null && !rightUI.currentCharacter.dead)
+        {
+            Character newChar = ResetRight();
+            frontUI.SetNewCharacter(newChar);
+        }
+        else
+        {
+            GameOver();
+        }
+    }
+
+    private Character ResetRight()
+    {
+        Character newChar = rightUI.ResetCharacter();
+        if (leftUI.currentCharacter != null && !leftUI.currentCharacter.dead)
+        {
+            Character newChar2 = ResetLeft();
+            rightUI.SetNewCharacter(newChar2);
+        }
+        return newChar;
+    }
+
+    private Character ResetLeft()
+    {
+        Character newChar = leftUI.ResetCharacter();
+        if (backUI.currentCharacter != null && !backUI.currentCharacter.dead)
+        {
+            Character newChar2 = ResetBack();
+            leftUI.SetNewCharacter(newChar2);
+        }
+        return newChar;
+    }
+
+    private Character ResetBack()
+    {
+        return backUI.ResetCharacter();
+    }
+
+    private void GameOver()
+    {
+        print("GAMEOVER");
     }
 }

@@ -7,6 +7,7 @@ TagManager:
   - Slots
   - ItemImage
   - Trash
+  - Equipement
   layers:
   - Default
   - TransparentFX

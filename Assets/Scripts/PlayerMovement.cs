@@ -15,6 +15,10 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] public Cell cellOn;
 
+    [SerializeField] bool startInTheMidle;
+
+    [SerializeField] int posX, posY;
+
     public PlayerAttack attack;
 
     private Vector3 lastPosition, targetPosition;
@@ -48,11 +52,17 @@ public class PlayerMovement : MonoBehaviour
 
         entity = GetComponent<Entity>();
 
-        cellOn = grid.GetCell((grid.gridWidth - 1) / 2, (grid.gridHeight - 1) / 2);
+        //center on the grid or set manualy
+        if (startInTheMidle)
+            cellOn = grid.GetCell((grid.gridWidth - 1) / 2, (grid.gridHeight - 1) / 2);
+        else
+            cellOn = grid.GetCell(posX, posY);
 
         cellOn.SetEntity(entity);
 
+        
         transform.position = cellOn.pos;
+        
 
         isMoving = false;
 

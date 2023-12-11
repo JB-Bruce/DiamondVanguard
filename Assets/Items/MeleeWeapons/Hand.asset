@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Hand
   m_EditorClassIdentifier: 
   itemName: Hand
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 003d6f69b438c754f9b0a76074fa494b, type: 3}
+  itemType: 0
   EnergyConso: 5
   Cooldown: 2
   damages: 5

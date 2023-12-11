@@ -11,7 +11,9 @@ public class EquipementSlot : ItemContainer
         Implant = 1
     }
 
-    [SerializeField] Item startingItem;
+    [SerializeField] Character character;
+    [SerializeField] Weapons startingItem;
+    public bool isRightItem;
 
     public containerType type;
 
@@ -44,5 +46,18 @@ public class EquipementSlot : ItemContainer
         item = startingItem;
         itemImage.sprite = startingItem.icon;
         itemImage.gameObject.SetActive(true);
+        UpdateStats(startingItem);
+    }
+
+    public void UpdateStats(Weapons weapon)
+    {
+        if(isRightItem)
+        {
+            character.rightWeapon = weapon;
+        }
+        else
+        {
+            character.leftWeapon = weapon;
+        }
     }
 }

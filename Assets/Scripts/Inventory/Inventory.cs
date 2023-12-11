@@ -20,7 +20,6 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
-        Slots.transform.parent = SlotsPanel.transform;
         gameObject.SetActive(false);
         for (int j = 0; j < 12; j++)
         {

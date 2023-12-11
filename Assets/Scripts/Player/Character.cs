@@ -147,4 +147,14 @@ public class Character : MonoBehaviour
             }
         }
     }
+
+    public void EquipeRightWeapon(Weapons weapon)
+    {
+        rightWeapon = weapon;
+    }
+
+    public void EquipeLeftWeapon(Weapons weapon)
+    {
+        rightWeapon = weapon;
+    }
 }

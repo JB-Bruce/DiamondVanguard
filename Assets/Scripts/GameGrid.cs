@@ -54,7 +54,7 @@ public class GameGrid : MonoBehaviour
         }
     }
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         for (int i = 0; i < gridWidth; i++)

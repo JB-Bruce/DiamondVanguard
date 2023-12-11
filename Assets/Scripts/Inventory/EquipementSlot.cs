@@ -8,7 +8,10 @@ public class EquipementSlot : ItemContainer
     public enum containerType
     {
         Weapon = 0,
-        Implant = 1
+        Implant = 1,
+        Helmet = 2,
+        Chestplate = 3,
+        Leging = 4
     }
 
     [SerializeField] Character character;
@@ -27,11 +30,9 @@ public class EquipementSlot : ItemContainer
 
     public bool TryAddEquipement(Item _item)
     {
-        if (type == containerType.Weapon && (_item.itemType == Type.MeleeWeapon || _item.itemType == Type.DistanceWeapon || _item.itemType == Type.HealWeapon))
-        {
-            return true;
-        }
-        else if (type == containerType.Implant && _item.itemType == Type.Implant)
+        if ((type == containerType.Weapon && (_item.itemType == Type.MeleeWeapon || _item.itemType == Type.DistanceWeapon || _item.itemType == Type.HealWeapon))
+            || (type == containerType.Implant && _item.itemType == Type.Implant) || (type == containerType.Helmet && _item.itemType == Type.Helmet)
+            || (type == containerType.Chestplate && _item.itemType == Type.Chestplate) || (type == containerType.Leging && _item.itemType == Type.Leging))
         {
             return true;
         }

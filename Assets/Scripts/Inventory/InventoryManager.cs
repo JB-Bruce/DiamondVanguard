@@ -1,13 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using UnityEngine.Rendering;
-using UnityEngine.Experimental.Rendering;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
-using Unity.VisualScripting;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -107,8 +101,7 @@ public class InventoryManager : MonoBehaviour
             if (Input.GetMouseButtonUp(0) && draging)
             {
                 itemReturn();
-            }
-                
+            } 
         }
     }
 
@@ -129,6 +122,7 @@ public class InventoryManager : MonoBehaviour
         result.GetComponent<ItemContainer>().imageUpdate();
     }
 
+    // methode taht reset item in his last container
     private void SetItemInLastContainer(ItemContainer LastItemContainer)
     {
         LastItemContainer.item = null;

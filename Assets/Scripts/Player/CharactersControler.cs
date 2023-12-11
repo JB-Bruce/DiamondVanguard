@@ -20,7 +20,7 @@ public class CharactersControler : MonoBehaviour
         tireur.controler = this;
         hacker.controler = this;
         healer.controler = this;
-        InvokeRepeating("test", 1, 0.3f);
+        InvokeRepeating("test", 1, 0.1f);
     }
 
     private void test() 
@@ -39,21 +39,21 @@ public class CharactersControler : MonoBehaviour
         while (characterSelected == null)
         {
             randomchar = Random.Range(0f, 100f);
-            if (randomchar >= 0 && randomchar <= 1 && !healer.dead)
+            if (backUI.currentCharacter != null && randomchar >= 0 && randomchar <= 1 && !backUI.currentCharacter.dead)
             {
-                characterSelected = healer;
+                characterSelected = backUI.currentCharacter;
             }
-            else if (randomchar >= 1 && randomchar < 21 && !tireur.dead)
+            else if (rightUI.currentCharacter != null && randomchar >= 1 && randomchar < 21 && !rightUI.currentCharacter.dead)
             {
-                characterSelected = tireur;
+                characterSelected = rightUI.currentCharacter;
             }
-            else if (randomchar >= 21 && randomchar < 41 && !hacker.dead)
+            else if (leftUI.currentCharacter != null && randomchar >= 21 && randomchar < 41 && !leftUI.currentCharacter.dead)
             {
-                characterSelected = hacker;
+                characterSelected = leftUI.currentCharacter;
             }
-            else if (randomchar >= 41 && randomchar <= 100f && !grosBras.dead)
+            else if (frontUI.currentCharacter != null && randomchar >= 41 && randomchar <= 100f && !frontUI.currentCharacter.dead)
             {
-                characterSelected = grosBras;
+                characterSelected = frontUI.currentCharacter;
             }
         }
         characterSelected.TakeDamage(amount);
@@ -63,25 +63,21 @@ public class CharactersControler : MonoBehaviour
     {
         if (frontUI.currentCharacter != null && isdead == frontUI.currentCharacter)
         {
-            print("dead front");
             ResetFront();
         }
 
         else if (rightUI.currentCharacter != null && isdead == rightUI.currentCharacter)
         {
-            print("dead right");
             ResetRight();
         }
 
         else if (leftUI.currentCharacter != null && isdead == leftUI.currentCharacter)
         {
-            print("dead left");
             ResetLeft();
         }
 
         else if (backUI.currentCharacter != null && isdead == backUI.currentCharacter)
         {
-            print("dead back");
             ResetBack();
         }
     }
@@ -91,8 +87,8 @@ public class CharactersControler : MonoBehaviour
         frontUI.ResetCharacter();
         if(rightUI.currentCharacter != null && !rightUI.currentCharacter.dead)
         {
-            ResetRight();
-            frontUI.SetNewCharacter(rightUI.currentCharacter);
+            Character newChar = ResetRight();
+            frontUI.SetNewCharacter(newChar);
         }
         else
         {
@@ -117,7 +113,7 @@ public class CharactersControler : MonoBehaviour
         if (backUI.currentCharacter != null && !backUI.currentCharacter.dead)
         {
             Character newChar2 = ResetBack();
-            leftUI.SetNewCharacter(newChar);
+            leftUI.SetNewCharacter(newChar2);
         }
         return newChar;
     }

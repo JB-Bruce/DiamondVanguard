@@ -46,7 +46,6 @@ public class CharacterUIStatsUpdater : MonoBehaviour
 
     public void SetNewCharacter(Character character)
     {
-        print("Set : " + character.name + " in " + transform.name);
         ResetCharacter();
         SetUpCharacter(character);
     }

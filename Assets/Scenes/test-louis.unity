@@ -1761,10 +1761,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337161fc18c34754e9357849c789de0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  front: {fileID: 211697446}
-  right: {fileID: 1860714384}
-  left: {fileID: 1834892391}
-  back: {fileID: 1802931284}
+  grosBras: {fileID: 211697446}
+  tireur: {fileID: 1860714384}
+  hacker: {fileID: 1834892391}
+  healer: {fileID: 1802931284}
   frontUI: {fileID: 211697447}
   rightUI: {fileID: 1860714385}
   leftUI: {fileID: 1834892392}

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -88,6 +86,7 @@ public class Character : MonoBehaviour
         pv += amount;
         pv = Mathf.Clamp(pv, 0, pvMax);
         PvChangeEvent.Invoke();
+        print("healed");
     }
 
     public void ConsumeEnergy(float amount) 
@@ -109,25 +108,43 @@ public class Character : MonoBehaviour
 
     public void LeftWeaponAttack()
     {
-        if (leftWeapon == null)
-        {
-            pAttack.Attack(brutDamages);
-        }
-        else
-        {
-            pAttack.Attack(leftWeapon.damages);
-        }
+        WeaponAttack(leftWeapon);
     }
 
     public void RightWeaponAttack()
     {
-        if (rightWeapon == null)
+        WeaponAttack(rightWeapon);
+    }
+
+    private void WeaponAttack(Weapons newWeapon)
+    {
+        if (newWeapon == null)
         {
             pAttack.Attack(brutDamages);
         }
         else
         {
-            pAttack.Attack(rightWeapon.damages);
+            float damages = newWeapon.damages;
+            if (Random.Range(0f, 100f)<=tauxCrit)
+            {
+                damages *= dgtCritMult;
+            }
+            if (newWeapon.itemType == Type.DistanceWeapon && newWeapon is DistanceWeapon)
+            {
+                damages *= distDmgMult;
+                DistanceWeapon distWeapon = newWeapon as DistanceWeapon;
+                pAttack.DistantAttack(damages, distWeapon.shootDistance);
+            }
+            else if (newWeapon.itemType == Type.MeleeWeapon)
+            {
+                damages *= cacDmgMult;
+                pAttack.Attack(damages);
+            }
+            else if (newWeapon.itemType == Type.HealWeapon)
+            {
+                damages *= healMult;
+                pAttack.Heal(controler, damages);
+            }
         }
     }
 

@@ -1,8 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -36,7 +33,6 @@ public class EnemyMovement : MonoBehaviour
         GetCloseCells();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isMoving)
@@ -58,6 +54,10 @@ public class EnemyMovement : MonoBehaviour
             {
                 isRotating = false;
             }
+        }
+        if (!isMoving)
+        {
+            GetCloseCells();
         }
     }
 
@@ -93,7 +93,6 @@ public class EnemyMovement : MonoBehaviour
         closeCells.Clear();
         if (targetCell != null)
         {
-            Debug.Log(targetCell);
             GoToCell();
         }
     }
@@ -119,9 +118,32 @@ public class EnemyMovement : MonoBehaviour
         }
         while (cellOn != targetCell)
         {
-            MoveToCell(targetCell);
+            RotateToCell(targetCell);
+            //MoveToCell(targetCell);
         }
     }
+
+    void RotateToCell(Cell cell)
+    {
+        if (isInAction)
+        {
+            return;
+        }
+        lastRotation = transform.rotation;
+        Vector3 dirfromcellOntotarget = (cell.pos - cellOn.pos).normalized;
+        float dotProd = Vector3.Dot(dirfromcellOntotarget, cellOn.pos);
+        if (dotProd > 0)
+        {
+            targetRotation = transform.rotation * Quaternion.Euler(0, 90, 0);
+        }
+        else if (dotProd < 0)
+        {
+            targetRotation = transform.rotation * Quaternion.Euler(0, -90, 0);
+        }
+        isRotating = true;
+        timer = 0f;
+    }
+
     public bool WallDetection(Vector3 startPos, Vector3 endPos)
     {
         Debug.DrawRay(startPos, (endPos - startPos) * Vector3.Distance(startPos, endPos), Color.red, 2);
@@ -138,7 +160,6 @@ public class EnemyMovement : MonoBehaviour
         cellOn.DeleteEntity();
         cell.SetEntity(entity);
         cellOn = cell;
-        transform.position = cellOn.pos;
         isMoving = true;
         timer = 0f;
     }

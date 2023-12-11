@@ -36,7 +36,15 @@ public class InventoryManager : MonoBehaviour
 
             m_Raycaster.Raycast(pointerEventData, results);
 
-
+            if (draging)
+            {
+                LastItemContainer.GetComponent<ItemContainer>().itemImage.transform.SetParent(DragNDrop.transform);
+                DragNDrop.transform.position = MousePos;
+            }
+            else if (!draging && LastItemContainer != null)
+            {
+                LastItemContainer.GetComponent<ItemContainer>().itemImage.transform.SetParent(LastItemContainer.transform);
+            }
             if (results.Count > 0)
             {
                
@@ -47,15 +55,6 @@ public class InventoryManager : MonoBehaviour
                     LastItemContainer = itemContainer.GetComponent<ItemContainer>();
                     draging = true;
                     DragNDrop.transform.position = MousePos;
-                }
-                if(draging)
-                {
-                    LastItemContainer.GetComponent<ItemContainer>().itemImage.transform.SetParent(DragNDrop.transform);
-                    DragNDrop.transform.position = MousePos;
-                }
-                else if (!draging && LastItemContainer != null)
-                {
-                    LastItemContainer.GetComponent<ItemContainer>().itemImage.transform.SetParent(LastItemContainer.transform);
                 }
                 if (Input.GetMouseButtonUp(0) && draging)
                 {

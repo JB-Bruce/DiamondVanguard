@@ -1,19 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class LootBox : MonoBehaviour
 {
     [System.Serializable]
     public enum lootType
     {
-        Weapons = 0,
-        Armors = 1,
-        Implants = 2
+        weapons = 0,
+        armors = 1,
+        implants = 2
+    }
+    public Item item;
+
+    [System.Serializable]
+    public struct LootTable
+    {
+        public Item item;
+        public float dropChance;
     }
 
-    public void CreateItem()
+    public List<LootTable> items = new List<LootTable>();
+
+    private lootType type;
+
+    private void Start()
     {
-        int ramdomValue = Random.Range(0, 100);
+        item = CreateItem();
+    }
+
+    public Item CreateItem()
+    {
+        float randomValue = Random.Range(0f, 100f);
+        float pourcentPasse = 0;
+        foreach (LootTable item in items)
+        {
+            if(randomValue >= pourcentPasse && randomValue < (pourcentPasse + item.dropChance))
+            {
+                return item.item;
+            }
+            pourcentPasse += item.dropChance;
+        }
+        return null;
     }
 }

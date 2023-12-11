@@ -19,6 +19,7 @@ public class Character : MonoBehaviour
     [SerializeField] float healMult;
 
     public CharactersControler controler;
+    [SerializeField] float brutDamages;
 
     public float pvMax;
     public float energyMax; 
@@ -29,10 +30,16 @@ public class Character : MonoBehaviour
     public UnityEvent PvChangeEvent { get; private set; } = new();
     public UnityEvent EnergyChangeEvent { get; private set; } = new();
 
-    void Awake()
+    public Weapons rightWeapon;
+    public Weapons leftWeapon;
+
+    private PlayerAttack pAttack;
+
+    void Start()
     {
         energy = energyMax;
         pv = pvMax;
+        pAttack = PlayerAttack.Instance;
     }
 
     public void TakeDamage(float amount)
@@ -98,5 +105,29 @@ public class Character : MonoBehaviour
     public float atkRight() 
     {
         return dgt;
+    }
+
+    public void LeftWeaponAttack()
+    {
+        if (leftWeapon == null)
+        {
+            pAttack.Attack(brutDamages);
+        }
+        else
+        {
+            pAttack.Attack(leftWeapon.damages);
+        }
+    }
+
+    public void RightWeaponAttack()
+    {
+        if (rightWeapon == null)
+        {
+            pAttack.Attack(brutDamages);
+        }
+        else
+        {
+            pAttack.Attack(rightWeapon.damages);
+        }
     }
 }

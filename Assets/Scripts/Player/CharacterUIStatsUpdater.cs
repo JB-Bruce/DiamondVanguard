@@ -60,4 +60,14 @@ public class CharacterUIStatsUpdater : MonoBehaviour
         energySlider.value =currentCharacter.energy/currentCharacter.energyMax;
     }
 
+    public void LeftWeaponAttack() 
+    {
+        currentCharacter.LeftWeaponAttack();
+    }
+
+    public void RightWeaponAttack() 
+    {
+        currentCharacter.RightWeaponAttack();
+    }
+
 }

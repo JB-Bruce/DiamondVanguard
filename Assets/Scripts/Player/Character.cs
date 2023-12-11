@@ -9,14 +9,25 @@ public class Character : MonoBehaviour
     public float energy { get; private set; }
     public Sprite characterImage;
 
-    [SerializeField] float def;
+    [SerializeField] public float def;
 
-    [SerializeField] float cacDmgMult;
-    [SerializeField] float distDmgMult;
+    [SerializeField] public float cacDmgMult;
+    [SerializeField] public float distDmgMult;
     [SerializeField] float tauxCrit;
     [SerializeField] float dgtCritMult;
-    [SerializeField] float energyGainMult;
-    [SerializeField] float healMult;
+    [SerializeField] public float energyGainMult;
+    [SerializeField] public float healMult;
+
+
+    [SerializeField] EquipementSlot ImplantSlot1;
+    [SerializeField] EquipementSlot ImplantSlot2;
+    [SerializeField] EquipementSlot ImplantSlot3;
+    [SerializeField] EquipementSlot HelmetSlot;
+    [SerializeField] EquipementSlot ChesplateSlot;
+    [SerializeField] EquipementSlot LegingSlot;
+    List<Implants> implants = new List<Implants>();
+    List<EquipementSlot> armors = new List<EquipementSlot>();
+
 
     public CharactersControler controler;
     [SerializeField] float brutDamages;
@@ -40,6 +51,13 @@ public class Character : MonoBehaviour
         energy = energyMax;
         pv = pvMax;
         pAttack = PlayerAttack.Instance;
+
+        implants.Add((Implants)ImplantSlot1.item);
+        implants.Add((Implants)ImplantSlot2.item);
+        implants.Add((Implants)ImplantSlot3.item);
+        armors.Add(HelmetSlot);
+        armors.Add(ChesplateSlot);
+        armors.Add(LegingSlot);
     }
 
     public void TakeDamage(float amount)
@@ -81,6 +99,8 @@ public class Character : MonoBehaviour
         //reger d'energie
         energy += Time.deltaTime * energyGainMult;
         energy = Mathf.Clamp(energy, 0, energyMax);
+
+        UpdateStats();
     }
 
     public void Heal(float amount)
@@ -139,5 +159,27 @@ public class Character : MonoBehaviour
     public void EquipeLeftWeapon(Weapons weapon)
     {
         rightWeapon = weapon;
+    }
+
+    private void UpdateStats()
+    {
+        for (int i = 0; i < implants.Count; i++)
+        {
+            print("aaa");
+            if (implants[i] != null)
+            {
+                pvMax += implants[i].HP;
+                pv += implants[i].HP;
+                dgtCritMult += implants[i].critDamage;
+                tauxCrit += implants[i].critChance;
+                cacDmgMult += implants[i].cacDamage;
+                distDmgMult += implants[i].distanceDamage;
+                healMult += implants[i].heal;
+                energyMax += implants[i].energy;
+                energy += implants[i].energy;
+                def += implants[i].def;
+            }
+        }
+        
     }
 }

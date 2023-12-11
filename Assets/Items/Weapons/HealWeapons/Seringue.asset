@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Seringue
   m_EditorClassIdentifier: 
   itemName: Seringue
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 956427f2e3e404a409fdc2f7dd54adc8, type: 3}
   itemType: 2
   EnergyConso: 30
   Cooldown: 10

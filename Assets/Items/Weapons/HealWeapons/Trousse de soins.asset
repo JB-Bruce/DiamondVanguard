@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Trousse de soins
   m_EditorClassIdentifier: 
   itemName: Trousse de soins
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 03ec41416dcb6274fb668e2f36a7e7aa, type: 3}
   itemType: 2
   EnergyConso: 65
   Cooldown: 30

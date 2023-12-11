@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bandage
   m_EditorClassIdentifier: 
   itemName: Bandage
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 17e74616306c335408d13b6c89926582, type: 3}
   itemType: 2
   EnergyConso: 20
   Cooldown: 15

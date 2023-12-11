@@ -19,7 +19,6 @@ public class PlayerPickUp : MonoBehaviour
             {
                 Item item = hit.transform.gameObject.GetComponent<LootBox>().item;
                 inventory.addItem(item);
-                Debug.Log("tryAdd");
                 hit.transform.gameObject.SetActive(false);
             }
             

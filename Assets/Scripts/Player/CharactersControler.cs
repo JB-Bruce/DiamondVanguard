@@ -28,7 +28,7 @@ public class CharactersControler : MonoBehaviour
         tireur.controler = this;
         hacker.controler = this;
         healer.controler = this;
-        InvokeRepeating("test", 1, 0.1f);
+        //InvokeRepeating("test", 1, 0.1f);
     }
 
     private void test() 
@@ -65,6 +65,14 @@ public class CharactersControler : MonoBehaviour
             }
         }
         characterSelected.TakeDamage(amount);
+    }
+
+    public void HealGroup(float amount)
+    {
+        healer.Heal(amount);
+        grosBras.Heal(amount);
+        tireur.Heal(amount);
+        hacker.Heal(amount);
     }
 
     public void Die(Character isdead)

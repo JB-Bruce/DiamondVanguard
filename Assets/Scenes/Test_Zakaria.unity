@@ -351,6 +351,7 @@ MonoBehaviour:
     entity: {fileID: 0}
   closeCells: []
   index: 0
+  rangeDistance: 2
   grid: {fileID: 0}
 --- !u!136 &715167328
 CapsuleCollider:
@@ -597,6 +598,10 @@ MonoBehaviour:
   rotationSpeed: 3
   cellOn:
     entity: {fileID: 0}
+  startInTheMidle: 0
+  posX: 0
+  posY: 0
+  attack: {fileID: 0}
   grid: {fileID: 1495968844}
 --- !u!114 &814305900
 MonoBehaviour:

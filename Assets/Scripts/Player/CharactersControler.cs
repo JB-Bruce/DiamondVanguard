@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharactersControler : MonoBehaviour
 {
@@ -132,6 +133,6 @@ public class CharactersControler : MonoBehaviour
 
     private void GameOver()
     {
-        print("GAMEOVER");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

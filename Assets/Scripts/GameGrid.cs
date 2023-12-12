@@ -37,16 +37,17 @@ public class GameGrid : MonoBehaviour
 
     public List<Cell> GetNeighbors(Cell testedCell)
     {
-        List<Cell> neighbors = new()
-        {
-            GetCell(testedCell.gridPos.Item1, testedCell.gridPos.Item2 + 1),
-            GetCell(testedCell.gridPos.Item1, testedCell.gridPos.Item2 - 1),
-            GetCell(testedCell.gridPos.Item1 + 1, testedCell.gridPos.Item2),
-            GetCell(testedCell.gridPos.Item1 - 1, testedCell.gridPos.Item2)
-        };
-        
-        foreach (Cell neighbor in neighbors)
-            if(neighbor == null) neighbors.Remove(neighbor);
+        List<Cell> neighbors = new();
+
+        var front = GetCell(testedCell.gridPos.Item1, testedCell.gridPos.Item2 + 1);
+        var back = GetCell(testedCell.gridPos.Item1, testedCell.gridPos.Item2 - 1);
+        var right = GetCell(testedCell.gridPos.Item1 + 1, testedCell.gridPos.Item2);
+        var left = GetCell(testedCell.gridPos.Item1 - 1, testedCell.gridPos.Item2);
+
+        if (front != null) neighbors.Add(front);
+        if (back != null) neighbors.Add(back);
+        if (right != null) neighbors.Add(right);
+        if (left != null) neighbors.Add(left);
 
         return neighbors;
     }
@@ -66,12 +67,8 @@ public class GameGrid : MonoBehaviour
 
     public Cell GetCell(int x, int y)
     {
-        if (x < grid.Count && y < grid[0].Count)
+        if (x < grid.Count && y < grid[0].Count && x >= 0 && y >= 0)
         {
-            if (x >= 0 && y>= 0)
-            {
-                return grid[x][y];
-            }
             return grid[x][y];
         }
         else

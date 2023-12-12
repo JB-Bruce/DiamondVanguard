@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private List<Cell> closeCells = new List<Cell>();
     [SerializeField] private int index = 0;
     [SerializeField] private float rangeDistance = 2;
-    private bool isDetecting = false;
+    private bool hasTarget = false;
     private int nbRot;
     private Cell targetCell;
     private int angleIndex;
@@ -31,6 +31,8 @@ public class EnemyMovement : MonoBehaviour
     private Entity entity;
     private Quaternion lastRotation, targetRotation;
     private float timer;
+
+    [SerializeField] LayerMask enemyLayer;
     void Start()
     {
         grid = GameGrid.instance;
@@ -39,6 +41,8 @@ public class EnemyMovement : MonoBehaviour
         transform.position = cellOn.pos;
 
         player = PlayerMovement.instance;
+
+        Invoke("GoToCell", actionTime);
     }
 
     void Update()
@@ -51,8 +55,9 @@ public class EnemyMovement : MonoBehaviour
             transform.position = Vector3.Lerp(lastPosition, targetPosition, timer);
             if (timer == 1f)
             {
-                //if timer is complete, it's not moving
                 isMoving = false;
+                hasTarget = false;
+                GoToCell();
             }
         }
         else if (isRotating)
@@ -66,11 +71,6 @@ public class EnemyMovement : MonoBehaviour
                 isRotating = false;
                 GoToCell();
             }
-        }
-        else
-        {
-            //if it's not moving nor rotating
-            GetCloseCells();
         }
     }
 
@@ -92,13 +92,10 @@ public class EnemyMovement : MonoBehaviour
                 closeCells.Remove(closeCells[i]);
             }
         }
+
         int randomIndex = Random.Range(0, closeCells.Count);
         targetCell = closeCells[randomIndex];
         closeCells.Clear();
-        if (targetCell != null)
-        {
-            GoToCell();
-        }
     }
     private Cell GetCloseCell(int x, int y)
     {
@@ -121,9 +118,16 @@ public class EnemyMovement : MonoBehaviour
         {
             return;
         }
+
         if (PlayerDetection())
         {
+            hasTarget = false;
             targetCell = NextCellToGoToTarget(player.cellOn);
+        }
+        else if(!hasTarget)
+        {
+            hasTarget = true;
+            GetCloseCells();
         }
 
         Vector3Int forward = Vector3Int.RoundToInt(transform.forward);
@@ -144,6 +148,11 @@ public class EnemyMovement : MonoBehaviour
 
         List<Cell> path = new();
 
+        if(cellOn == cell)
+        {
+            path.Add(cellOn);
+        }
+
         List<Cell> unvisitedCells = new();
 
         Dictionary<Cell, Cell> previous = new();
@@ -157,7 +166,7 @@ public class EnemyMovement : MonoBehaviour
             distances.Add(item, float.MaxValue);
         }
 
-        distances[cell] = 0f;
+        distances[cellOn] = 0f;
 
         while (unvisitedCells.Count != 0)
         {
@@ -166,7 +175,7 @@ public class EnemyMovement : MonoBehaviour
             Cell nextCell = unvisitedCells[0];
             unvisitedCells.Remove(nextCell);
 
-            if(nextCell == targetCell)
+            if(nextCell == cell)
             {
                 while (previous.ContainsKey(nextCell))
                 {
@@ -177,47 +186,50 @@ public class EnemyMovement : MonoBehaviour
                 break;
             }
 
-            List<Cell> connectedCells = GetPossibilities(grid.GetNeighbors(nextCell));
+            List<Cell> connectedCells = GetPossibilities(nextCell, grid.GetNeighbors(nextCell));
 
-            foreach (var item in collection)
+            foreach (Cell neighbor in connectedCells)
             {
+                float dist = Vector3.Distance(nextCell.pos, neighbor.pos);
+                float total = distances[nextCell] + dist;
 
+                if(total < distances[neighbor])
+                {
+                    distances[neighbor] = total;
+                    previous[neighbor] = nextCell;
+                }
             }
         }
+
+
+        finalCell = path[1];
 
         return finalCell;
     }
 
-    private List<Cell> GetPossibilities(List<Cell> previousList)
+    private List<Cell> GetPossibilities(Cell startCell, List<Cell> previousList)
     {
         List<Cell> newList = new();
 
         foreach (var cell in previousList)
         {
-
+        
+            if(cell != null && (!cell.HasEntity() || cell == player.cellOn) && !WallDetection(startCell.pos, cell.pos))
+                newList.Add(cell);
         }
+
+        return newList;
     }
 
     bool PlayerDetection()
     {
         float distanceEnemyPlayer = Vector3.Distance(transform.position, player.transform.position);
-        if (distanceEnemyPlayer <= DistancetoCell())
+        if (distanceEnemyPlayer <= DistancetoCell() && !Physics.Raycast(PlayerMovement.instance.transform.position, transform.position - PlayerMovement.instance.transform.position, distanceEnemyPlayer, enemyLayer))
         {
-            if (Physics.Raycast(PlayerMovement.instance.transform.position, (transform.position - PlayerMovement.instance.transform.position)))
-            {
-                //ignore
-                Debug.Log("ignore");
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return true;
         }
-        else
-        {
-            return false;
-        }
+
+        return false;
     }
     void RotateCell()
     {

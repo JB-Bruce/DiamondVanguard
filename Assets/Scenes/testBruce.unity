@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 136741052}
   - component: {fileID: 136741054}
   - component: {fileID: 136741053}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 715167329}
   - component: {fileID: 715167328}
   - component: {fileID: 715167327}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,8 +351,11 @@ MonoBehaviour:
     entity: {fileID: 0}
   closeCells: []
   index: 0
-  rangeDistance: 2
+  rangeDistance: 4
   grid: {fileID: 0}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 119
 --- !u!136 &715167328
 CapsuleCollider:
   m_ObjectHideFlags: 0

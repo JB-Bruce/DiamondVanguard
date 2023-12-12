@@ -157,6 +157,7 @@ MonoBehaviour:
   itemMask:
     serializedVersion: 2
     m_Bits: 64
+  caseRange: 2
 --- !u!4 &10454540
 Transform:
   m_ObjectHideFlags: 0
@@ -300,6 +301,10 @@ MonoBehaviour:
   pvSlider: {fileID: 1951510577}
   energySlider: {fileID: 342760964}
   imgPersonage: {fileID: 679992143}
+  rightWeapons: {fileID: 910760945}
+  leftWeapons: {fileID: 700223597}
+  rightAttack: {fileID: 1998595151}
+  leftAttack: {fileID: 1304825180}
 --- !u!1 &60690458
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,6 +622,10 @@ MonoBehaviour:
   pvSlider: {fileID: 1701345980}
   energySlider: {fileID: 539907064}
   imgPersonage: {fileID: 1954013202}
+  rightWeapons: {fileID: 637261314}
+  leftWeapons: {fileID: 1223759763}
+  rightAttack: {fileID: 1118411708}
+  leftAttack: {fileID: 445797526}
 --- !u!1 &126707909
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,7 +807,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d559159ca6d68e2488fd3c715742ae95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handItem: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
   inventory: {fileID: 1772803983}
   eventSystem: {fileID: 0}
   m_Raycaster: {fileID: 1063090630}
@@ -3194,6 +3202,10 @@ MonoBehaviour:
   pvSlider: {fileID: 1169510786}
   energySlider: {fileID: 1598490142}
   imgPersonage: {fileID: 1551722987}
+  rightWeapons: {fileID: 1100420397}
+  leftWeapons: {fileID: 1612574007}
+  rightAttack: {fileID: 96801765}
+  leftAttack: {fileID: 126707912}
 --- !u!1 &672844915
 GameObject:
   m_ObjectHideFlags: 0
@@ -5142,6 +5154,10 @@ MonoBehaviour:
   pvSlider: {fileID: 1470475510}
   energySlider: {fileID: 202495028}
   imgPersonage: {fileID: 653989730}
+  rightWeapons: {fileID: 436200503}
+  leftWeapons: {fileID: 2012509231}
+  rightAttack: {fileID: 2014033032}
+  leftAttack: {fileID: 1975948975}
 --- !u!1 &1345322272
 GameObject:
   m_ObjectHideFlags: 0

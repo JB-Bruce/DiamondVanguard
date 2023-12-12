@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -186,8 +184,7 @@ public class EnemyMovement : MonoBehaviour
     private void AttackPlayer()
     {
         isAttacking = true;
-        print("DAMAGE");
-        //cc.TakeDamage(damages);
+        cc.TakeDamage(damages);
     }
 
     private Cell NextCellToGoToTarget(Cell cell)

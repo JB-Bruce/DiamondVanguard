@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class WallTextureCorrection : MonoBehaviour
 {
-    public float factor;
+    private float factor;
 
-    private void Start()
+    public void Init(float factor)
     {
+        this.factor = factor;
+
         MeshFilter mf = GetComponent<MeshFilter>();
         if (mf != null)
         {

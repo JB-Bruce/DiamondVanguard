@@ -35,12 +35,10 @@ public class EquipementSlot : ItemContainer
             || (type == containerType.Implant && _item.itemType == Type.Implant) || (type == containerType.Helmet && _item.itemType == Type.Helmet)
             || (type == containerType.Chestplate && _item.itemType == Type.Chestplate) || (type == containerType.Leging && _item.itemType == Type.Leging))
         {
-            Debug.Log("oui");
             return true;
         }
         else
         {
-            Debug.Log("non");
             return false;
         }
     }

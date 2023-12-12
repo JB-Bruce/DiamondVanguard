@@ -17,13 +17,14 @@ public class LootBox : MonoBehaviour
     [System.Serializable]
     public struct LootTable
     {
+        public Rarity rarity;
         public Item item;
         public float dropChance;
     }
 
     public List<LootTable> items = new List<LootTable>();
 
-    private lootType type;
+    [SerializeField] private lootType type;
 
     private void Start()
     {
@@ -34,14 +35,23 @@ public class LootBox : MonoBehaviour
     {
         float randomValue = Random.Range(0f, 100f);
         float pourcentPasse = 0;
-        foreach (LootTable item in items)
+        if (type == lootType.weapons)
         {
-            if(randomValue >= pourcentPasse && randomValue < (pourcentPasse + item.dropChance))
+            foreach (LootTable item in items)
             {
-                return item.item;
+                if (randomValue >= pourcentPasse && randomValue < (pourcentPasse + item.dropChance))
+                {
+                    return item.item;
+                }
+                pourcentPasse += item.dropChance;
             }
-            pourcentPasse += item.dropChance;
+            return null;
         }
+        else
+        {
+
+        }
+
         return null;
     }
 }

@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23a1d4ddaa69b3f469259cdd40c43d2d, type: 3}
-  m_Name: Commun1
+  m_Name: Epic3
   m_EditorClassIdentifier: 
-  itemName: Commun1
-  icon: {fileID: 21300000, guid: 9b8a190fed39f014e862f366f3893da9, type: 3}
+  itemName: Epic3
+  icon: {fileID: 21300000, guid: 861a3d93763a2de499a99213fd940526, type: 3}
   itemType: 3
-  critChance: -7.5
-  critDamage: 0
+  critChance: 30
+  critDamage: 1.2
   HP: 0
   healing: 0
-  cacDamage: 0
-  distanceDamage: 0
-  heal: 0
-  energy: 20
-  def: 0
+  cacDamage: -0.2
+  distanceDamage: -0.2
+  heal: -0.2
+  energy: -30
+  def: -4

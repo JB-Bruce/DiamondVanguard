@@ -26,7 +26,7 @@ public class Cell
 
     public bool HasEntity() 
     { 
-        if (this.entity == null) return false;
+        if (entity == null) return false;
         return true;
     }
 

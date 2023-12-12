@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnnemyTest : MonoBehaviour
 {
     [SerializeField] public Cell cellOn;
+    [SerializeField] int posX, posY;
     public GameGrid grid;
     private Entity entity;
 
@@ -22,7 +23,7 @@ public class EnnemyTest : MonoBehaviour
 
         entity = GetComponent<Entity>();
 
-        cellOn = grid.GetCell(3,3);
+        cellOn = grid.GetCell(posX,posY);
 
         cellOn.SetEntity(entity);
 

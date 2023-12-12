@@ -7,6 +7,7 @@ TagManager:
   - Slots
   - ItemImage
   - Trash
+  - door
   - Equipement
   layers:
   - Default
@@ -16,7 +17,7 @@ TagManager:
   - Water
   - UI
   - Item
-  - 
+  - Enemy
   - 
   - 
   - 

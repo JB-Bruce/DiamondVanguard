@@ -20,9 +20,36 @@ public class GameGrid : MonoBehaviour
     }
 
 
-    void Update()
+    public List<Cell> GetAllCells()
     {
+        List<Cell> cells = new();
 
+        for (int i = 0; i < grid.Count; i++)
+        {
+            for (int j = 0; j < grid[0].Count; j++)
+            {
+                cells.Add(grid[i][j]);
+            }
+        }
+
+        return cells;
+    }
+
+    public List<Cell> GetNeighbors(Cell testedCell)
+    {
+        List<Cell> neighbors = new();
+
+        var front = GetCell(testedCell.gridPos.Item1, testedCell.gridPos.Item2 + 1);
+        var back = GetCell(testedCell.gridPos.Item1, testedCell.gridPos.Item2 - 1);
+        var right = GetCell(testedCell.gridPos.Item1 + 1, testedCell.gridPos.Item2);
+        var left = GetCell(testedCell.gridPos.Item1 - 1, testedCell.gridPos.Item2);
+
+        if (front != null) neighbors.Add(front);
+        if (back != null) neighbors.Add(back);
+        if (right != null) neighbors.Add(right);
+        if (left != null) neighbors.Add(left);
+
+        return neighbors;
     }
 
     void GridCreation()
@@ -40,12 +67,8 @@ public class GameGrid : MonoBehaviour
 
     public Cell GetCell(int x, int y)
     {
-        if (x < grid.Count && y < grid[0].Count)
+        if (x < grid.Count && y < grid[0].Count && x >= 0 && y >= 0)
         {
-            if (x >= 0 && y>= 0)
-            {
-                return grid[x][y];
-            }
             return grid[x][y];
         }
         else
@@ -54,7 +77,7 @@ public class GameGrid : MonoBehaviour
         }
     }
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         for (int i = 0; i < gridWidth; i++)

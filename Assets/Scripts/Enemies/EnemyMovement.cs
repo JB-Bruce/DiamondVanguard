@@ -11,6 +11,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] public Cell cellOn;
     [SerializeField] private List<Cell> closeCells = new List<Cell>();
     [SerializeField] private int index = 0;
+    [SerializeField] private float rangeDistance = 2;
+    private bool isDetecting = false;
     private int nbRot;
     private Cell targetCell;
     private int angleIndex;
@@ -67,9 +69,13 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    private float DistancetoCell()
+    {
+        float rangeDistanceCell = rangeDistance * grid.cellSpacement;
+        return rangeDistanceCell;
+    }
     private void GetCloseCells()
     {
-        //TO DO : verify the out of range
         closeCells.Add(GetCloseCell(1, 0));
         closeCells.Add(GetCloseCell(-1, 0));
         closeCells.Add(GetCloseCell(0, 1));
@@ -81,7 +87,6 @@ public class EnemyMovement : MonoBehaviour
                 closeCells.Remove(closeCells[i]);
             }
         }
-        print(closeCells.Count);
         int randomIndex = Random.Range(0, closeCells.Count);
         targetCell = closeCells[randomIndex];
         closeCells.Clear();
@@ -111,18 +116,47 @@ public class EnemyMovement : MonoBehaviour
         {
             return;
         }
-        Vector3Int forward = Vector3Int.RoundToInt(transform.forward);
-        Cell forwardCell = grid.GetCell(cellOn.gridPos.Item1 + forward.x, cellOn.gridPos.Item2 + forward.z);
-        if (forwardCell == targetCell)
+        if (PlayerDetection())
         {
-            MoveToCell(targetCell);
+          //change state
+          Debug.Log("Confirmed");
         }
         else
         {
-            RotateCell();
+            Vector3Int forward = Vector3Int.RoundToInt(transform.forward);
+            Cell forwardCell = grid.GetCell(cellOn.gridPos.Item1 + forward.x, cellOn.gridPos.Item2 + forward.z);
+            if (forwardCell == targetCell)
+            {
+                MoveToCell(targetCell);
+            }
+            else
+            {
+                RotateCell();
+            }
         }
     }
 
+    bool PlayerDetection()
+    {
+        float distanceEnemyPlayer = Vector3.Distance(transform.position, PlayerMovement.instance.transform.position);
+        if (distanceEnemyPlayer <= DistancetoCell())
+        {
+            if (Physics.Raycast(PlayerMovement.instance.transform.position, (transform.position - PlayerMovement.instance.transform.position)))
+            {
+                //ignore
+                Debug.Log("ignore");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
     void RotateCell()
     {
         if (isInAction)
@@ -131,7 +165,6 @@ public class EnemyMovement : MonoBehaviour
         }
         lastRotation = transform.rotation;
         Quaternion target = Quaternion.FromToRotation(transform.forward, (targetCell.pos - transform.position).normalized);
-        print(target.eulerAngles.y);
 
         if (target.eulerAngles.y > 180)
         {
@@ -164,7 +197,6 @@ public class EnemyMovement : MonoBehaviour
         {
             return;
         }
-        print("MoveToCell");
         lastPosition = cellOn.pos;
         targetPosition = cell.pos;
         cellOn.DeleteEntity();

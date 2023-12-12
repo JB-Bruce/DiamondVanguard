@@ -41,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
 
     private float life;
 
+    private bool isOnPause;
+
     private void Awake()
     {
         instance = this;
@@ -67,6 +69,8 @@ public class PlayerMovement : MonoBehaviour
         isMoving = false;
 
         isRotating = false;
+
+        isOnPause = false;
     }
 
 
@@ -185,6 +189,19 @@ public class PlayerMovement : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void OnPause(InputAction.CallbackContext ctx)
+    {
+        isOnPause = !isOnPause;
+        if (isOnPause)
+        {
+            Time.timeScale = 1f;
+        }
+        else
+        {
+            Time.timeScale = 0f;
+        }
     }
 
 }

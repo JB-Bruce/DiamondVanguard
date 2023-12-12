@@ -490,8 +490,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c267335ceed6bdc4198f1702f22f8462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faces: []
-  faceMaterial: {fileID: 2100000, guid: c7c0d4e172adf304088fe5ee952c96a2, type: 2}
+  faceMaterial: {fileID: 2100000, guid: 2ed10beb54a429043bb9af49166c7a07, type: 2}
+  factor: 0.2
 --- !u!65 &117847843160038263
 BoxCollider:
   m_ObjectHideFlags: 0

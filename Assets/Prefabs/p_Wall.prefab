@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b62a94ba6c52be43bc51a683b15c06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  factor: 0.1
+  factor: 0.5
 --- !u!1 &4345521560881740297
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceMaterial: {fileID: 2100000, guid: 2ed10beb54a429043bb9af49166c7a07, type: 2}
-  factor: 0.2
+  factor: 2
 --- !u!65 &117847843160038263
 BoxCollider:
   m_ObjectHideFlags: 0

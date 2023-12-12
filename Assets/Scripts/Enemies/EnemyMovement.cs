@@ -7,8 +7,8 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private float actionTime;
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private float rotationSpeed;
+    [SerializeField] private float moveSpeed, rotationSpeed, attackSpeed;
+    [SerializeField] float damages;
     [SerializeField] public Cell cellOn;
     [SerializeField] private List<Cell> closeCells = new List<Cell>();
     [SerializeField] private int index = 0;
@@ -18,6 +18,8 @@ public class EnemyMovement : MonoBehaviour
     private Cell targetCell;
     private int angleIndex;
 
+    CharactersControler cc;
+
     private Vector3 lastPosition, targetPosition;
 
     public GameGrid grid;
@@ -26,7 +28,8 @@ public class EnemyMovement : MonoBehaviour
 
     private bool isMoving = false;
     private bool isRotating;
-    public bool isInAction { get => isMoving || isRotating; }
+    private bool isAttacking;
+    public bool isInAction { get => isMoving || isRotating || isAttacking; }
     
     private Entity entity;
     private Quaternion lastRotation, targetRotation;
@@ -41,6 +44,8 @@ public class EnemyMovement : MonoBehaviour
         transform.position = cellOn.pos;
 
         player = PlayerMovement.instance;
+
+        cc = CharactersControler.instance;
 
         Invoke("GoToCell", actionTime);
     }
@@ -69,6 +74,16 @@ public class EnemyMovement : MonoBehaviour
             if (timer == 1f)
             {
                 isRotating = false;
+                GoToCell();
+            }
+        }
+        else if (isAttacking)
+        {
+            timer += Time.deltaTime * attackSpeed;
+            timer = Mathf.Clamp01(timer);
+            if (timer == 1f)
+            {
+                isAttacking = false;
                 GoToCell();
             }
         }
@@ -119,6 +134,8 @@ public class EnemyMovement : MonoBehaviour
             return;
         }
 
+        timer = 0f;
+
         if (PlayerDetection())
         {
             hasTarget = false;
@@ -134,12 +151,22 @@ public class EnemyMovement : MonoBehaviour
         Cell forwardCell = grid.GetCell(cellOn.gridPos.Item1 + forward.x, cellOn.gridPos.Item2 + forward.z);
         if (forwardCell == targetCell)
         {
-            MoveToCell(targetCell);
+            if (targetCell == player.cellOn)
+                AttackPlayer();
+            else
+                MoveToCell(targetCell);
         }
         else
         {
             RotateCell();
         }
+    }
+
+    private void AttackPlayer()
+    {
+        isAttacking = true;
+        print("DAMAGE");
+        //cc.TakeDamage(damages);
     }
 
     private Cell NextCellToGoToTarget(Cell cell)
@@ -204,6 +231,9 @@ public class EnemyMovement : MonoBehaviour
 
         finalCell = path[1];
 
+        if (finalCell.entity != null)
+            finalCell = cellOn;
+
         return finalCell;
     }
 
@@ -253,7 +283,6 @@ public class EnemyMovement : MonoBehaviour
             targetRotation = transform.rotation * Quaternion.Euler(0, 90, 0);
         }
         isRotating = true;
-        timer = 0f;
     }
 
     public bool WallDetection(Vector3 startPos, Vector3 endPos)
@@ -277,6 +306,5 @@ public class EnemyMovement : MonoBehaviour
         cell.SetEntity(entity);
         cellOn = cell;
         isMoving = true;
-        timer = 0f;
     }
 }

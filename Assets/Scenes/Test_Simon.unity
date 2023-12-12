@@ -3100,6 +3100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellOn:
     entity: {fileID: 0}
+  posX: 3
+  posY: 3
   grid: {fileID: 1495968844}
   life: 100
 --- !u!114 &757617899
@@ -3600,6 +3602,9 @@ MonoBehaviour:
   rotationSpeed: 3
   cellOn:
     entity: {fileID: 0}
+  startInTheMidle: 1
+  posX: 0
+  posY: 0
   attack: {fileID: 814305901}
   grid: {fileID: 1495968844}
 --- !u!114 &814305900

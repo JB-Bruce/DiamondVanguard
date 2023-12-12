@@ -47,7 +47,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (targetCell.HasEntity())
         {
-            targetCell.entity.transform.GetComponent<EnnemyTest>().TakeDamage(amount);
+            targetCell.entity.transform.GetComponent<EnemyMovement>().TakeDamage(amount);
             return;
         }
 
@@ -80,7 +80,7 @@ public class PlayerAttack : MonoBehaviour
            Cell targetCell = grid.GetCell(playerMovement.cellOn.gridPos.Item1 + i*x, playerMovement.cellOn.gridPos.Item2 + i*z);
            if (targetCell.HasEntity())
            {
-                    targetCell.entity.transform.GetComponent<EnnemyTest>().TakeDamage(amount);
+                    targetCell.entity.transform.GetComponent<EnemyMovement>().TakeDamage(amount);
                     return;
            }
         }

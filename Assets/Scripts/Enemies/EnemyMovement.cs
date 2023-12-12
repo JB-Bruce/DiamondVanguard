@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    [SerializeField] float pv;
+    [SerializeField] int startX, startY;
+    [SerializeField] bool snapToGrid;
     [SerializeField] private float actionTime;
     [SerializeField] private float moveSpeed, rotationSpeed, attackSpeed;
     [SerializeField] float damages;
@@ -17,6 +20,8 @@ public class EnemyMovement : MonoBehaviour
     private int nbRot;
     private Cell targetCell;
     private int angleIndex;
+
+    
 
     CharactersControler cc;
 
@@ -40,7 +45,14 @@ public class EnemyMovement : MonoBehaviour
     {
         grid = GameGrid.instance;
         entity = GetComponent<Entity>();
-        cellOn = grid.GetCell((grid.gridWidth - 1) / 2, (grid.gridHeight - 1) / 2);
+        if (!snapToGrid)
+        {
+            cellOn = grid.GetCell(startX,startY);
+        }
+        else
+        {
+            cellOn = grid.GetClosestCell(transform.position);
+        }
         transform.position = cellOn.pos;
 
         player = PlayerMovement.instance;
@@ -86,6 +98,15 @@ public class EnemyMovement : MonoBehaviour
                 isAttacking = false;
                 GoToCell();
             }
+        }
+    }
+
+    public void TakeDamage(float amount)
+    {
+        pv -= amount;
+        if (pv <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 

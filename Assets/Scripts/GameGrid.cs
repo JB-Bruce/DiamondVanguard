@@ -77,6 +77,25 @@ public class GameGrid : MonoBehaviour
         }
     }
 
+    public Cell GetClosestCell(Vector3 position)
+    {
+        Cell closestCell = null;
+        float distanceMinimum = float.MaxValue;
+
+        for (int i = 0; i < gridWidth; i++)
+        {
+            for (int j = 0; j < gridHeight; j++)
+            {
+                if (Vector3.Distance (position, grid[i][j].pos) < distanceMinimum)
+                {
+                    closestCell = grid[i][j];
+                    distanceMinimum = Vector3.Distance(position, grid[i][j].pos);
+                }
+            }
+        }
+        return closestCell;
+    }
+
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

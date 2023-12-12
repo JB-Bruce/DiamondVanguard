@@ -116,7 +116,7 @@ public class EnemyMovement : MonoBehaviour
         {
             return;
         }
-        if (EnemyDetection())
+        if (PlayerDetection())
         {
           //change state
           Debug.Log("Confirmed");
@@ -136,7 +136,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    bool EnemyDetection()
+    bool PlayerDetection()
     {
         float distanceEnemyPlayer = Vector3.Distance(transform.position, PlayerMovement.instance.transform.position);
         if (distanceEnemyPlayer <= DistancetoCell())

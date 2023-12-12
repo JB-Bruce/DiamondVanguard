@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WallTextureCorrection : MonoBehaviour
 {
-    [SerializeField] float factor = 1.0f;
+    [SerializeField] public float factor = 1.0f;
 
     private void Update()
     {

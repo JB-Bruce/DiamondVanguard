@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.Rendering;
 using UnityEngine;
@@ -12,7 +13,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private List<Cell> closeCells = new List<Cell>();
     [SerializeField] private int index = 0;
     [SerializeField] private float rangeDistance = 2;
-    private bool isDetecting = false;
+    private bool hasTarget = false;
     private int nbRot;
     private Cell targetCell;
     private int angleIndex;
@@ -21,6 +22,8 @@ public class EnemyMovement : MonoBehaviour
 
     public GameGrid grid;
 
+    PlayerMovement player;
+
     private bool isMoving = false;
     private bool isRotating;
     public bool isInAction { get => isMoving || isRotating; }
@@ -28,12 +31,18 @@ public class EnemyMovement : MonoBehaviour
     private Entity entity;
     private Quaternion lastRotation, targetRotation;
     private float timer;
+
+    [SerializeField] LayerMask enemyLayer;
     void Start()
     {
         grid = GameGrid.instance;
         entity = GetComponent<Entity>();
         cellOn = grid.GetCell((grid.gridWidth - 1) / 2, (grid.gridHeight - 1) / 2);
         transform.position = cellOn.pos;
+
+        player = PlayerMovement.instance;
+
+        Invoke("GoToCell", actionTime);
     }
 
     void Update()
@@ -46,8 +55,9 @@ public class EnemyMovement : MonoBehaviour
             transform.position = Vector3.Lerp(lastPosition, targetPosition, timer);
             if (timer == 1f)
             {
-                //if timer is complete, it's not moving
                 isMoving = false;
+                hasTarget = false;
+                GoToCell();
             }
         }
         else if (isRotating)
@@ -61,11 +71,6 @@ public class EnemyMovement : MonoBehaviour
                 isRotating = false;
                 GoToCell();
             }
-        }
-        else
-        {
-            //if it's not moving nor rotating
-            GetCloseCells();
         }
     }
 
@@ -87,13 +92,10 @@ public class EnemyMovement : MonoBehaviour
                 closeCells.Remove(closeCells[i]);
             }
         }
+
         int randomIndex = Random.Range(0, closeCells.Count);
         targetCell = closeCells[randomIndex];
         closeCells.Clear();
-        if (targetCell != null)
-        {
-            GoToCell();
-        }
     }
     private Cell GetCloseCell(int x, int y)
     {
@@ -116,46 +118,118 @@ public class EnemyMovement : MonoBehaviour
         {
             return;
         }
+
         if (PlayerDetection())
         {
-          //change state
-          Debug.Log("Confirmed");
+            hasTarget = false;
+            targetCell = NextCellToGoToTarget(player.cellOn);
+        }
+        else if(!hasTarget)
+        {
+            hasTarget = true;
+            GetCloseCells();
+        }
+
+        Vector3Int forward = Vector3Int.RoundToInt(transform.forward);
+        Cell forwardCell = grid.GetCell(cellOn.gridPos.Item1 + forward.x, cellOn.gridPos.Item2 + forward.z);
+        if (forwardCell == targetCell)
+        {
+            MoveToCell(targetCell);
         }
         else
         {
-            Vector3Int forward = Vector3Int.RoundToInt(transform.forward);
-            Cell forwardCell = grid.GetCell(cellOn.gridPos.Item1 + forward.x, cellOn.gridPos.Item2 + forward.z);
-            if (forwardCell == targetCell)
+            RotateCell();
+        }
+    }
+
+    private Cell NextCellToGoToTarget(Cell cell)
+    {
+        Cell finalCell = cellOn;
+
+        List<Cell> path = new();
+
+        if(cellOn == cell)
+        {
+            path.Add(cellOn);
+        }
+
+        List<Cell> unvisitedCells = new();
+
+        Dictionary<Cell, Cell> previous = new();
+        Dictionary<Cell, float> distances = new();
+
+        List<Cell> allCells = grid.GetAllCells();
+
+        foreach (var item in allCells)
+        {
+            unvisitedCells.Add(item);
+            distances.Add(item, float.MaxValue);
+        }
+
+        distances[cellOn] = 0f;
+
+        while (unvisitedCells.Count != 0)
+        {
+            unvisitedCells = unvisitedCells.OrderBy(newCell => distances[newCell]).ToList();
+
+            Cell nextCell = unvisitedCells[0];
+            unvisitedCells.Remove(nextCell);
+
+            if(nextCell == cell)
             {
-                MoveToCell(targetCell);
+                while (previous.ContainsKey(nextCell))
+                {
+                    path.Insert(0, nextCell);
+                    nextCell = previous[nextCell];
+                }
+                path.Insert(0, nextCell);
+                break;
             }
-            else
+
+            List<Cell> connectedCells = GetPossibilities(nextCell, grid.GetNeighbors(nextCell));
+
+            foreach (Cell neighbor in connectedCells)
             {
-                RotateCell();
+                float dist = Vector3.Distance(nextCell.pos, neighbor.pos);
+                float total = distances[nextCell] + dist;
+
+                if(total < distances[neighbor])
+                {
+                    distances[neighbor] = total;
+                    previous[neighbor] = nextCell;
+                }
             }
         }
+
+
+        finalCell = path[1];
+
+        return finalCell;
+    }
+
+    private List<Cell> GetPossibilities(Cell startCell, List<Cell> previousList)
+    {
+        List<Cell> newList = new();
+
+        foreach (var cell in previousList)
+        {
+        
+            if(cell != null && (!cell.HasEntity() || cell == player.cellOn) && !WallDetection(startCell.pos, cell.pos))
+                newList.Add(cell);
+        }
+
+        return newList;
     }
 
     bool PlayerDetection()
     {
-        float distanceEnemyPlayer = Vector3.Distance(transform.position, PlayerMovement.instance.transform.position);
-        if (distanceEnemyPlayer <= DistancetoCell())
+        float distanceEnemyPlayer = Vector3.Distance(transform.position, player.transform.position);
+        if (distanceEnemyPlayer <= DistancetoCell() && !Physics.Raycast(PlayerMovement.instance.transform.position, transform.position - PlayerMovement.instance.transform.position, distanceEnemyPlayer, enemyLayer))
         {
-            if (Physics.Raycast(PlayerMovement.instance.transform.position, (transform.position - PlayerMovement.instance.transform.position)))
-            {
-                //ignore
-                Debug.Log("ignore");
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return true;
         }
-        else
-        {
-            return false;
-        }
+
+        return false;
     }
     void RotateCell()
     {

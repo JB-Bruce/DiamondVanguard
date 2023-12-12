@@ -7,14 +7,25 @@ public class Character : MonoBehaviour
     public float energy { get; private set; }
     public Sprite characterImage;
 
-    [SerializeField] float def;
+    [SerializeField] public float def;
 
-    [SerializeField] float cacDmgMult;
-    [SerializeField] float distDmgMult;
-    [SerializeField] float tauxCrit;
-    [SerializeField] float dgtCritMult;
-    [SerializeField] float energyGainMult;
-    [SerializeField] float healMult;
+    [SerializeField] public float cacDmgMult;
+    [SerializeField] public float distDmgMult;
+    [SerializeField] public float tauxCrit;
+    [SerializeField] public float dgtCritMult;
+    [SerializeField] public float energyGainMult;
+    [SerializeField] public float healMult;
+
+
+    [SerializeField] EquipementSlot ImplantSlot1;
+    [SerializeField] EquipementSlot ImplantSlot2;
+    [SerializeField] EquipementSlot ImplantSlot3;
+    [SerializeField] EquipementSlot HelmetSlot;
+    [SerializeField] EquipementSlot ChesplateSlot;
+    [SerializeField] EquipementSlot LegingSlot;
+    List<Implants> implants = new List<Implants>();
+    List<EquipementSlot> armors = new List<EquipementSlot>();
+
 
     public CharactersControler controler;
     [SerializeField] float brutDamages;
@@ -38,6 +49,13 @@ public class Character : MonoBehaviour
         energy = energyMax;
         pv = pvMax;
         pAttack = PlayerAttack.Instance;
+
+        implants.Add((Implants)ImplantSlot1.item);
+        implants.Add((Implants)ImplantSlot2.item);
+        implants.Add((Implants)ImplantSlot3.item);
+        armors.Add(HelmetSlot);
+        armors.Add(ChesplateSlot);
+        armors.Add(LegingSlot);
     }
 
     public void TakeDamage(float amount)
@@ -157,4 +175,5 @@ public class Character : MonoBehaviour
     {
         rightWeapon = weapon;
     }
+
 }

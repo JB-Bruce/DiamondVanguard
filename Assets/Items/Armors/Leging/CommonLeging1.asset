@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1e1dc199fe386d4a94b4a9d4cc3f556, type: 3}
-  m_Name: Trousse de soins
+  m_Script: {fileID: 11500000, guid: fd101245f19f7354ba59590a7cdd2603, type: 3}
+  m_Name: CommonLeging1
   m_EditorClassIdentifier: 
-  itemName: Trousse de soins
-  icon: {fileID: 0}
-  itemType: 2
-  EnergyConso: 65
-  Cooldown: 30
-  damages: 60
+  itemName: CommonLegnig1
+  icon: {fileID: 21300000, guid: 894dc683b4f1be345b1709b849347ef0, type: 3}
+  itemType: 6
+  HP: 0
+  Defense: 1
+  Energy: 5

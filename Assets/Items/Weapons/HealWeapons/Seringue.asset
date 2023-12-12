@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23e7ef03420addb41b35ba57a490aac8, type: 3}
-  m_Name: Masse
+  m_Script: {fileID: 11500000, guid: a1e1dc199fe386d4a94b4a9d4cc3f556, type: 3}
+  m_Name: Seringue
   m_EditorClassIdentifier: 
-  itemName: Mass
-  icon: {fileID: 21300000, guid: b3b5fb3001484de478b1e51849e50e8f, type: 3}
-  EnergyConso: 40
-  Cooldown: 5
-  damages: 60
+  itemName: Seringue
+  icon: {fileID: 21300000, guid: 956427f2e3e404a409fdc2f7dd54adc8, type: 3}
+  itemType: 2
+  EnergyConso: 30
+  Cooldown: 10
+  damages: 20

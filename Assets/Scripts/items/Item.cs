@@ -29,4 +29,7 @@ public enum Type
     DistanceWeapon = 1,
     HealWeapon = 2,
     Implant = 3,
+    Helmet = 4,
+    Chestplate = 5,
+    Leging = 6
 }

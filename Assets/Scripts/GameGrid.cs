@@ -20,9 +20,35 @@ public class GameGrid : MonoBehaviour
     }
 
 
-    void Update()
+    public List<Cell> GetAllCells()
     {
+        List<Cell> cells = new();
 
+        for (int i = 0; i < grid.Count; i++)
+        {
+            for (int j = 0; j < grid[0].Count; j++)
+            {
+                cells.Add(grid[i][j]);
+            }
+        }
+
+        return cells;
+    }
+
+    public List<Cell> GetNeighbors(Cell testedCell)
+    {
+        List<Cell> neighbors = new()
+        {
+            GetCell(testedCell.gridPos.Item1, testedCell.gridPos.Item2 + 1),
+            GetCell(testedCell.gridPos.Item1, testedCell.gridPos.Item2 - 1),
+            GetCell(testedCell.gridPos.Item1 + 1, testedCell.gridPos.Item2),
+            GetCell(testedCell.gridPos.Item1 - 1, testedCell.gridPos.Item2)
+        };
+        
+        foreach (Cell neighbor in neighbors)
+            if(neighbor == null) neighbors.Remove(neighbor);
+
+        return neighbors;
     }
 
     void GridCreation()

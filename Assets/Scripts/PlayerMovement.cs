@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         {
             timer += Time.deltaTime * moveSpeed;
             timer = Mathf.Clamp01(timer);
-            transform.position = Vector3.Lerp(lastPosition, targetPosition, timer) ;
+            transform.position = Vector3.Lerp(lastPosition, targetPosition, timer);
             if (timer == 1f) 
             {
                 isMoving = false;
@@ -129,6 +129,8 @@ public class PlayerMovement : MonoBehaviour
     private void MoveTo(int x, int z)
     {
         Cell targetCell = grid.GetCell(cellOn.gridPos.Item1 + x, cellOn.gridPos.Item2 + z);
+
+
         if (targetCell != null && !WallDetection(cellOn.pos, targetCell.pos) && !targetCell.HasEntity())
         {
             MoveToCell(targetCell);
@@ -143,6 +145,7 @@ public class PlayerMovement : MonoBehaviour
         targetPosition = cell.pos;
 
         cellOn.DeleteEntity();
+
 
         cell.SetEntity(entity);
 

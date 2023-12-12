@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void StartBtn()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Test_Lore");
     }
 
     public void CreditsBtn()

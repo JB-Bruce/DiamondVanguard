@@ -93,22 +93,11 @@ public class EnemyMovement : MonoBehaviour
     private Cell GetCloseCell(int x, int y)
     {
         Cell cell = grid.GetCell(cellOn.gridPos.Item1 + x, cellOn.gridPos.Item2 + y);
-        if (cell != null)
+
+        //This part of the code is made by the lead dev, based on my previous works
+        if (cell != null && cell.entity == null && !WallDetection(cellOn.pos, cell.pos))
         {
-            index++;
             return cell;
-        }
-        else if (cell.entity != null)
-        {
-            return null;
-        }
-        else if (WallDetection(cellOn.pos, cell.pos))
-        {
-            return null;
-        }
-        else if (cell.gridPos.Item1 > 6 || cell.gridPos.Item2 > 6 || cell.gridPos.Item1 < -6 || cell.gridPos.Item2 < -6)
-        {
-            return null;
         }
         else
         {

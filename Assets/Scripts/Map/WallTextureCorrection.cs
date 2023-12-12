@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class WallTextureCorrection : MonoBehaviour
 {
-    [SerializeField] public float factor = 1.0f;
+    public float factor;
 
-    private void Update()
+    private void Start()
     {
         MeshFilter mf = GetComponent<MeshFilter>();
         if (mf != null)
         {
             var bounds = mf.mesh.bounds;
 
-            Vector3 size = Vector3.Scale(bounds.size, transform.localScale) * factor;
+            Vector3 size = Vector3.Scale(bounds.size, transform.lossyScale) * factor;
 
             if (size.y < .001)
                 size.y = size.z;

@@ -10,6 +10,7 @@ public class WallTextrureApply : MonoBehaviour
     void Start()
     {
         GetAllFaces();
+        ApplyFaces();
     }
 
     void GetAllFaces()
@@ -19,7 +20,6 @@ public class WallTextrureApply : MonoBehaviour
             faces.Add(tr.gameObject);
             tr.GetComponent<WallTextureCorrection>().factor = factor;
         }
-        ApplyFaces();
     }
 
     void ApplyFaces()

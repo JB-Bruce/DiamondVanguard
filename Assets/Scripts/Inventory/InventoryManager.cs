@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 
 public class InventoryManager : MonoBehaviour
 {
-    [SerializeField] private Item handItem;
     private ItemContainer LastItemContainer;
     private Item item = null;
     [SerializeField] private Inventory inventory;
@@ -52,7 +51,7 @@ public class InventoryManager : MonoBehaviour
 
                 // draging item from slot
                 if (Input.GetMouseButtonDown(0) && ( (result.tag == "Slots" && result.GetComponent<ItemContainer>().item != null) 
-                    || (result.tag == "Equipement" && (result.GetComponent<EquipementSlot>().item != handItem || result.GetComponent<ItemContainer>().item == null) )))
+                    || (result.tag == "Equipement" && (result.GetComponent<EquipementSlot>().item != result.GetComponent<EquipementSlot>().startingItem || result.GetComponent<ItemContainer>().item == null) )))
                 {
                     GameObject itemContainer = result;
                     item = itemContainer.GetComponent<ItemContainer>().item;
@@ -69,15 +68,23 @@ public class InventoryManager : MonoBehaviour
 
 
                     // if in a slot
-                    if ((result.tag == "Equipement" && result.GetComponent<EquipementSlot>().item == handItem && result.GetComponent<EquipementSlot>().TryAddEquipement(item))
+                    if ((result.tag == "Equipement" && result.GetComponent<EquipementSlot>().item == result.GetComponent<EquipementSlot>().startingItem && result.GetComponent<EquipementSlot>().TryAddEquipement(item))
                         || (result.tag == "Slots" && result.GetComponent<ItemContainer>().item == null))
                     {
                         SetItemInSlot(result);
-                        SetItemInLastContainer(LastItemContainer);
                         if(result.tag == "Equipement" && result.GetComponent<EquipementSlot>().item is Weapons)
                         {
-                            result.GetComponent<EquipementSlot>().UpdateStats((Weapons)item);
+                            result.GetComponent<EquipementSlot>().UpdateWeapons((Weapons)item);
                         }
+                        else if (result.tag == "Equipement" && (result.GetComponent<EquipementSlot>().item is Armor || result.GetComponent<EquipementSlot>().item is Implants))
+                        {
+                            result.GetComponent<EquipementSlot>().AddStats();
+                        }
+                        else if (LastItemContainer.tag == "Equipement" && (LastItemContainer.GetComponent<EquipementSlot>().item is Armor || LastItemContainer.GetComponent<EquipementSlot>().item is Implants))
+                        {
+                            LastItemContainer.GetComponent<EquipementSlot>().SubStats();
+                        }
+                        SetItemInLastContainer(LastItemContainer);
                         item = null;
                     }
 
@@ -86,9 +93,19 @@ public class InventoryManager : MonoBehaviour
                     {
                         item = null;
                         draging = false;
-                        LastItemContainer.gameObject.GetComponent<ItemContainer>().item = null;
-                        LastItemContainer.gameObject.GetComponent<ItemContainer>().imageUpdate();
-                        LastItemContainer.GetComponent<ItemContainer>().itemImage.transform.position = LastItemContainer.transform.position;
+                        if (LastItemContainer.tag == "Equipement" && (LastItemContainer.GetComponent<EquipementSlot>().item is Armor || LastItemContainer.GetComponent<EquipementSlot>().item is Implants))
+                        {
+                            LastItemContainer.GetComponent<EquipementSlot>().SubStats();
+                            LastItemContainer.gameObject.GetComponent<ItemContainer>().item = null;
+                            LastItemContainer.GetComponent<ItemContainer>().itemImage.transform.position = LastItemContainer.transform.position;
+                        }
+                        else
+                        {
+                            LastItemContainer.gameObject.GetComponent<ItemContainer>().item = null;
+                            LastItemContainer.gameObject.GetComponent<ItemContainer>().imageUpdate();
+                            LastItemContainer.GetComponent<ItemContainer>().itemImage.transform.position = LastItemContainer.transform.position;
+                        }
+                        
                     }
 
                     // if not in slots

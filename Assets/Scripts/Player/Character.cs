@@ -13,8 +13,8 @@ public class Character : MonoBehaviour
 
     [SerializeField] public float cacDmgMult;
     [SerializeField] public float distDmgMult;
-    [SerializeField] float tauxCrit;
-    [SerializeField] float dgtCritMult;
+    [SerializeField] public float tauxCrit;
+    [SerializeField] public float dgtCritMult;
     [SerializeField] public float energyGainMult;
     [SerializeField] public float healMult;
 
@@ -99,8 +99,6 @@ public class Character : MonoBehaviour
         //reger d'energie
         energy += Time.deltaTime * energyGainMult;
         energy = Mathf.Clamp(energy, 0, energyMax);
-
-        UpdateStats();
     }
 
     public void Heal(float amount)
@@ -161,25 +159,4 @@ public class Character : MonoBehaviour
         rightWeapon = weapon;
     }
 
-    private void UpdateStats()
-    {
-        for (int i = 0; i < implants.Count; i++)
-        {
-            print("aaa");
-            if (implants[i] != null)
-            {
-                pvMax += implants[i].HP;
-                pv += implants[i].HP;
-                dgtCritMult += implants[i].critDamage;
-                tauxCrit += implants[i].critChance;
-                cacDmgMult += implants[i].cacDamage;
-                distDmgMult += implants[i].distanceDamage;
-                healMult += implants[i].heal;
-                energyMax += implants[i].energy;
-                energy += implants[i].energy;
-                def += implants[i].def;
-            }
-        }
-        
-    }
 }

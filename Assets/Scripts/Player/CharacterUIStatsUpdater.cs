@@ -10,6 +10,10 @@ public class CharacterUIStatsUpdater : MonoBehaviour
     public Slider pvSlider;
     public Slider energySlider;
     public Image imgPersonage;
+    public Image rightWeapons;
+    public Image leftWeapons;
+    public Button rightAttack;
+    public Button leftAttack;
 
     private void Start()
     {
@@ -18,8 +22,12 @@ public class CharacterUIStatsUpdater : MonoBehaviour
 
     private void SetUpCharacter(Character character)
     {
+        rightAttack.interactable = true;
+        leftAttack.interactable = true;
         currentCharacter = character;
         imgPersonage.sprite = currentCharacter.characterImage;
+        leftWeapons.sprite = currentCharacter.leftWeapon.icon;
+        rightWeapons.sprite = currentCharacter.rightWeapon.icon;
         currentCharacter.PvChangeEvent.AddListener(pvGaugeUi);
         currentCharacter.EnergyChangeEvent.AddListener(energyGaugeUi);
         pvGaugeUi();
@@ -40,6 +48,10 @@ public class CharacterUIStatsUpdater : MonoBehaviour
         pvSlider.value = 0;
         energySlider.value = 0;
         imgPersonage.sprite = null;
+        leftWeapons.sprite = null;
+        rightWeapons.sprite = null;
+        rightAttack.interactable = false;
+        leftAttack.interactable = false;
 
         return newChar;
     }

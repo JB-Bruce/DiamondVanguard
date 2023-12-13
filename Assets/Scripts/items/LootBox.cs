@@ -31,10 +31,20 @@ public class LootBox : MonoBehaviour
         {3, Rarity.Epique}
     };
 
+    public bool isInfinit;
+    [SerializeField] private float respawnH;
+
     [SerializeField] private lootType type;
 
     private void Start()
     {
+        item = CreateItem();
+    }
+
+    public void respawn()
+    {
+        Vector3 newPos = new Vector3(gameObject.transform.position.x , gameObject.transform.position.y + respawnH, gameObject.transform.position.z);
+        gameObject.transform.position = newPos;
         item = CreateItem();
     }
 

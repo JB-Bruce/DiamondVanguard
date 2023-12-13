@@ -28,11 +28,10 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private bool TryAddItem(Item item)
+    public bool TryAddItem(Item item)
     {
         for(i = 0; i < 12 ; i++)
         {
-
             if (!inventoryGrid[i].HasItem())
             {
                 return true;

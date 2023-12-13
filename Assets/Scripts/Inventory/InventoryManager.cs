@@ -13,12 +13,6 @@ public class InventoryManager : MonoBehaviour
     private bool draging = false;
     [SerializeField] private GameObject DragNDrop;
 
-
-    private void Start()
-    {
-        gameObject.SetActive(false);
-    }
-
     private void Update()
     {
         

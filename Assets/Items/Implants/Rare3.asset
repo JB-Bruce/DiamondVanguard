@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Rare3
   icon: {fileID: 21300000, guid: 14bef4043f7268144a41dde01bbdccbc, type: 3}
   itemType: 3
+  rarity: 1
   critChance: 10
   critDamage: 0.8
   HP: -40

@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: EpicChesplate1
   icon: {fileID: 21300000, guid: 376aad8025db0ff42a55c482fa11260f, type: 3}
   itemType: 5
+  rarity: 2
   HP: 0
   Defense: 4
   Energy: 20

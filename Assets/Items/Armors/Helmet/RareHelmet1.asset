@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: RareHelmet
   icon: {fileID: 21300000, guid: 8ee2f83a79789c54cbfe9006515bb139, type: 3}
   itemType: 4
+  rarity: 1
   HP: 0
   Defense: 2
   Energy: 10

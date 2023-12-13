@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: EpicHelmet
   icon: {fileID: 21300000, guid: 8c71fe0bdf9752240a4c413332e030cd, type: 3}
   itemType: 4
+  rarity: 2
   HP: 0
   Defense: 3
   Energy: 15

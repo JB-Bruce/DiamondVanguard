@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Epic1
   icon: {fileID: 21300000, guid: 9b8a190fed39f014e862f366f3893da9, type: 3}
   itemType: 3
+  rarity: 2
   critChance: -15
   critDamage: 0
   HP: 50

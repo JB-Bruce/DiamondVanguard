@@ -45,6 +45,15 @@ public class Character : MonoBehaviour
 
     private PlayerAttack pAttack;
 
+    public bool canRightWeaponAttack = true;
+    public bool canLeftWeaponAttack = true;
+
+    public float coolDownRight, coolDownLeft, currentCDleft, currentCDright;
+
+    public UnityEvent cdLeftChangedEvent { get; private set; } = new();
+
+    public UnityEvent cdRightChangedEvent { get; private set; } = new();
+
     void Start()
     {
         energy = energyMax;
@@ -98,6 +107,26 @@ public class Character : MonoBehaviour
         //reger d'energie
         energy += Time.deltaTime * energyGainMult;
         energy = Mathf.Clamp(energy, 0, energyMax);
+        if (currentCDright > 0)
+        {
+            currentCDright -= Time.deltaTime;
+            if (currentCDright <= 0) 
+            { 
+                currentCDright = 0;
+                ResetRightWeaponCoolDown();
+            }
+            cdRightChangedEvent.Invoke();
+        }
+        if (currentCDleft > 0) 
+        { 
+            currentCDleft -= Time.deltaTime;
+            if (currentCDleft <= 0) 
+            { 
+                currentCDleft = 0;
+                ResetLeftWeaponCoolDown();
+            }
+            cdLeftChangedEvent.Invoke();
+        }
     }
 
     public void Heal(float amount)
@@ -126,44 +155,67 @@ public class Character : MonoBehaviour
 
     public void LeftWeaponAttack()
     {
-        WeaponAttack(leftWeapon);
+        if (canLeftWeaponAttack)
+        {
+            WeaponAttack(leftWeapon);
+            canLeftWeaponAttack = false;
+            coolDownLeft = leftWeapon.Cooldown;
+            currentCDleft = coolDownLeft;
+        }
+    }
+
+    private void ResetLeftWeaponCoolDown()
+    {
+        canLeftWeaponAttack = true;
     }
 
     public void RightWeaponAttack()
     {
-        WeaponAttack(rightWeapon);
+        if (canRightWeaponAttack)
+        {
+            WeaponAttack(rightWeapon);
+            canRightWeaponAttack = false;
+            coolDownRight = rightWeapon.Cooldown;
+            currentCDright = coolDownRight;
+        }
+    }
+
+    private void ResetRightWeaponCoolDown()
+    {
+        canRightWeaponAttack = true;
     }
 
     private void WeaponAttack(Weapons newWeapon)
     {
-        if (newWeapon == null)
-        {
-            pAttack.Attack(brutDamages);
-        }
-        else
-        {
-            float damages = newWeapon.damages;
-            if (Random.Range(0f, 100f)<=tauxCrit)
+            if (newWeapon == null)
             {
-                damages *= dgtCritMult;
+                pAttack.Attack(brutDamages);
             }
-            if (newWeapon.itemType == Type.DistanceWeapon && newWeapon is DistanceWeapon)
+            else
             {
-                damages *= distDmgMult;
-                DistanceWeapon distWeapon = newWeapon as DistanceWeapon;
-                pAttack.DistantAttack(damages, distWeapon.shootDistance);
+                float damages = newWeapon.damages;
+                if (Random.Range(0f, 100f) <= tauxCrit)
+                {
+                    damages *= dgtCritMult;
+                }
+                if (newWeapon.itemType == Type.DistanceWeapon && newWeapon is DistanceWeapon)
+                {
+                    damages *= distDmgMult;
+                    DistanceWeapon distWeapon = newWeapon as DistanceWeapon;
+                    pAttack.DistantAttack(damages, distWeapon.shootDistance);
+                }
+                else if (newWeapon.itemType == Type.MeleeWeapon)
+                {
+                    damages *= cacDmgMult;
+                    pAttack.Attack(damages);
+                }
+                else if (newWeapon.itemType == Type.HealWeapon)
+                {
+                    damages *= healMult;
+                    pAttack.Heal(controler, damages);
+                }
             }
-            else if (newWeapon.itemType == Type.MeleeWeapon)
-            {
-                damages *= cacDmgMult;
-                pAttack.Attack(damages);
-            }
-            else if (newWeapon.itemType == Type.HealWeapon)
-            {
-                damages *= healMult;
-                pAttack.Heal(controler, damages);
-            }
-        }
+            print("attacked");
     }
 
     public void EquipeRightWeapon(Weapons weapon)

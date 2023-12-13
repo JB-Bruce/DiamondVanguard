@@ -7,7 +7,13 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float pv;
     [SerializeField] int startX, startY;
     [SerializeField] bool snapToGrid;
-    [SerializeField] private float actionTime;
+
+    [SerializeField] float minMoveDelay;
+    [SerializeField] float maxMoveDelay;
+
+    float moveDelay;
+    float stopTimer = 0f;
+    
     [SerializeField] private float moveSpeed, rotationSpeed, attackSpeed;
     [SerializeField] float damages;
     [SerializeField] public Cell cellOn;
@@ -51,13 +57,13 @@ public class EnemyMovement : MonoBehaviour
         {
             cellOn = grid.GetClosestCell(transform.position);
         }
+        moveDelay = Random.Range(minMoveDelay, maxMoveDelay);
+
         transform.position = cellOn.pos;
-
         player = PlayerMovement.instance;
-
         cc = CharactersControler.instance;
 
-        Invoke("GoToCell", actionTime);
+        Invoke("GoToCell", moveDelay);
     }
 
     void Update()
@@ -70,9 +76,15 @@ public class EnemyMovement : MonoBehaviour
             transform.position = Vector3.Lerp(lastPosition, targetPosition, timer);
             if (timer == 1f)
             {
-                isMoving = false;
-                hasTarget = false;
-                GoToCell();
+                stopTimer += Time.deltaTime;
+                if(stopTimer >= moveDelay || !hasTarget)
+                {
+                    moveDelay = Random.Range(minMoveDelay, maxMoveDelay);
+                    stopTimer = 0f;
+                    isMoving = false;
+                    hasTarget = false;
+                    GoToCell();
+                }
             }
         }
         else if (isRotating)

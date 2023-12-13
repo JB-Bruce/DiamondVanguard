@@ -1,10 +1,10 @@
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
 [ExecuteInEditMode]
 public class WallManager : MonoBehaviour
 {
-    [SerializeField] List<WallTextrureApply> wallTextrures;
 
     public bool applyTextures;
     void OnValidate()
@@ -13,9 +13,10 @@ public class WallManager : MonoBehaviour
             return;
 
         applyTextures = false;
-        foreach (var item in wallTextrures)
+
+        for (int i = 0; i < transform.childCount; i++)
         {
-            item.Apply();
+            transform.GetChild(i).GetComponent<WallTextrureApply>().Apply();
         }
     }
 

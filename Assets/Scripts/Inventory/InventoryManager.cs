@@ -21,11 +21,15 @@ public class InventoryManager : MonoBehaviour
 
     private void Update()
     {
+        
+
         if (inventory.gameObject.activeInHierarchy)
         {
             Vector3 MousePos = Input.mousePosition;
             PointerEventData pointerEventData = new PointerEventData(eventSystem);
             pointerEventData.position = MousePos;
+
+            DragNDrop.transform.position = MousePos;
 
             List<RaycastResult> results = new List<RaycastResult>();
 
@@ -111,21 +115,28 @@ public class InventoryManager : MonoBehaviour
                     // if not in slots
                     else
                     {
-                        itemReturn();
+                        ItemReturn();
                     }
                 }
             }
         }
+
+        if (Input.GetMouseButtonUp(0) && draging)
+        {
+            ItemReturn();
+        }
     }
 
     // methode that return item to his old slot
-    private void itemReturn()
+    private void ItemReturn()
     {
         LastItemContainer.gameObject.GetComponent<ItemContainer>().addItem(item);
         LastItemContainer.gameObject.GetComponent<ItemContainer>().imageUpdate();
         item = null;
         draging = false;
+        LastItemContainer.GetComponent<ItemContainer>().itemImage.transform.SetParent(LastItemContainer.transform);
         LastItemContainer.GetComponent<ItemContainer>().itemImage.transform.position = LastItemContainer.transform.position;
+        
     }
 
     // methode to set item in a slot

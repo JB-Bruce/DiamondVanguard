@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -104,7 +105,6 @@ public class Character : MonoBehaviour
         pv += amount;
         pv = Mathf.Clamp(pv, 0, pvMax);
         PvChangeEvent.Invoke();
-        print("healed");
     }
 
     public void ConsumeEnergy(float amount) 

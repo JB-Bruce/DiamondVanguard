@@ -7,7 +7,12 @@ public class WallTextrureApply : MonoBehaviour
     [SerializeField] private Material faceMaterial;
     [SerializeField] private float factor;
 
-    void Start()
+    private void Start()
+    {
+        Apply();
+    }
+
+    public void Apply()
     {
         foreach (Transform tr in gameObject.GetComponentInChildren<Transform>())
         {

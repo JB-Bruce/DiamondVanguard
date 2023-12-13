@@ -11,7 +11,7 @@ public class WallTextureCorrection : MonoBehaviour
         MeshFilter mf = GetComponent<MeshFilter>();
         if (mf != null)
         {
-            var bounds = mf.mesh.bounds;
+            var bounds = mf.sharedMesh.bounds;
 
             Vector3 size = Vector3.Scale(bounds.size, transform.lossyScale) * factor;
 

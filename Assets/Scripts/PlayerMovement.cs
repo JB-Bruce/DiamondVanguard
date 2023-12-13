@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] int posX, posY;
 
+    [SerializeField] public GameObject pauseCanvas;
+
     public PlayerAttack attack;
 
     private Vector3 lastPosition, targetPosition;
@@ -41,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float life;
 
-    private bool isOnPause;
+    public bool isOnPause;
 
     private void Awake()
     {
@@ -197,10 +199,12 @@ public class PlayerMovement : MonoBehaviour
         if (isOnPause)
         {
             Time.timeScale = 1f;
+            pauseCanvas.SetActive(false);
         }
         else
         {
             Time.timeScale = 0f;
+            pauseCanvas.SetActive(true);   
         }
     }
 

@@ -4,6 +4,8 @@ using UnityEngine.Events;
 
 public class Character : MonoBehaviour
 {
+    public CharacterEnum charactereType;
+
     public float pv { get; private set; }
     public float energy { get; private set; }
     public Sprite characterImage;

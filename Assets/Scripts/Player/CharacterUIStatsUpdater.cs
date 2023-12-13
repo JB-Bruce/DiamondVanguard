@@ -14,6 +14,8 @@ public class CharacterUIStatsUpdater : MonoBehaviour
     public Image leftWeapons;
     public Button rightAttack;
     public Button leftAttack;
+    public Image rightWeaponCoolDown;
+    public Image leftWeaponCoolDown;
 
     private void Start()
     {
@@ -32,6 +34,8 @@ public class CharacterUIStatsUpdater : MonoBehaviour
         currentCharacter.EnergyChangeEvent.AddListener(energyGaugeUi);
         pvGaugeUi();
         energyGaugeUi();
+        currentCharacter.cdRightChangedEvent.AddListener(RightWeaponCoolDownChanged);
+        currentCharacter.cdLeftChangedEvent.AddListener(LeftWeaponCoolDownChanged);
     }
 
     public Character ResetCharacter()
@@ -41,7 +45,9 @@ public class CharacterUIStatsUpdater : MonoBehaviour
         if (currentCharacter != null)
         {
             currentCharacter.PvChangeEvent.RemoveListener(pvGaugeUi);
-            currentCharacter.PvChangeEvent.RemoveListener(energyGaugeUi);
+            currentCharacter.EnergyChangeEvent.RemoveListener(energyGaugeUi);
+            currentCharacter.cdRightChangedEvent.RemoveListener(RightWeaponCoolDownChanged);
+            currentCharacter.cdLeftChangedEvent.RemoveListener(LeftWeaponCoolDownChanged);
             currentCharacter = null;
         }
         
@@ -82,4 +88,31 @@ public class CharacterUIStatsUpdater : MonoBehaviour
         currentCharacter.RightWeaponAttack();
     }
 
+    public void RightWeaponCoolDownChanged()
+    {
+        if (currentCharacter.currentCDright == 0) 
+        { 
+            rightAttack.interactable = true;
+            rightWeaponCoolDown.transform.localScale = new Vector3(1, 0, 1);
+        }
+        else
+        {
+            rightAttack.interactable = false;
+            rightWeaponCoolDown.transform.localScale = new Vector3(1, currentCharacter.currentCDright/currentCharacter.coolDownRight, 1);
+        }
+    }
+
+    public void LeftWeaponCoolDownChanged()
+    {
+        if (currentCharacter.currentCDleft == 0)
+        {
+            leftAttack.interactable = true;
+            leftWeaponCoolDown.transform.localScale = new Vector3(1, 0, 1);
+        } 
+        else
+        {
+            leftAttack.interactable = false;
+            leftWeaponCoolDown.transform.localScale = new Vector3(1, currentCharacter.currentCDleft/currentCharacter.coolDownLeft, 1);
+        }
+    }
 }

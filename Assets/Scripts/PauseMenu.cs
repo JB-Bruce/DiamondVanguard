@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,6 +16,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         player = PlayerMovement.instance;
+        player.ActivateBehaviours();
         player.pauseCanvas.SetActive(false);
     }
 }

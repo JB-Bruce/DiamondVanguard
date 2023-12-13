@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] int posX, posY;
 
     [SerializeField] public GameObject pauseCanvas;
+
+    [SerializeField] List<MonoBehaviour> behaviours = new();
 
     public PlayerAttack attack;
 
@@ -194,13 +198,31 @@ public class PlayerMovement : MonoBehaviour
         isOnPause = !isOnPause;
         if (isOnPause)
         {
+            ActivateBehaviours();
             Time.timeScale = 1f;
             pauseCanvas.SetActive(false);
         }
         else
         {
+            DeactivateBehaviours();
             Time.timeScale = 0f;
-            pauseCanvas.SetActive(true);   
+            pauseCanvas.SetActive(true); 
+        }
+    }
+
+    public void DeactivateBehaviours()
+    {
+        foreach (MonoBehaviour argument in behaviours)
+        {
+            argument.gameObject.SetActive(false);
+        }
+    }
+
+    public void ActivateBehaviours()
+    {
+        foreach (MonoBehaviour argument in behaviours)
+        {
+            argument.gameObject.SetActive(true);
         }
     }
 

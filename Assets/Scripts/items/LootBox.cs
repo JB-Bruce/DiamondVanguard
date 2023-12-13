@@ -34,6 +34,7 @@ public class LootBox : MonoBehaviour
     public bool isInfinit;
     [SerializeField] private float respawnH;
 
+
     [SerializeField] private lootType type;
 
     private void Start()

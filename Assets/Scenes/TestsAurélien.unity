@@ -11559,11 +11559,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5972282774774702368, guid: 6c5fc27a8c52a2b4987f8d2419127142,
         type: 3}
-      propertyPath: respawnH
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5972282774774702368, guid: 6c5fc27a8c52a2b4987f8d2419127142,
-        type: 3}
       propertyPath: isInfinit
       value: 1
       objectReference: {fileID: 0}
@@ -11575,11 +11570,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8180925645846915829, guid: 6c5fc27a8c52a2b4987f8d2419127142,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1644558183}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c5fc27a8c52a2b4987f8d2419127142, type: 3}
 --- !u!1 &1064467479
 GameObject:
@@ -18374,45 +18365,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1641622486}
   m_CullTransparentMesh: 1
---- !u!1 &1644558177 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8180925645846915829, guid: 6c5fc27a8c52a2b4987f8d2419127142,
-    type: 3}
-  m_PrefabInstance: {fileID: 1050492254}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1644558178 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2230898208967255625, guid: 6c5fc27a8c52a2b4987f8d2419127142,
     type: 3}
   m_PrefabInstance: {fileID: 1050492254}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &1644558183
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1644558177}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1647695441
 GameObject:
   m_ObjectHideFlags: 0

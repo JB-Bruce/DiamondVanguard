@@ -37,6 +37,30 @@ public class CharactersControler : MonoBehaviour
         TakeDamage(5);
     }
 
+    public void ConsumeStats(CharacterEnum character, float life = 0f, float energy = 0f)
+    {
+        Character newChar = GetCharacterFromEnum(character);
+        newChar.EnvironmentDamage(life);
+        newChar.ConsumeEnergy(energy);
+    }
+
+    public bool HasStats(CharacterEnum character, float life = 0f, float energy = 0f)
+    {
+        Character newChar = GetCharacterFromEnum(character);
+        return newChar.pv >= life && newChar.energy >= energy;
+    }
+
+    private Character GetCharacterFromEnum(CharacterEnum character)
+    {
+        if (grosBras.charactereType == character)
+            return grosBras;
+        if (tireur.charactereType == character)
+            return tireur;
+        if (hacker.charactereType == character)
+            return hacker;
+        return healer;
+    }
+
     public void TakeDamage(float amount)
     {
         if (healer.dead && hacker.dead && tireur.dead && grosBras.dead)
@@ -144,4 +168,12 @@ public class CharactersControler : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+}
+
+public enum CharacterEnum
+{
+    GrosBras,
+    Tireur,
+    Hacker,
+    CharcuDoc
 }

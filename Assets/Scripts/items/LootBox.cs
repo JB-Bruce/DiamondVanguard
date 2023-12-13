@@ -67,16 +67,13 @@ public class LootBox : MonoBehaviour
         }
         else
         {
-            Debug.Log("1");
             int rarity = 1;
             if (randomValue <= 85f && randomValue >= 55f)
             {
-                Debug.Log("2");
                 rarity = 2;
             }
             else if ( randomValue <= 100f && randomValue >= 85f)
             {
-                Debug.Log("3");
                 rarity = 3;
             }
             List<LootTable> droppableItems = new List<LootTable>();
@@ -84,20 +81,16 @@ public class LootBox : MonoBehaviour
             {
                 if(item.item.rarity == rarityTable[rarity])
                 {
-                    Debug.Log("add");
                     droppableItems.Add(item);
                 }
             }
             randomValue = Random.Range(0f, 100f);
             pourcentPasse = 0;
             float lootchance = (1f / droppableItems.Count) * 100;
-            Debug.Log(lootchance);
             for (int i = 0; i < droppableItems.Count; i++)
             {
-                Debug.Log("ch");
                 if (randomValue >= pourcentPasse && randomValue < (pourcentPasse + lootchance))
                 {
-                    Debug.Log("tr");
                     return droppableItems[i].item;
                 }
                 pourcentPasse += lootchance;

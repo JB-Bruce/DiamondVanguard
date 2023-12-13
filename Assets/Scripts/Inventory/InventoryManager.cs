@@ -7,7 +7,7 @@ public class InventoryManager : MonoBehaviour
 {
     private ItemContainer LastItemContainer;
     private Item item = null;
-    [SerializeField] private Inventory inventory;
+    [SerializeField] Inventory inventory;
     [SerializeField] EventSystem eventSystem;
     [SerializeField] GraphicRaycaster m_Raycaster;
     private bool draging = false;
@@ -15,8 +15,6 @@ public class InventoryManager : MonoBehaviour
 
     private void Update()
     {
-        
-
         if (inventory.gameObject.activeInHierarchy)
         {
             Vector3 MousePos = Input.mousePosition;

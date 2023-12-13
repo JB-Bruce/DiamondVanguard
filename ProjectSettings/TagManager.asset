@@ -9,6 +9,7 @@ TagManager:
   - Trash
   - door
   - Equipement
+  - PersoSlot
   layers:
   - Default
   - TransparentFX

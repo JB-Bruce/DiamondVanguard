@@ -7,4 +7,5 @@ public class Armor : Item
     public int HP;
     public int Defense;
     public int Energy;
+
 }

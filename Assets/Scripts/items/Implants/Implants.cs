@@ -14,4 +14,5 @@ public class Implants : Item
     public float heal;
     public float energy;
     public float def;
+
 }

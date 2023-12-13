@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Empty
   icon: {fileID: 21300000, guid: 9938ac4a7b80edd4e818e8aa697ca0df, type: 3}
   itemType: 3
+  rarity: 3
   critChance: 0
   critDamage: 0
   HP: 0

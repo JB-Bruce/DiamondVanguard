@@ -9,8 +9,7 @@ public class Item : ScriptableObject
     public Sprite icon;
 
     public Type itemType;
-
-    
+    public Rarity rarity;
 
 }
 

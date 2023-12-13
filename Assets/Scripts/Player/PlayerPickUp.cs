@@ -25,8 +25,19 @@ public class PlayerPickUp : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && hit.transform.gameObject.layer == 6)
             {
                 Item item = hit.transform.gameObject.GetComponent<LootBox>().item;
-                inventory.addItem(item);
-                hit.transform.gameObject.SetActive(false);
+                LootBox lootBox = hit.transform.gameObject.GetComponent<LootBox>();
+                if (inventory.TryAddItem(item))
+                {
+                    inventory.addItem(item);
+                    if (lootBox.isInfinit)
+                    {
+                        lootBox.respawn();
+                    }
+                    else
+                    {
+                        hit.transform.gameObject.SetActive(false);
+                    }
+                }
             } 
         }
     }

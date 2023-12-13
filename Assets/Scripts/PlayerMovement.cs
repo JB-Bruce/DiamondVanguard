@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] int posX, posY;
 
+    [SerializeField] public GameObject pauseCanvas;
+
     public PlayerAttack attack;
 
     private Vector3 lastPosition, targetPosition;
@@ -36,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
     public static PlayerMovement instance;
 
     private float life;
+
+    public bool isOnPause;
 
     private void Awake()
     {
@@ -63,6 +67,8 @@ public class PlayerMovement : MonoBehaviour
         isMoving = false;
 
         isRotating = false;
+
+        isOnPause = false;
     }
 
 
@@ -181,6 +187,21 @@ public class PlayerMovement : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void OnPause(InputAction.CallbackContext ctx)
+    {
+        isOnPause = !isOnPause;
+        if (isOnPause)
+        {
+            Time.timeScale = 1f;
+            pauseCanvas.SetActive(false);
+        }
+        else
+        {
+            Time.timeScale = 0f;
+            pauseCanvas.SetActive(true);   
+        }
     }
 
 }

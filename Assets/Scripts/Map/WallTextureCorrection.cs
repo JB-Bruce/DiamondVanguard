@@ -17,7 +17,7 @@ public class WallTextureCorrection : MonoBehaviour
 
             if (size.y < .001)
                 size.y = size.z;
-            GetComponent<MeshRenderer>().material.mainTextureScale = size;
+            GetComponent<MeshRenderer>().sharedMaterial.mainTextureScale = size;
         }
     }
 }

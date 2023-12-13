@@ -17,7 +17,7 @@ public class WallTextrureApply : MonoBehaviour
         foreach (Transform tr in gameObject.GetComponentInChildren<Transform>())
         {
             faces.Add(tr.gameObject);
-            tr.GetComponent<MeshRenderer>().material = faceMaterial;
+            tr.GetComponent<MeshRenderer>().material = new Material(faceMaterial);
             tr.GetComponent<WallTextureCorrection>().Init(factor);
         }
     }

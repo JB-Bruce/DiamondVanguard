@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class WallTextureCorrection : MonoBehaviour
 {
-    private float factor;
+    [SerializeField] private float factor;
+
+    private void Start()
+    {
+        Init(factor);
+    }
 
     public void Init(float factor)
     {

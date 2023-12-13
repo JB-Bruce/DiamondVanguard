@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     private float life;
 
     public bool isOnPause;
+    Vector2 movement;
 
     private void Awake()
     {
@@ -83,9 +84,10 @@ public class PlayerMovement : MonoBehaviour
             timer += Time.deltaTime * moveSpeed;
             timer = Mathf.Clamp01(timer);
             transform.position = Vector3.Lerp(lastPosition, targetPosition, timer);
-            if (timer == 1f) 
+            if (timer == 1f)
             {
                 isMoving = false;
+                TryMove();
             }
         }
         else if (isRotating)
@@ -102,15 +104,17 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMovementEnter(InputAction.CallbackContext ctx)
     {
-        if (isInAction) 
+        movement = ctx.ReadValue<Vector2>();
+
+        if (isInAction)
         {
             return;
         }
+        TryMove();
+    }
 
-        Vector2 movement = ctx.ReadValue<Vector2>();
-
-        float angle = transform.eulerAngles.y;
-
+    public void TryMove()
+    {
         Vector3Int right = Vector3Int.RoundToInt(transform.right);
         Vector3Int forward = Vector3Int.RoundToInt(transform.forward);
 
@@ -156,8 +160,6 @@ public class PlayerMovement : MonoBehaviour
         cell.SetEntity(entity);
 
         cellOn = cell;
-
-        transform.position = cellOn.pos;
 
         isMoving = true;
 

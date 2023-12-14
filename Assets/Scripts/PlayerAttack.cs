@@ -78,6 +78,10 @@ public class PlayerAttack : MonoBehaviour
         for (int i = 1; i < distance+1; i++)
         {
            Cell targetCell = grid.GetCell(playerMovement.cellOn.gridPos.Item1 + i*x, playerMovement.cellOn.gridPos.Item2 + i*z);
+           if (targetCell == null) 
+            {
+                return;
+            }
            if (targetCell.HasEntity())
            {
                     targetCell.entity.transform.GetComponent<EnemyMovement>().TakeDamage(amount);

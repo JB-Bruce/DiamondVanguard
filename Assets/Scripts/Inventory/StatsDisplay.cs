@@ -14,6 +14,8 @@ public class StatsDisplay : MonoBehaviour
     [SerializeField] private TextMeshProUGUI Cac;
     [SerializeField] private TextMeshProUGUI Distance;
     [SerializeField] private TextMeshProUGUI Heal;
+    [SerializeField] private TextMeshProUGUI CritChance;
+    [SerializeField] private TextMeshProUGUI CritDamage;
 
     public void UpdateStats()
     {
@@ -24,6 +26,8 @@ public class StatsDisplay : MonoBehaviour
         Cac.GetComponent<TextMeshProUGUI>().text = character.cacDmgMult.ToString();
         Distance.GetComponent<TextMeshProUGUI>().text = character.distDmgMult.ToString();
         Heal.GetComponent<TextMeshProUGUI>().text = character.healMult.ToString();
+        CritChance.GetComponent<TextMeshProUGUI>().text = character.tauxCrit.ToString();
+        CritDamage.GetComponent<TextMeshProUGUI>().text = character.dgtCritMult.ToString();
 
     }
 

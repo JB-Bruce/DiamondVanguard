@@ -2,17 +2,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using static UnityEditor.Progress;
-using UnityEditor.Experimental.GraphView;
 
 public class FormationChanger : MonoBehaviour
 {
     private GameObject LastPanel;
-    private GameObject NewPanel;
+    private GameObject NextPanel;
     private GameObject image;
-    private GameObject newImage;
-    private GameObject lastUiCharacter;
-    private GameObject nextUiCharacter;
+    private CharacterUIStatsUpdater CharacterUi1;
+    private CharacterUIStatsUpdater CharacterUi2;
 
     [SerializeField] EventSystem eventSystem;
     [SerializeField] GraphicRaycaster m_Raycaster;
@@ -52,9 +49,11 @@ public class FormationChanger : MonoBehaviour
                 image = result;
                 LastPanel = image.transform.parent.gameObject;
                 image.transform.SetParent(DragNDrop.transform);
+                CharacterUi1 = LastPanel.GetComponentInParent<CharacterUIStatsUpdater>();
+                Debug.Log(CharacterUi1);
             }
 
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0) && draging)
             {
                 if (results.Count > 1)
                 {
@@ -63,26 +62,24 @@ public class FormationChanger : MonoBehaviour
                     {
                         if (results[i].gameObject.tag == "PersoSlot")
                         {
-                            NewPanel = results[i].gameObject.transform.parent.gameObject;
-                            newImage = results[i].gameObject;
                             isInOtherImage = true;
+                            GameObject NewPanel = results[i].gameObject.transform.parent.gameObject;
+                            CharacterUi2 = NewPanel.GetComponentInParent<CharacterUIStatsUpdater>();
+                            Debug.Log(CharacterUi2);
                         }
                     }
                 }
+                draging = false;
                 if (!isInOtherImage)
                 {
-                    draging = false;
                     ItemReturn();
                     image.transform.SetParent(LastPanel.transform);
                     image = null;
                 }
                 else if (results.Count > 1 && isInOtherImage)
                 {
-                    lastUiCharacter = LastPanel.transform.parent.gameObject;
-                    nextUiCharacter = NewPanel.transform.parent.gameObject;
-                    ChangeImage(lastUiCharacter, nextUiCharacter);
+                    ChangeImage();
                     ItemReturn();
-                    draging = false;
                     image.transform.SetParent(LastPanel.transform);
                     image = null;
                 }
@@ -94,19 +91,21 @@ public class FormationChanger : MonoBehaviour
     // methode that return personnages to his old slot
     private void ItemReturn()
     {
-        image.transform.position = new Vector3(LastPanel.transform.position.x - 80, LastPanel.transform.position.y, LastPanel.transform.position.z);
-
+        if (image.tag == "PersoSlot")
+        {
+            image.transform.position = new Vector3(LastPanel.transform.position.x - 80, LastPanel.transform.position.y, LastPanel.transform.position.z);
+        }
     }
 
     // methode that switch personnage with an other
-    private void ChangeImage(GameObject lastUiCharacter, GameObject nextUiCharacter)
+    private void ChangeImage()
     {
-        GameObject lastUiCharacterParent = lastUiCharacter.transform.parent.gameObject;
-        lastUiCharacter.transform.SetParent(nextUiCharacter.transform.parent.gameObject.transform);
-        nextUiCharacter.transform.SetParent(lastUiCharacterParent.transform);
-        lastUiCharacter.transform.position = lastUiCharacter.transform.parent.gameObject.transform.position;
-        nextUiCharacter.transform.position = nextUiCharacter.transform.parent.gameObject.transform.position;
-        newImage.transform.position = new Vector3(NewPanel.transform.position.x - 80, NewPanel.transform.position.y, NewPanel.transform.position.z);
+        Character character1 = CharacterUi1.currentCharacter;
+        Character character2 = CharacterUi2.currentCharacter;
+        CharacterUi1.ResetCharacter();
+        CharacterUi2.ResetCharacter();
+        CharacterUi1.SetNewCharacter(character2);
+        CharacterUi2.SetNewCharacter(character1);
         Debug.Log("change");
     }
 }

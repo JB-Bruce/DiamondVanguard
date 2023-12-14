@@ -59,6 +59,16 @@ public class Character : MonoBehaviour
         armors.Add(LegingSlot);
     }
 
+    public void clampHP()
+    {
+        pv = Mathf.Clamp(pv, 0, pvMax);
+    }
+
+    public void clampEnergy()
+    {
+        energy = Mathf.Clamp(energy, 0, energyMax);
+    }
+
     public void TakeDamage(float amount)
     {
         float newAmount = amount - def;

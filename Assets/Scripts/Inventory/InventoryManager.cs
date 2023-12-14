@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
+using static UnityEditor.Progress;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -67,7 +69,7 @@ public class InventoryManager : MonoBehaviour
                     if ((result.tag == "Equipement" && result.GetComponent<EquipementSlot>().item == result.GetComponent<EquipementSlot>().startingItem && result.GetComponent<EquipementSlot>().TryAddEquipement(item))
                         || (result.tag == "Slots" && result.GetComponent<ItemContainer>().item == null))
                     {
-                        SetItemInSlot(result);
+                        SetItemInSlot(result, item);
                         if(result.tag == "Equipement" && result.GetComponent<EquipementSlot>().item is Weapons)
                         {
                             result.GetComponent<EquipementSlot>().UpdateWeapons((Weapons)item);
@@ -82,6 +84,11 @@ public class InventoryManager : MonoBehaviour
                         }
                         SetItemInLastContainer(LastItemContainer);
                         item = null;
+                    }
+
+                    else if ((result.tag == "Equipement" || result.tag == "Slots") && result.GetComponent<ItemContainer>().item != null)
+                    {
+                        SwitchItemSlots(result, LastItemContainer.gameObject);
                     }
 
                     // if in trash
@@ -132,10 +139,43 @@ public class InventoryManager : MonoBehaviour
     }
 
     // methode to set item in a slot
-    private void SetItemInSlot(GameObject result)
+    private void SetItemInSlot(GameObject result, Item _item)
     {
-        result.GetComponent<ItemContainer>().addItem(item);
+        result.GetComponent<ItemContainer>().addItem(_item);
         result.GetComponent<ItemContainer>().imageUpdate();
+    }
+
+    private void SwitchItemSlots(GameObject item1, GameObject item2)
+    {
+        if (item1.tag == "Equipement" && item2.tag != "Equipement" && item1.GetComponent<EquipementSlot>().TryAddEquipement(item2.GetComponent<ItemContainer>().item))
+        {
+            ItemReturn();
+            Item item = item1.GetComponent<EquipementSlot>().item;
+            item1.GetComponent<EquipementSlot>().SubStats();
+            SetItemInSlot(item1, item2.GetComponent<ItemContainer>().item);
+            SetItemInSlot(item2, item);
+            item1.GetComponent<EquipementSlot>().AddStats();
+        }
+        else if (item1.tag != "Equipement" && item2.tag == "Equipement" && item2.GetComponent<EquipementSlot>().TryAddEquipement(item1.GetComponent<ItemContainer>().item))
+        {
+            ItemReturn();
+            Item item = item1.GetComponent<ItemContainer>().item;
+            item2.GetComponent<EquipementSlot>().SubStats();
+            SetItemInSlot(item1, item2.GetComponent<ItemContainer>().item);
+            SetItemInSlot(item2, item);
+            item2.GetComponent<EquipementSlot>().AddStats();
+        }
+        else if (item1.tag != "Equipement" && item2.tag != "Equipement")
+        {
+            ItemReturn();
+            Item item = item1.GetComponent<ItemContainer>().item;
+            SetItemInSlot(item1, item2.GetComponent<ItemContainer>().item);
+            SetItemInSlot(item2, item);
+        }
+        else
+        {
+            ItemReturn();
+        }
     }
 
     // methode taht reset item in his last container

@@ -90,12 +90,14 @@ public class EquipementSlot : ItemContainer
         {
             Implants itemstats = (Implants)item;
             character.pvMax += itemstats.HP;
+            character.clampHP();
             character.dgtCritMult += itemstats.critDamage;
             character.tauxCrit += itemstats.critChance;
             character.cacDmgMult += itemstats.cacDamage;
             character.distDmgMult += itemstats.distanceDamage;
             character.healMult += itemstats.heal;
             character.energyMax += itemstats.energy;
+            character.clampEnergy();
             character.def += itemstats.def;
         }
         else if (type == containerType.Helmet || type == containerType.Leging || type == containerType.Chestplate)
@@ -113,12 +115,14 @@ public class EquipementSlot : ItemContainer
         {
             Implants itemstats = (Implants)item;
             character.pvMax -= itemstats.HP;
+            character.clampHP();
             character.dgtCritMult -= itemstats.critDamage;
             character.tauxCrit -= itemstats.critChance;
             character.cacDmgMult -= itemstats.cacDamage;
-            character.distDmgMult += itemstats.distanceDamage;
+            character.distDmgMult -= itemstats.distanceDamage;
             character.healMult -= itemstats.heal;
             character.energyMax -= itemstats.energy;
+            character.clampEnergy();
             character.def -= itemstats.def;
         }
         else if (type == containerType.Helmet || type == containerType.Leging || type == containerType.Chestplate)

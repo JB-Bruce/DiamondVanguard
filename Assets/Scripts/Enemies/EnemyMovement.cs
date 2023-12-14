@@ -125,30 +125,36 @@ public class EnemyMovement : MonoBehaviour
         float rangeDistanceCell = rangeDistance * grid.cellSpacement;
         return rangeDistanceCell;
     }
-    private void GetCloseCells()
+    private Cell GetCloseCells()
     {
-        closeCells.Add(GetCloseCell(1, 0));
-        closeCells.Add(GetCloseCell(-1, 0));
-        closeCells.Add(GetCloseCell(0, 1));
-        closeCells.Add(GetCloseCell(0, -1));
-        for (int i = 0; i < closeCells.Count; i++)
-        {
-            if (closeCells[i] == null)
-            {
-                closeCells.Remove(closeCells[i]);
-            }
-        }
+        var frontCell = GetCloseCell(1, 0);
+        var backCell = GetCloseCell(-1, 0);
+        var rightCell = GetCloseCell(0, 1);
+        var leftCell = GetCloseCell(0, -1);
 
-        int randomIndex = Random.Range(0, closeCells.Count);
-        targetCell = closeCells[randomIndex];
-        closeCells.Clear();
+        List<Cell> nearCells = new List<Cell>();
+
+        if(frontCell != null)
+            nearCells.Add(frontCell);
+        if(backCell != null)
+            nearCells.Add(backCell);
+        if(rightCell != null)
+            nearCells.Add(rightCell);
+        if(leftCell != null)
+            nearCells.Add(leftCell);
+
+        if(nearCells.Count == 0)
+            return null;
+
+        int randomIndex = Random.Range(0, nearCells.Count);
+        return nearCells[randomIndex];
     }
     private Cell GetCloseCell(int x, int y)
     {
         Cell cell = grid.GetCell(cellOn.gridPos.Item1 + x, cellOn.gridPos.Item2 + y);
 
         //This part of the code is made by the lead dev, based on my previous works
-        if (cell != null && cell.entity == null && !WallDetection(cellOn.pos, cell.pos))
+        if (cell != null && !cell.HasEntity() && !WallDetection(cellOn.pos, cell.pos))
         {
             return cell;
         }
@@ -174,9 +180,13 @@ public class EnemyMovement : MonoBehaviour
         }
         else if(!hasTarget)
         {
-            hasTarget = true;
-            GetCloseCells();
+            if (!GetRandomTarget())
+                return;
         }
+
+        if (targetCell != null && targetCell.HasEntity())
+            if (!GetRandomTarget())
+                return;
 
         Vector3Int forward = Vector3Int.RoundToInt(transform.forward);
         Cell forwardCell = grid.GetCell(cellOn.gridPos.Item1 + forward.x, cellOn.gridPos.Item2 + forward.z);
@@ -191,6 +201,19 @@ public class EnemyMovement : MonoBehaviour
         {
             RotateCell();
         }
+    }
+
+    private bool GetRandomTarget()
+    {
+        hasTarget = true;
+        targetCell = GetCloseCells();
+        if (targetCell == null)
+        {
+            hasTarget = false;
+            Invoke("GoToCell", 1f);
+            return false;
+        }
+        return true;
     }
 
     private void AttackPlayer()

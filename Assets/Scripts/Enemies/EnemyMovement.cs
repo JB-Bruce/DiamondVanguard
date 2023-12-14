@@ -25,7 +25,7 @@ public class EnemyMovement : MonoBehaviour
     private Cell targetCell;
     private int angleIndex;
 
-    
+    [SerializeField] Animator animator;
 
     CharactersControler cc;
 
@@ -79,6 +79,7 @@ public class EnemyMovement : MonoBehaviour
                 stopTimer += Time.deltaTime;
                 if(stopTimer >= moveDelay || !hasTarget)
                 {
+                    animator.SetBool("isWalking", false);
                     moveDelay = Random.Range(minMoveDelay, maxMoveDelay);
                     stopTimer = 0f;
                     isMoving = false;
@@ -116,7 +117,8 @@ public class EnemyMovement : MonoBehaviour
         pv -= amount;
         if (pv <= 0)
         {
-            Destroy(gameObject);
+            animator.SetBool("isWalking", true);
+            Destroy(gameObject,2);
         }
     }
 
@@ -359,5 +361,6 @@ public class EnemyMovement : MonoBehaviour
         cell.SetEntity(entity);
         cellOn = cell;
         isMoving = true;
+        animator.SetBool("isWalking", true);
     }
 }

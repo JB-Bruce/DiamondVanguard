@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.FilePathAttribute;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -44,7 +45,10 @@ public class PlayerMovement : MonoBehaviour
     private float life;
 
     public bool isOnPause;
+
     Vector2 movement;
+
+    float rotation;
 
     private void Awake()
     {
@@ -74,6 +78,8 @@ public class PlayerMovement : MonoBehaviour
         isRotating = false;
 
         isOnPause = false;
+
+
     }
 
 
@@ -98,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
             if (timer == 1f)
             {
                 isRotating = false;
+                TryRotate();
             }
         }
     }
@@ -115,12 +122,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void TryMove()
     {
+        
         Vector3Int right = Vector3Int.RoundToInt(transform.right);
         Vector3Int forward = Vector3Int.RoundToInt(transform.forward);
 
         if (movement.x == 1)
         {
             MoveTo(right.x, right.z);
+            
         }
         else if (movement.x == -1)
         {
@@ -168,20 +177,28 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnRotate(InputAction.CallbackContext ctx)
     {
+        rotation = ctx.ReadValue<float>();
+        
         if (isInAction)
         {
             return;
         }
-        float rotation = ctx.ReadValue<float>();
+        TryRotate();
+    }
+
+    private void TryRotate()
+    {
         lastRotation = transform.rotation;
         if (rotation > 0f)
         {
-            targetRotation = transform.rotation * Quaternion.Euler(0,90,0);
-        } else if (rotation < 0f)
+            targetRotation = transform.rotation * Quaternion.Euler(0, 90, 0);
+            isRotating = true;
+        }
+        else if (rotation < 0f)
         {
             targetRotation = transform.rotation * Quaternion.Euler(0, -90, 0);
+            isRotating = true;
         }
-        isRotating = true;
         timer = 0f;
     }
 

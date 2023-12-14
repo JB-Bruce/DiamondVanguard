@@ -795,6 +795,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c1b69a65-19cc-4163-9033-f6310dc9bccf
     m_ActionName: GroupMovement/Rotate[/Keyboard/a,/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bc24bafe-7a7f-4332-9482-3b20f199ea4c
+    m_ActionName: GroupMovement/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: GroupMovement

@@ -14,6 +14,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] GraphicRaycaster m_Raycaster;
     private bool draging = false;
     [SerializeField] private GameObject DragNDrop;
+    [SerializeField] private GameObject StatsDisplayer;
 
     private void Update()
     {
@@ -33,6 +34,15 @@ public class InventoryManager : MonoBehaviour
             if (results.Count > 0)
             {
                 GameObject result = results[0].gameObject;
+
+                if ((result.tag == "Slots" && result.GetComponent<ItemContainer>().item != null) || (result.tag == "Equipement" && result.GetComponent<EquipementSlot>().item != result.GetComponent<EquipementSlot>().startingItem))
+                {
+                    StatsDisplayer.gameObject.SetActive(true);
+                }
+                else
+                {
+                    StatsDisplayer.gameObject.SetActive(false);
+                }
 
                 // drag and drop
                 if (draging)
@@ -115,6 +125,7 @@ public class InventoryManager : MonoBehaviour
                     else
                     {
                         ItemReturn();
+                        StatsDisplayer.gameObject.SetActive(false);
                     }
                 }
             }

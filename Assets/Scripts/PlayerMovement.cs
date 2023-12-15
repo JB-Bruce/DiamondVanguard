@@ -45,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isOnPause;
 
+
     private void Awake()
     {
         instance = this;

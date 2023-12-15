@@ -43,6 +43,7 @@ public class EnemyMovement : MonoBehaviour
     private Entity entity;
     private Quaternion lastRotation, targetRotation;
     private float timer;
+    private bool dead;
 
     [SerializeField] LayerMask enemyLayer;
     void Start()
@@ -68,46 +69,49 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        if (isMoving)
+        if (!dead)
         {
-            //Go from a cell to another
-            timer += Time.deltaTime * moveSpeed;
-            timer = Mathf.Clamp01(timer);
-            transform.position = Vector3.Lerp(lastPosition, targetPosition, timer);
-            if (timer == 1f)
+            if (isMoving)
             {
-                stopTimer += Time.deltaTime;
-                if(stopTimer >= moveDelay || !hasTarget)
+                //Go from a cell to another
+                timer += Time.deltaTime * moveSpeed;
+                timer = Mathf.Clamp01(timer);
+                transform.position = Vector3.Lerp(lastPosition, targetPosition, timer);
+                if (timer == 1f)
                 {
                     animator.SetBool("isWalking", false);
-                    moveDelay = Random.Range(minMoveDelay, maxMoveDelay);
-                    stopTimer = 0f;
-                    isMoving = false;
-                    hasTarget = false;
+                    stopTimer += Time.deltaTime;
+                    if (stopTimer >= moveDelay || !hasTarget)
+                    {
+                        moveDelay = Random.Range(minMoveDelay, maxMoveDelay);
+                        stopTimer = 0f;
+                        isMoving = false;
+                        hasTarget = false;
+                        GoToCell();
+                    }
+                }
+            }
+            else if (isRotating)
+            {
+                //rotating
+                timer += Time.deltaTime * rotationSpeed;
+                timer = Mathf.Clamp01(timer);
+                //transform.rotation = Quaternion.Lerp(lastRotation, targetRotation, timer);
+                if (timer == 1f)
+                {
+                    isRotating = false;
                     GoToCell();
                 }
             }
-        }
-        else if (isRotating)
-        {
-            //rotating
-            timer += Time.deltaTime * rotationSpeed;
-            timer = Mathf.Clamp01(timer);
-            transform.rotation = Quaternion.Lerp(lastRotation, targetRotation, timer);
-            if (timer == 1f)
+            else if (isAttacking)
             {
-                isRotating = false;
-                GoToCell();
-            }
-        }
-        else if (isAttacking)
-        {
-            timer += Time.deltaTime * attackSpeed;
-            timer = Mathf.Clamp01(timer);
-            if (timer == 1f)
-            {
-                isAttacking = false;
-                GoToCell();
+                timer += Time.deltaTime * attackSpeed;
+                timer = Mathf.Clamp01(timer);
+                if (timer == 1f)
+                {
+                    isAttacking = false;
+                    GoToCell();
+                }
             }
         }
     }
@@ -117,8 +121,9 @@ public class EnemyMovement : MonoBehaviour
         pv -= amount;
         if (pv <= 0)
         {
-            animator.SetBool("isWalking", true);
+            animator.SetBool("isDead", true);
             Destroy(gameObject,2);
+            dead = true;
         }
     }
 
@@ -222,6 +227,7 @@ public class EnemyMovement : MonoBehaviour
     {
         isAttacking = true;
         cc.TakeDamage(damages);
+        animator.SetTrigger("attack");
     }
 
     private Cell NextCellToGoToTarget(Cell cell)
@@ -327,17 +333,29 @@ public class EnemyMovement : MonoBehaviour
 
         if (target.eulerAngles.y > 180)
         {
-            targetRotation = transform.rotation * Quaternion.Euler(0, -90, 0);
+            animator.SetTrigger("isTurningL");
+            Invoke("AnimationRotateWaitL", 1);
         }
         else if (target.eulerAngles.y < 180)
         {
-            targetRotation = transform.rotation * Quaternion.Euler(0, 90, 0);
+            animator.SetTrigger("isTurningR");
+            Invoke("AnimationRotateWaitR", 1);
         }
         else
         {
             targetRotation = transform.rotation * Quaternion.Euler(0, 90, 0);
         }
         isRotating = true;
+    }
+
+    private void AnimationRotateWaitR()
+    {
+        transform.rotation = transform.rotation * Quaternion.Euler(0, 90, 0);
+    }
+
+    private void AnimationRotateWaitL()
+    {
+        transform.rotation = transform.rotation * Quaternion.Euler(0, -90, 0);
     }
 
     public bool WallDetection(Vector3 startPos, Vector3 endPos)

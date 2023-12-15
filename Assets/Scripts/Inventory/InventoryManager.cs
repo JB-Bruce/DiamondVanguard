@@ -38,6 +38,7 @@ public class InventoryManager : MonoBehaviour
                 if ((result.tag == "Slots" && result.GetComponent<ItemContainer>().item != null) || (result.tag == "Equipement" && result.GetComponent<EquipementSlot>().item != result.GetComponent<EquipementSlot>().startingItem))
                 {
                     StatsDisplayer.gameObject.SetActive(true);
+                    StatsDisplayer.GetComponent<StatsDisplayer>().UpdateTexts(item);
                 }
                 else
                 {

@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class StatsDisplayer : MonoBehaviour
@@ -11,6 +10,8 @@ public class StatsDisplayer : MonoBehaviour
     private Vector3 mousePos;
     [SerializeField] EventSystem eventSystem;
     [SerializeField] GraphicRaycaster m_Raycaster;
+    [SerializeField] TextMeshProUGUI Header;
+    [SerializeField] TextMeshProUGUI Content;
 
     private void Start()
     {
@@ -19,12 +20,17 @@ public class StatsDisplayer : MonoBehaviour
 
     void Update()
     {
-        updatePositiion();
+        updatePosition();
     }
 
-    private void updatePositiion()
+    private void updatePosition()
     {
         mousePos = Input.mousePosition;
         transform.position = mousePos;
+    }
+
+    public void UpdateTexts(Item item)
+    {
+        Header.text = item.name;
     }
 }

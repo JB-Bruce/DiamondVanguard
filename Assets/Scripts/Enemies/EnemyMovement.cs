@@ -25,7 +25,7 @@ public class EnemyMovement : MonoBehaviour
     private Cell targetCell;
     private int angleIndex;
 
-    
+    [SerializeField] Animator animator;
 
     CharactersControler cc;
 
@@ -43,8 +43,12 @@ public class EnemyMovement : MonoBehaviour
     private Entity entity;
     private Quaternion lastRotation, targetRotation;
     private float timer;
+    private bool dead;
 
     [SerializeField] LayerMask enemyLayer;
+
+    [SerializeField] AnimationClip rotationR;
+    [SerializeField] AnimationClip rotationL;
     void Start()
     {
         grid = GameGrid.instance;
@@ -68,45 +72,49 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        if (isMoving)
+        if (!dead)
         {
-            //Go from a cell to another
-            timer += Time.deltaTime * moveSpeed;
-            timer = Mathf.Clamp01(timer);
-            transform.position = Vector3.Lerp(lastPosition, targetPosition, timer);
-            if (timer == 1f)
+            if (isMoving)
             {
-                stopTimer += Time.deltaTime;
-                if(stopTimer >= moveDelay || !hasTarget)
+                //Go from a cell to another
+                timer += Time.deltaTime * moveSpeed;
+                timer = Mathf.Clamp01(timer);
+                transform.position = Vector3.Lerp(lastPosition, targetPosition, timer);
+                if (timer == 1f)
                 {
-                    moveDelay = Random.Range(minMoveDelay, maxMoveDelay);
-                    stopTimer = 0f;
-                    isMoving = false;
-                    hasTarget = false;
+                    animator.SetBool("isWalking", false);
+                    stopTimer += Time.deltaTime;
+                    if (stopTimer >= moveDelay || !hasTarget)
+                    {
+                        moveDelay = Random.Range(minMoveDelay, maxMoveDelay);
+                        stopTimer = 0f;
+                        isMoving = false;
+                        hasTarget = false;
+                        GoToCell();
+                    }
+                }
+            }
+            else if (isRotating)
+            {
+                //rotating
+                timer += Time.deltaTime * rotationSpeed;
+                timer = Mathf.Clamp01(timer);
+                //transform.rotation = Quaternion.Lerp(lastRotation, targetRotation, timer);
+                if (timer == 1f)
+                {
+                    isRotating = false;
                     GoToCell();
                 }
             }
-        }
-        else if (isRotating)
-        {
-            //rotating
-            timer += Time.deltaTime * rotationSpeed;
-            timer = Mathf.Clamp01(timer);
-            transform.rotation = Quaternion.Lerp(lastRotation, targetRotation, timer);
-            if (timer == 1f)
+            else if (isAttacking)
             {
-                isRotating = false;
-                GoToCell();
-            }
-        }
-        else if (isAttacking)
-        {
-            timer += Time.deltaTime * attackSpeed;
-            timer = Mathf.Clamp01(timer);
-            if (timer == 1f)
-            {
-                isAttacking = false;
-                GoToCell();
+                timer += Time.deltaTime * attackSpeed;
+                timer = Mathf.Clamp01(timer);
+                if (timer == 1f)
+                {
+                    isAttacking = false;
+                    GoToCell();
+                }
             }
         }
     }
@@ -116,7 +124,9 @@ public class EnemyMovement : MonoBehaviour
         pv -= amount;
         if (pv <= 0)
         {
-            Destroy(gameObject);
+            animator.SetBool("isDead", true);
+            Destroy(gameObject,2);
+            dead = true;
         }
     }
 
@@ -192,6 +202,7 @@ public class EnemyMovement : MonoBehaviour
         Cell forwardCell = grid.GetCell(cellOn.gridPos.Item1 + forward.x, cellOn.gridPos.Item2 + forward.z);
         if (forwardCell == targetCell)
         {
+            //attack or moves on the cell forward
             if (targetCell == player.cellOn)
                 AttackPlayer();
             else
@@ -220,6 +231,7 @@ public class EnemyMovement : MonoBehaviour
     {
         isAttacking = true;
         cc.TakeDamage(damages);
+        animator.SetTrigger("attack");
     }
 
     private Cell NextCellToGoToTarget(Cell cell)
@@ -323,19 +335,30 @@ public class EnemyMovement : MonoBehaviour
         lastRotation = transform.rotation;
         Quaternion target = Quaternion.FromToRotation(transform.forward, (targetCell.pos - transform.position).normalized);
 
+        //turn left
         if (target.eulerAngles.y > 180)
         {
-            targetRotation = transform.rotation * Quaternion.Euler(0, -90, 0);
+            animator.SetBool("isTurningL", true);
+            Invoke("AnimationRotateWaitL", rotationL.length);
         }
-        else if (target.eulerAngles.y < 180)
+        //turn right
+        else if (target.eulerAngles.y <= 180)
         {
-            targetRotation = transform.rotation * Quaternion.Euler(0, 90, 0);
-        }
-        else
-        {
-            targetRotation = transform.rotation * Quaternion.Euler(0, 90, 0);
+            animator.SetBool("isTurningR", true);
+            Invoke("AnimationRotateWaitR", rotationR.length);
         }
         isRotating = true;
+    }
+    private void AnimationRotateWaitR()
+    {
+        transform.rotation = transform.rotation * Quaternion.Euler(0, 90, 0);
+        animator.SetBool("isTurningR", false);
+    }
+
+    private void AnimationRotateWaitL()
+    {
+        transform.rotation = transform.rotation * Quaternion.Euler(0, -90, 0);
+        animator.SetBool("isTurningL", false);
     }
 
     public bool WallDetection(Vector3 startPos, Vector3 endPos)
@@ -359,5 +382,6 @@ public class EnemyMovement : MonoBehaviour
         cell.SetEntity(entity);
         cellOn = cell;
         isMoving = true;
+        animator.SetBool("isWalking", true);
     }
 }

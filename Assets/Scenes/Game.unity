@@ -1593,6 +1593,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c1b69a65-19cc-4163-9033-f6310dc9bccf
     m_ActionName: GroupMovement/Rotate[/Keyboard/a,/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bc24bafe-7a7f-4332-9482-3b20f199ea4c
+    m_ActionName: GroupMovement/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: GroupMovement
@@ -1662,8 +1666,11 @@ MonoBehaviour:
   startInTheMidle: 0
   posX: 6
   posY: 1
+  pauseCanvas: {fileID: 0}
+  behaviours: []
   attack: {fileID: 322446442}
   grid: {fileID: 224382251}
+  isOnPause: 0
 --- !u!81 &322446446
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1895,6 +1902,8 @@ MonoBehaviour:
   leftWeapons: {fileID: 1842156992}
   rightAttack: {fileID: 2126311921}
   leftAttack: {fileID: 1543272440}
+  rightWeaponCoolDown: {fileID: 0}
+  leftWeaponCoolDown: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2420,7 +2429,7 @@ PrefabInstance:
     - target: {fileID: 5012731204193716255, guid: 846791f650afd0b4a8eac20f75d71f17,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.710001
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 5012731204193716255, guid: 846791f650afd0b4a8eac20f75d71f17,
         type: 3}
@@ -3580,6 +3589,7 @@ MonoBehaviour:
   eventSystem: {fileID: 0}
   m_Raycaster: {fileID: 944718638}
   DragNDrop: {fileID: 200421122}
+  StatsDisplayer: {fileID: 0}
 --- !u!4 &725663257
 Transform:
   m_ObjectHideFlags: 0
@@ -3781,6 +3791,8 @@ MonoBehaviour:
   leftWeapons: {fileID: 543058926}
   rightAttack: {fileID: 167485435}
   leftAttack: {fileID: 1626057529}
+  rightWeaponCoolDown: {fileID: 0}
+  leftWeaponCoolDown: {fileID: 0}
 --- !u!1 &789917368
 GameObject:
   m_ObjectHideFlags: 0
@@ -4392,6 +4404,8 @@ MonoBehaviour:
   leftWeapons: {fileID: 1721993529}
   rightAttack: {fileID: 718589411}
   leftAttack: {fileID: 300548684}
+  rightWeaponCoolDown: {fileID: 0}
+  leftWeaponCoolDown: {fileID: 0}
 --- !u!1 &943482508
 GameObject:
   m_ObjectHideFlags: 0
@@ -8712,6 +8726,8 @@ MonoBehaviour:
   leftWeapons: {fileID: 1407441806}
   rightAttack: {fileID: 1148457427}
   leftAttack: {fileID: 962689782}
+  rightWeaponCoolDown: {fileID: 0}
+  leftWeaponCoolDown: {fileID: 0}
 --- !u!1001 &2124952920
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10092,6 +10108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da60444541dd8d6499bb2bc0774f45ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charactereType: 0
   characterImage: {fileID: 21300000, guid: 03ec41416dcb6274fb668e2f36a7e7aa, type: 3}
   def: 0
   cacDmgMult: 0.5
@@ -10113,6 +10130,12 @@ MonoBehaviour:
   dead: 0
   rightWeapon: {fileID: 0}
   leftWeapon: {fileID: 0}
+  canRightWeaponAttack: 1
+  canLeftWeaponAttack: 1
+  coolDownRight: 0
+  coolDownLeft: 0
+  currentCDleft: 0
+  currentCDright: 0
 --- !u!114 &2160601517372994533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10693,6 +10716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da60444541dd8d6499bb2bc0774f45ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charactereType: 0
   characterImage: {fileID: 21300000, guid: 4da81211c6eb1054f8721ca61bbbacbc, type: 3}
   def: 0
   cacDmgMult: 1
@@ -10714,6 +10738,12 @@ MonoBehaviour:
   dead: 0
   rightWeapon: {fileID: 0}
   leftWeapon: {fileID: 0}
+  canRightWeaponAttack: 1
+  canLeftWeaponAttack: 1
+  coolDownRight: 0
+  coolDownLeft: 0
+  currentCDleft: 0
+  currentCDright: 0
 --- !u!224 &3140298584344162504
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11089,6 +11119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da60444541dd8d6499bb2bc0774f45ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charactereType: 0
   characterImage: {fileID: 21300000, guid: ee293f6a5ce4c09428a497cee77c43d7, type: 3}
   def: 0
   cacDmgMult: 1.5
@@ -11110,6 +11141,12 @@ MonoBehaviour:
   dead: 0
   rightWeapon: {fileID: 0}
   leftWeapon: {fileID: 0}
+  canRightWeaponAttack: 1
+  canLeftWeaponAttack: 1
+  coolDownRight: 0
+  coolDownLeft: 0
+  currentCDleft: 0
+  currentCDright: 0
 --- !u!223 &4081576795563042164
 Canvas:
   m_ObjectHideFlags: 0
@@ -11175,6 +11212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da60444541dd8d6499bb2bc0774f45ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charactereType: 0
   characterImage: {fileID: 21300000, guid: 0cfd4e5cc08f0324e921781f5caed54f, type: 3}
   def: 0
   cacDmgMult: 0.75
@@ -11196,6 +11234,12 @@ MonoBehaviour:
   dead: 0
   rightWeapon: {fileID: 0}
   leftWeapon: {fileID: 0}
+  canRightWeaponAttack: 1
+  canLeftWeaponAttack: 1
+  coolDownRight: 0
+  coolDownLeft: 0
+  currentCDleft: 0
+  currentCDright: 0
 --- !u!114 &4220716894590868965
 MonoBehaviour:
   m_ObjectHideFlags: 0

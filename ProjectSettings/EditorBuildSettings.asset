@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test_Lore.unity
     guid: 292a4f8ea9deb564483949022e4189bb
+  - enabled: 1
+    path: Assets/Scenes/Test_EndLore.unity
+    guid: febb32a686c17b643a21c9f14e3a8f6e
+  - enabled: 1
+    path: Assets/Scenes/Test_GameOver.unity
+    guid: c14b6dc56905a364e9b776683d19bb15
+  - enabled: 1
+    path: Assets/Scenes/Test_TimesUp.unity
+    guid: 1b64bdcce4f99d24c942e579b76ffd75
   m_configObjects: {}

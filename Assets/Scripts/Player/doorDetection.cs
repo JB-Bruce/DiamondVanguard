@@ -19,7 +19,7 @@ public class doorDetection : MonoBehaviour
             {
                 if (hit.collider.gameObject.tag == doorTag)
                 {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    SceneManager.LoadScene("Test_EndLore");
                 }
             }
         }

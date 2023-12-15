@@ -1,3 +1,4 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,10 +37,29 @@ public class LootBox : MonoBehaviour
 
 
     [SerializeField] private lootType type;
+    [SerializeField] private Sprite hologram;
+    [SerializeField] private Transform hologramRotation;
+    [SerializeField] private SpriteRenderer hologramRenderer;
+    private PlayerMovement player;
+    public AnimationCurve curve;
+    private float timer;
 
     private void Start()
     {
         item = CreateItem();
+        player = PlayerMovement.instance;
+        hologramRenderer.sprite = hologram;
+    }
+
+    private void Update()
+    {
+        hologramRotation.LookAt(player.transform);
+        hologramRenderer.color = new(1,1,1,curve.Evaluate(timer));
+        timer += Time.deltaTime;
+        if (timer > 12f)
+        {
+            timer = 0;
+        }
     }
 
     public void respawn()

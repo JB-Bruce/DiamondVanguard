@@ -166,7 +166,7 @@ public class CharactersControler : MonoBehaviour
 
     private void GameOver()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("Test_GameOver");
     }
 }
 

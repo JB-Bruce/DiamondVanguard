@@ -46,6 +46,9 @@ public class EnemyMovement : MonoBehaviour
     private bool dead;
 
     [SerializeField] LayerMask enemyLayer;
+
+    [SerializeField] AnimationClip rotationR;
+    [SerializeField] AnimationClip rotationL;
     void Start()
     {
         grid = GameGrid.instance;
@@ -199,6 +202,7 @@ public class EnemyMovement : MonoBehaviour
         Cell forwardCell = grid.GetCell(cellOn.gridPos.Item1 + forward.x, cellOn.gridPos.Item2 + forward.z);
         if (forwardCell == targetCell)
         {
+            //attack or moves on the cell forward
             if (targetCell == player.cellOn)
                 AttackPlayer();
             else
@@ -331,31 +335,30 @@ public class EnemyMovement : MonoBehaviour
         lastRotation = transform.rotation;
         Quaternion target = Quaternion.FromToRotation(transform.forward, (targetCell.pos - transform.position).normalized);
 
+        //turn left
         if (target.eulerAngles.y > 180)
         {
-            animator.SetTrigger("isTurningL");
-            Invoke("AnimationRotateWaitL", 1);
+            animator.SetBool("isTurningL", true);
+            Invoke("AnimationRotateWaitL", rotationL.length);
         }
-        else if (target.eulerAngles.y < 180)
+        //turn right
+        else if (target.eulerAngles.y <= 180)
         {
-            animator.SetTrigger("isTurningR");
-            Invoke("AnimationRotateWaitR", 1);
-        }
-        else
-        {
-            targetRotation = transform.rotation * Quaternion.Euler(0, 90, 0);
+            animator.SetBool("isTurningR", true);
+            Invoke("AnimationRotateWaitR", rotationR.length);
         }
         isRotating = true;
     }
-
     private void AnimationRotateWaitR()
     {
         transform.rotation = transform.rotation * Quaternion.Euler(0, 90, 0);
+        animator.SetBool("isTurningR", false);
     }
 
     private void AnimationRotateWaitL()
     {
         transform.rotation = transform.rotation * Quaternion.Euler(0, -90, 0);
+        animator.SetBool("isTurningL", false);
     }
 
     public bool WallDetection(Vector3 startPos, Vector3 endPos)

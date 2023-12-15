@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
@@ -14,5 +12,4 @@ public class Implants : Item
     public float heal;
     public float energy;
     public float def;
-
 }

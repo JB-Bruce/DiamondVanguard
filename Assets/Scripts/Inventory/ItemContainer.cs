@@ -21,7 +21,7 @@ public class ItemContainer : MonoBehaviour
         }
     }
 
-    public void addItem(Item _item)
+    public virtual void addItem(Item _item, bool changeCharacter = true)
     {
         item = _item;
         itemImage.sprite = _item.icon;

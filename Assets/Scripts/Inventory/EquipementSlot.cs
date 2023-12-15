@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class EquipementSlot : ItemContainer
 {
@@ -45,6 +44,7 @@ public class EquipementSlot : ItemContainer
 
     public void SetHandItem()
     {
+
         item = startingItem;
         itemImage.sprite = startingItem.icon;
         itemImage.gameObject.SetActive(true);
@@ -59,11 +59,11 @@ public class EquipementSlot : ItemContainer
     {
         if(isRightItem)
         {
-            character.rightWeapon = weapon;
+            character.EquipeRightWeapon(weapon);
         }
         else
         {
-            character.leftWeapon = weapon;
+            character.EquipeLeftWeapon(weapon);
         }
     }
 
@@ -86,7 +86,7 @@ public class EquipementSlot : ItemContainer
 
     public void AddStats()
     {
-        if(type == containerType.Implant)
+        if (type == containerType.Implant)
         {
             Implants itemstats = (Implants)item;
             character.pvMax += itemstats.HP;
@@ -106,6 +106,10 @@ public class EquipementSlot : ItemContainer
             character.pvMax += itemstats.HP;
             character.energyMax += itemstats.Energy;
             character.def += itemstats.Defense;
+        }
+        else if (type == containerType.Weapon)
+        {
+            
         }
     }
 
@@ -136,6 +140,31 @@ public class EquipementSlot : ItemContainer
 
     private void Update()
     {
-        UpdateWeaponsImage();
+        //UpdateWeaponsImage();
+    }
+
+    public override void addItem(Item _item, bool changeCharacter = true)
+    {
+        base.addItem(_item);
+
+        if (!changeCharacter)
+        {
+            print("c");
+            return;
+        }
+            
+
+        if (type == containerType.Weapon)
+        {
+            if (!isRightItem)
+            {
+                character.EquipeLeftWeapon((Weapons)_item);
+            }
+            else
+            {
+                print("e");
+                character.EquipeRightWeapon((Weapons)_item);
+            }
+        }
     }
 }

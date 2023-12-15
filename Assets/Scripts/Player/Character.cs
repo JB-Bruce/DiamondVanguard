@@ -56,6 +56,8 @@ public class Character : MonoBehaviour
 
     public UnityEvent cdRightChangedEvent { get; private set; } = new();
 
+    public UnityEvent equipWeaponEvent { get; private set; } = new();
+
     void Start()
     {
         energy = energyMax;
@@ -232,12 +234,16 @@ public class Character : MonoBehaviour
 
     public void EquipeRightWeapon(Weapons weapon)
     {
+        print("a");
         rightWeapon = weapon;
+        equipWeaponEvent.Invoke();
     }
 
     public void EquipeLeftWeapon(Weapons weapon)
     {
+        print("a");
         rightWeapon = weapon;
+        equipWeaponEvent.Invoke();
     }
 
 }

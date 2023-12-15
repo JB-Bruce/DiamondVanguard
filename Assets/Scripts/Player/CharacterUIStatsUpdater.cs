@@ -16,6 +16,8 @@ public class CharacterUIStatsUpdater : MonoBehaviour
     public Button leftAttack;
     public Image rightWeaponCoolDown;
     public Image leftWeaponCoolDown;
+    public EquipementSlot leftSlot;
+    public EquipementSlot rightSlot;
 
     private void Start()
     {
@@ -36,6 +38,7 @@ public class CharacterUIStatsUpdater : MonoBehaviour
         energyGaugeUi();
         currentCharacter.cdRightChangedEvent.AddListener(RightWeaponCoolDownChanged);
         currentCharacter.cdLeftChangedEvent.AddListener(LeftWeaponCoolDownChanged);
+        currentCharacter.equipWeaponEvent.AddListener(WeaponChanged);
     }
 
     public Character ResetCharacter()
@@ -48,6 +51,7 @@ public class CharacterUIStatsUpdater : MonoBehaviour
             currentCharacter.EnergyChangeEvent.RemoveListener(energyGaugeUi);
             currentCharacter.cdRightChangedEvent.RemoveListener(RightWeaponCoolDownChanged);
             currentCharacter.cdLeftChangedEvent.RemoveListener(LeftWeaponCoolDownChanged);
+            currentCharacter.equipWeaponEvent.RemoveListener(WeaponChanged);
             currentCharacter = null;
         }
         
@@ -114,5 +118,12 @@ public class CharacterUIStatsUpdater : MonoBehaviour
             leftAttack.interactable = false;
             leftWeaponCoolDown.transform.localScale = new Vector3(1, currentCharacter.currentCDleft/currentCharacter.coolDownLeft, 1);
         }
+    }
+
+    private void WeaponChanged()
+    {
+        print("b");
+        rightSlot.addItem(currentCharacter.rightWeapon, false);
+        leftSlot.addItem(currentCharacter.leftWeapon, false);
     }
 }

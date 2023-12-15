@@ -845,6 +845,8 @@ MonoBehaviour:
   leftAttack: {fileID: 459083721}
   rightWeaponCoolDown: {fileID: 0}
   leftWeaponCoolDown: {fileID: 0}
+  leftSlot: {fileID: 459083720}
+  rightSlot: {fileID: 1329350366}
 --- !u!1 &76628552
 GameObject:
   m_ObjectHideFlags: 0
@@ -5272,6 +5274,8 @@ MonoBehaviour:
   leftAttack: {fileID: 608356773}
   rightWeaponCoolDown: {fileID: 0}
   leftWeaponCoolDown: {fileID: 0}
+  leftSlot: {fileID: 608356772}
+  rightSlot: {fileID: 981943141}
 --- !u!1 &427435193
 GameObject:
   m_ObjectHideFlags: 0
@@ -6728,6 +6732,8 @@ MonoBehaviour:
   leftAttack: {fileID: 1105473894}
   rightWeaponCoolDown: {fileID: 0}
   leftWeaponCoolDown: {fileID: 0}
+  leftSlot: {fileID: 1105473893}
+  rightSlot: {fileID: 2004764844}
 --- !u!1 &549960985
 GameObject:
   m_ObjectHideFlags: 0
@@ -22794,6 +22800,8 @@ MonoBehaviour:
   leftAttack: {fileID: 1745941186}
   rightWeaponCoolDown: {fileID: 0}
   leftWeaponCoolDown: {fileID: 0}
+  leftSlot: {fileID: 1745941189}
+  rightSlot: {fileID: 840624160}
 --- !u!1 &1905746871
 GameObject:
   m_ObjectHideFlags: 0

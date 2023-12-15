@@ -17,6 +17,7 @@ public class StatsDisplay : MonoBehaviour
     [SerializeField] private TextMeshProUGUI CritChance;
     [SerializeField] private TextMeshProUGUI CritDamage;
 
+
     public void UpdateStats()
     {
         HP.GetComponent<TextMeshProUGUI>().text = character.pv.ToString();

@@ -178,7 +178,14 @@ public class InventoryManager : MonoBehaviour
             SetItemInSlot(item2, item);
             item2.GetComponent<EquipementSlot>().AddStats();
         }
-        else if (item1.tag != "Equipement" && item2.tag != "Equipement")
+        else if ((item1.tag != "Equipement" && item2.tag != "Equipement"))
+        {
+            ItemReturn();
+            Item item = item1.GetComponent<ItemContainer>().item;
+            SetItemInSlot(item1, item2.GetComponent<ItemContainer>().item);
+            SetItemInSlot(item2, item);
+        }
+        else if ((item1.tag == "Equipement" && item2.tag == "Equipement") && item2.GetComponent<EquipementSlot>().TryAddEquipement(item1.GetComponent<ItemContainer>().item))
         {
             ItemReturn();
             Item item = item1.GetComponent<ItemContainer>().item;

@@ -56,7 +56,8 @@ public class Character : MonoBehaviour
 
     public UnityEvent cdRightChangedEvent { get; private set; } = new();
 
-    public UnityEvent equipWeaponEvent { get; private set; } = new();
+    public UnityEvent equipWeaponREvent { get; private set; } = new();
+    public UnityEvent equipWeaponLEvent { get; private set; } = new();
 
     void Start()
     {
@@ -229,21 +230,18 @@ public class Character : MonoBehaviour
                     pAttack.Heal(controler, damages);
                 }
             }
-            print("attacked");
     }
 
     public void EquipeRightWeapon(Weapons weapon)
     {
-        print("a");
         rightWeapon = weapon;
-        equipWeaponEvent.Invoke();
+        equipWeaponREvent.Invoke();
     }
 
     public void EquipeLeftWeapon(Weapons weapon)
     {
-        print("a");
-        rightWeapon = weapon;
-        equipWeaponEvent.Invoke();
+        leftWeapon = weapon;
+        equipWeaponLEvent.Invoke();
     }
 
 }

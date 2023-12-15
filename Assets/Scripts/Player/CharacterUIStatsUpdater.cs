@@ -29,6 +29,10 @@ public class CharacterUIStatsUpdater : MonoBehaviour
         rightAttack.interactable = true;
         leftAttack.interactable = true;
         currentCharacter = character;
+
+        leftSlot.SetUpSlot(currentCharacter, currentCharacter.leftWeapon);
+        rightSlot.SetUpSlot(currentCharacter, currentCharacter.rightWeapon);
+
         imgPersonage.sprite = currentCharacter.characterImage;
         leftWeapons.sprite = currentCharacter.leftWeapon.icon;
         rightWeapons.sprite = currentCharacter.rightWeapon.icon;
@@ -38,7 +42,8 @@ public class CharacterUIStatsUpdater : MonoBehaviour
         energyGaugeUi();
         currentCharacter.cdRightChangedEvent.AddListener(RightWeaponCoolDownChanged);
         currentCharacter.cdLeftChangedEvent.AddListener(LeftWeaponCoolDownChanged);
-        currentCharacter.equipWeaponEvent.AddListener(WeaponChanged);
+        currentCharacter.equipWeaponREvent.AddListener(RWeaponChanged);
+        currentCharacter.equipWeaponLEvent.AddListener(LWeaponChanged);
     }
 
     public Character ResetCharacter()
@@ -47,11 +52,15 @@ public class CharacterUIStatsUpdater : MonoBehaviour
 
         if (currentCharacter != null)
         {
+            leftSlot.ResetSlot();
+            rightSlot.ResetSlot();
+
             currentCharacter.PvChangeEvent.RemoveListener(pvGaugeUi);
             currentCharacter.EnergyChangeEvent.RemoveListener(energyGaugeUi);
             currentCharacter.cdRightChangedEvent.RemoveListener(RightWeaponCoolDownChanged);
             currentCharacter.cdLeftChangedEvent.RemoveListener(LeftWeaponCoolDownChanged);
-            currentCharacter.equipWeaponEvent.RemoveListener(WeaponChanged);
+            currentCharacter.equipWeaponREvent.RemoveListener(RWeaponChanged);
+            currentCharacter.equipWeaponLEvent.RemoveListener(LWeaponChanged);
             currentCharacter = null;
         }
         
@@ -120,10 +129,12 @@ public class CharacterUIStatsUpdater : MonoBehaviour
         }
     }
 
-    private void WeaponChanged()
+    private void RWeaponChanged()
     {
-        print("b");
         rightSlot.addItem(currentCharacter.rightWeapon, false);
+    }
+    private void LWeaponChanged()
+    {
         leftSlot.addItem(currentCharacter.leftWeapon, false);
     }
 }

@@ -48,11 +48,15 @@ public class LootBox : MonoBehaviour
     {
         item = CreateItem();
         player = PlayerMovement.instance;
-        hologramRenderer.sprite = hologram;
+        if(hologram != null)
+            hologramRenderer.sprite = hologram;
     }
 
     private void Update()
     {
+        if (hologram == null)
+            return;
+
         hologramRotation.LookAt(player.transform);
         hologramRenderer.color = new(1,1,1,curve.Evaluate(timer));
         timer += Time.deltaTime;

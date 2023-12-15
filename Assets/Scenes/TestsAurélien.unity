@@ -1037,6 +1037,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 92290b317920b6d4c9cbfe966e718be9, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 2
 --- !u!114 &88600507
 MonoBehaviour:
@@ -1854,6 +1855,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 56e53832dc777d447beed0e9e2c29173, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 1
 --- !u!114 &149538735
 MonoBehaviour:
@@ -2167,6 +2169,7 @@ MonoBehaviour:
   character: {fileID: 1904920007}
   startingItem: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 1
   type: 0
 --- !u!114 &158310106
 MonoBehaviour:
@@ -3068,6 +3071,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 56e53832dc777d447beed0e9e2c29173, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 1
 --- !u!114 &234960131
 MonoBehaviour:
@@ -4293,7 +4297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -5332,6 +5336,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 56e53832dc777d447beed0e9e2c29173, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 1
 --- !u!114 &427435197
 MonoBehaviour:
@@ -5503,6 +5508,7 @@ MonoBehaviour:
   character: {fileID: 1904920007}
   startingItem: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 0
 --- !u!114 &459083721
 MonoBehaviour:
@@ -5654,6 +5660,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
   isRightItem: 1
+  linkListenerWeapon: 1
   type: 0
 --- !u!114 &462671916
 MonoBehaviour:
@@ -6070,6 +6077,7 @@ MonoBehaviour:
   character: {fileID: 1904920007}
   startingItem: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
   isRightItem: 1
+  linkListenerWeapon: 1
   type: 0
 --- !u!114 &483202649
 MonoBehaviour:
@@ -7133,6 +7141,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 56e53832dc777d447beed0e9e2c29173, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 1
 --- !u!114 &574048226
 MonoBehaviour:
@@ -7362,6 +7371,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 383ce4bbdb149dc4bbfd04fa97d2aed1, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 3
 --- !u!114 &581011331
 MonoBehaviour:
@@ -7679,6 +7689,7 @@ MonoBehaviour:
   character: {fileID: 701516954}
   startingItem: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 0
 --- !u!114 &608356773
 MonoBehaviour:
@@ -7830,6 +7841,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 56e53832dc777d447beed0e9e2c29173, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 1
 --- !u!114 &616309337
 MonoBehaviour:
@@ -8215,6 +8227,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 92290b317920b6d4c9cbfe966e718be9, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 2
 --- !u!114 &667725497
 MonoBehaviour:
@@ -8460,6 +8473,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 56e53832dc777d447beed0e9e2c29173, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 1
 --- !u!114 &692965042
 MonoBehaviour:
@@ -8638,7 +8652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charactereType: 0
-  characterImage: {fileID: 21300000, guid: 21f3cef9013c18549b8057e873c1a9c6, type: 3}
+  characterImage: {fileID: 21300000, guid: 4c568998c7c6a2f4289b2ef3fe042e80, type: 3}
   def: 0
   cacDmgMult: 1
   distDmgMult: 0.5
@@ -8657,8 +8671,8 @@ MonoBehaviour:
   pvMax: 100
   energyMax: 100
   dead: 0
-  rightWeapon: {fileID: 0}
-  leftWeapon: {fileID: 0}
+  rightWeapon: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
+  leftWeapon: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
   canRightWeaponAttack: 1
   canLeftWeaponAttack: 1
   coolDownRight: 0
@@ -10077,6 +10091,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 87c86d620720a514daee0fe11e5b31f3, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 4
 --- !u!114 &801400086
 MonoBehaviour:
@@ -10342,6 +10357,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
   isRightItem: 1
+  linkListenerWeapon: 0
   type: 0
 --- !u!1 &870678327
 GameObject:
@@ -12097,6 +12113,7 @@ MonoBehaviour:
   character: {fileID: 701516954}
   startingItem: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
   isRightItem: 1
+  linkListenerWeapon: 0
   type: 0
 --- !u!114 &981943142
 MonoBehaviour:
@@ -12248,6 +12265,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 383ce4bbdb149dc4bbfd04fa97d2aed1, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 3
 --- !u!114 &982173722
 MonoBehaviour:
@@ -12574,7 +12592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charactereType: 0
-  characterImage: {fileID: 21300000, guid: 21f3cef9013c18549b8057e873c1a9c6, type: 3}
+  characterImage: {fileID: 21300000, guid: 0cfd4e5cc08f0324e921781f5caed54f, type: 3}
   def: 0
   cacDmgMult: 0.75
   distDmgMult: 1.5
@@ -12593,8 +12611,8 @@ MonoBehaviour:
   pvMax: 125
   energyMax: 100
   dead: 0
-  rightWeapon: {fileID: 0}
-  leftWeapon: {fileID: 0}
+  rightWeapon: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
+  leftWeapon: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
   canRightWeaponAttack: 1
   canLeftWeaponAttack: 1
   coolDownRight: 0
@@ -13029,6 +13047,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 56e53832dc777d447beed0e9e2c29173, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 1
 --- !u!114 &1100972544
 MonoBehaviour:
@@ -13125,6 +13144,7 @@ MonoBehaviour:
   character: {fileID: 1029483796}
   startingItem: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 0
 --- !u!114 &1105473894
 MonoBehaviour:
@@ -14233,6 +14253,7 @@ MonoBehaviour:
   character: {fileID: 701516954}
   startingItem: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
   isRightItem: 1
+  linkListenerWeapon: 1
   type: 0
 --- !u!114 &1147957777
 MonoBehaviour:
@@ -15121,7 +15142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -15771,6 +15792,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 383ce4bbdb149dc4bbfd04fa97d2aed1, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 3
 --- !u!114 &1309344227
 MonoBehaviour:
@@ -15942,6 +15964,7 @@ MonoBehaviour:
   character: {fileID: 1904920007}
   startingItem: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
   isRightItem: 1
+  linkListenerWeapon: 0
   type: 0
 --- !u!114 &1329350367
 MonoBehaviour:
@@ -16950,6 +16973,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 87c86d620720a514daee0fe11e5b31f3, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 4
 --- !u!114 &1374045135
 MonoBehaviour:
@@ -17175,7 +17199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -17381,7 +17405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -17895,6 +17919,7 @@ MonoBehaviour:
   character: {fileID: 1029483796}
   startingItem: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
   isRightItem: 1
+  linkListenerWeapon: 1
   type: 0
 --- !u!114 &1439195493
 MonoBehaviour:
@@ -18229,6 +18254,7 @@ MonoBehaviour:
   character: {fileID: 1029483796}
   startingItem: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 1
   type: 0
 --- !u!114 &1503838520
 MonoBehaviour:
@@ -18951,6 +18977,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 92290b317920b6d4c9cbfe966e718be9, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 2
 --- !u!114 &1582259246
 MonoBehaviour:
@@ -19254,6 +19281,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 92290b317920b6d4c9cbfe966e718be9, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 2
 --- !u!114 &1611735119
 MonoBehaviour:
@@ -19901,6 +19929,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 56e53832dc777d447beed0e9e2c29173, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 1
 --- !u!114 &1641622489
 MonoBehaviour:
@@ -20914,6 +20943,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 0
 --- !u!1 &1754504964
 GameObject:
@@ -22187,6 +22217,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 87c86d620720a514daee0fe11e5b31f3, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 4
 --- !u!114 &1858517136
 MonoBehaviour:
@@ -22282,6 +22313,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 56e53832dc777d447beed0e9e2c29173, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 1
 --- !u!114 &1860095851
 MonoBehaviour:
@@ -22699,7 +22731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charactereType: 0
-  characterImage: {fileID: 21300000, guid: 21f3cef9013c18549b8057e873c1a9c6, type: 3}
+  characterImage: {fileID: 21300000, guid: 17e74616306c335408d13b6c89926582, type: 3}
   def: 0
   cacDmgMult: 0.5
   distDmgMult: 1
@@ -22718,8 +22750,8 @@ MonoBehaviour:
   pvMax: 75
   energyMax: 100
   dead: 0
-  rightWeapon: {fileID: 0}
-  leftWeapon: {fileID: 0}
+  rightWeapon: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
+  leftWeapon: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
   canRightWeaponAttack: 1
   canLeftWeaponAttack: 1
   coolDownRight: 0
@@ -22832,7 +22864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charactereType: 0
-  characterImage: {fileID: 21300000, guid: 6b2b50e655916464da3e236afde844cd, type: 3}
+  characterImage: {fileID: 21300000, guid: 04ab5defde937784a8d4e591e912deb0, type: 3}
   def: 5
   cacDmgMult: 1.5
   distDmgMult: 0.75
@@ -22851,8 +22883,8 @@ MonoBehaviour:
   pvMax: 200
   energyMax: 100
   dead: 0
-  rightWeapon: {fileID: 0}
-  leftWeapon: {fileID: 0}
+  rightWeapon: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
+  leftWeapon: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
   canRightWeaponAttack: 1
   canLeftWeaponAttack: 1
   coolDownRight: 0
@@ -22930,6 +22962,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 56e53832dc777d447beed0e9e2c29173, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 1
 --- !u!114 &1911801541
 MonoBehaviour:
@@ -23025,6 +23058,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 383ce4bbdb149dc4bbfd04fa97d2aed1, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 3
 --- !u!114 &1916527391
 MonoBehaviour:
@@ -24136,6 +24170,7 @@ MonoBehaviour:
   character: {fileID: 1029483796}
   startingItem: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
   isRightItem: 1
+  linkListenerWeapon: 0
   type: 0
 --- !u!114 &2004764845
 MonoBehaviour:
@@ -24561,6 +24596,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 1
   type: 0
 --- !u!114 &2026892187
 MonoBehaviour:
@@ -24865,6 +24901,7 @@ MonoBehaviour:
   character: {fileID: 701516954}
   startingItem: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 1
   type: 0
 --- !u!114 &2039878718
 MonoBehaviour:
@@ -25573,6 +25610,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 56e53832dc777d447beed0e9e2c29173, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 1
 --- !u!114 &2087885433
 MonoBehaviour:
@@ -25668,6 +25706,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 56e53832dc777d447beed0e9e2c29173, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 1
 --- !u!114 &2089573689
 MonoBehaviour:
@@ -26052,6 +26091,7 @@ MonoBehaviour:
   character: {fileID: 1905746872}
   startingItem: {fileID: 11400000, guid: 87c86d620720a514daee0fe11e5b31f3, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 4
 --- !u!114 &2095310593
 MonoBehaviour:

@@ -56,6 +56,9 @@ public class Character : MonoBehaviour
 
     public UnityEvent cdRightChangedEvent { get; private set; } = new();
 
+    public UnityEvent equipWeaponREvent { get; private set; } = new();
+    public UnityEvent equipWeaponLEvent { get; private set; } = new();
+
     void Start()
     {
         energy = energyMax;
@@ -227,17 +230,18 @@ public class Character : MonoBehaviour
                     pAttack.Heal(controler, damages);
                 }
             }
-            print("attacked");
     }
 
     public void EquipeRightWeapon(Weapons weapon)
     {
         rightWeapon = weapon;
+        equipWeaponREvent.Invoke();
     }
 
     public void EquipeLeftWeapon(Weapons weapon)
     {
-        rightWeapon = weapon;
+        leftWeapon = weapon;
+        equipWeaponLEvent.Invoke();
     }
 
 }

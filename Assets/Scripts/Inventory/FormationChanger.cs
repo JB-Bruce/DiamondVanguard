@@ -50,7 +50,6 @@ public class FormationChanger : MonoBehaviour
                 LastPanel = image.transform.parent.gameObject;
                 image.transform.SetParent(DragNDrop.transform);
                 CharacterUi1 = LastPanel.GetComponentInParent<CharacterUIStatsUpdater>();
-                Debug.Log(CharacterUi1);
             }
 
             if (Input.GetMouseButtonUp(0) && draging)
@@ -65,7 +64,6 @@ public class FormationChanger : MonoBehaviour
                             isInOtherImage = true;
                             GameObject NewPanel = results[i].gameObject.transform.parent.gameObject;
                             CharacterUi2 = NewPanel.GetComponentInParent<CharacterUIStatsUpdater>();
-                            Debug.Log(CharacterUi2);
                         }
                     }
                 }
@@ -106,7 +104,6 @@ public class FormationChanger : MonoBehaviour
         CharacterUi2.ResetCharacter();
         CharacterUi1.SetNewCharacter(character2);
         CharacterUi2.SetNewCharacter(character1);
-        Debug.Log("change");
     }
 }
 

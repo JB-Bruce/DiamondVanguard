@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
+using static UnityEditor.Progress;
 
 public class EquipementSlot : ItemContainer
 {
@@ -16,17 +16,51 @@ public class EquipementSlot : ItemContainer
     }
 
     [SerializeField] Character character;
+    
     [SerializeField] public Item startingItem;
     public bool isRightItem;
+    public bool linkListenerWeapon;
 
     public containerType type;
 
     private void Start()
     {
-        if (item == null)
-        {
+        if (linkListenerWeapon)
+            SetCharacterWeapon();
+        else
             SetHandItem();
+        
+
+        if(linkListenerWeapon)
+        {
+            if(isRightItem)
+            {
+                character.equipWeaponREvent.AddListener(CharacterRWeaponListener);
+            }
+            else
+            {
+                character.equipWeaponLEvent.AddListener(CharacterLWeaponListener);
+            }
         }
+    }
+
+    private void SetCharacterWeapon()
+    {
+        item = isRightItem ? character.rightWeapon : character.leftWeapon;
+        itemImage.sprite = item.icon;
+        itemImage.gameObject.SetActive(true);
+    }
+
+    public void ResetSlot()
+    {
+        item = startingItem;
+    }
+
+    public void SetUpSlot(Character newChar, Weapons wp)
+    {
+        character = newChar;
+        item = wp;
+        itemImage.sprite = item.icon;
     }
 
     public bool TryAddEquipement(Item _item)
@@ -45,6 +79,7 @@ public class EquipementSlot : ItemContainer
 
     public void SetHandItem()
     {
+
         item = startingItem;
         itemImage.sprite = startingItem.icon;
         itemImage.gameObject.SetActive(true);
@@ -59,11 +94,11 @@ public class EquipementSlot : ItemContainer
     {
         if(isRightItem)
         {
-            character.rightWeapon = weapon;
+            character.EquipeRightWeapon(weapon);
         }
         else
         {
-            character.leftWeapon = weapon;
+            character.EquipeLeftWeapon(weapon);
         }
     }
 
@@ -86,7 +121,7 @@ public class EquipementSlot : ItemContainer
 
     public void AddStats()
     {
-        if(type == containerType.Implant)
+        if (type == containerType.Implant)
         {
             Implants itemstats = (Implants)item;
             character.pvMax += itemstats.HP;
@@ -106,6 +141,10 @@ public class EquipementSlot : ItemContainer
             character.pvMax += itemstats.HP;
             character.energyMax += itemstats.Energy;
             character.def += itemstats.Defense;
+        }
+        else if (type == containerType.Weapon)
+        {
+            
         }
     }
 
@@ -136,6 +175,41 @@ public class EquipementSlot : ItemContainer
 
     private void Update()
     {
-        UpdateWeaponsImage();
+        //UpdateWeaponsImage();
+    }
+
+    private void CharacterLWeaponListener()
+    {
+        item = character.leftWeapon;
+        itemImage.sprite = item.icon;
+    }
+
+    private void CharacterRWeaponListener()
+    {
+        item = character.rightWeapon;
+        itemImage.sprite = item.icon;
+    }
+
+    public override void addItem(Item _item, bool changeCharacter = true)
+    {
+        base.addItem(_item);
+
+        if (!changeCharacter)
+        {
+            return;
+        }
+            
+
+        if (type == containerType.Weapon)
+        {
+            if (!isRightItem)
+            {
+                character.EquipeLeftWeapon((Weapons)_item);
+            }
+            else
+            {
+                character.EquipeRightWeapon((Weapons)_item);
+            }
+        }
     }
 }

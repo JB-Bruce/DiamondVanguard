@@ -2,8 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using Unity.VisualScripting;
-using static UnityEditor.Progress;
+
 
 public class InventoryManager : MonoBehaviour
 {
@@ -15,6 +14,7 @@ public class InventoryManager : MonoBehaviour
     private bool draging = false;
     [SerializeField] private GameObject DragNDrop;
     [SerializeField] private GameObject StatsDisplayer;
+
 
     private void Update()
     {
@@ -178,7 +178,14 @@ public class InventoryManager : MonoBehaviour
             SetItemInSlot(item2, item);
             item2.GetComponent<EquipementSlot>().AddStats();
         }
-        else if (item1.tag != "Equipement" && item2.tag != "Equipement")
+        else if ((item1.tag != "Equipement" && item2.tag != "Equipement"))
+        {
+            ItemReturn();
+            Item item = item1.GetComponent<ItemContainer>().item;
+            SetItemInSlot(item1, item2.GetComponent<ItemContainer>().item);
+            SetItemInSlot(item2, item);
+        }
+        else if ((item1.tag == "Equipement" && item2.tag == "Equipement") && item2.GetComponent<EquipementSlot>().TryAddEquipement(item1.GetComponent<ItemContainer>().item))
         {
             ItemReturn();
             Item item = item1.GetComponent<ItemContainer>().item;

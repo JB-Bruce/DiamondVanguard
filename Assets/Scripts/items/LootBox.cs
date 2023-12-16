@@ -46,6 +46,8 @@ public class LootBox : MonoBehaviour
 
     private void Start()
     {
+        timer = Random.Range(0f, 12f);
+
         item = CreateItem();
         player = PlayerMovement.instance;
         if(hologram != null)

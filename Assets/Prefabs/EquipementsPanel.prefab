@@ -304,6 +304,7 @@ MonoBehaviour:
   character: {fileID: 0}
   startingItem: {fileID: 11400000, guid: 56e53832dc777d447beed0e9e2c29173, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 1
 --- !u!1 &850082681955495387
 GameObject:
@@ -399,6 +400,7 @@ MonoBehaviour:
   character: {fileID: 0}
   startingItem: {fileID: 11400000, guid: 56e53832dc777d447beed0e9e2c29173, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 1
 --- !u!1 &1284056077607795971
 GameObject:
@@ -629,6 +631,7 @@ MonoBehaviour:
   character: {fileID: 0}
   startingItem: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
   isRightItem: 1
+  linkListenerWeapon: 1
   type: 0
 --- !u!1 &1410992496367822560
 GameObject:
@@ -1354,6 +1357,7 @@ MonoBehaviour:
   character: {fileID: 0}
   startingItem: {fileID: 11400000, guid: 383ce4bbdb149dc4bbfd04fa97d2aed1, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 3
 --- !u!1 &3261608832193765991
 GameObject:
@@ -2308,6 +2312,7 @@ MonoBehaviour:
   character: {fileID: 0}
   startingItem: {fileID: 11400000, guid: 92290b317920b6d4c9cbfe966e718be9, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 2
 --- !u!1 &4857954982983838852
 GameObject:
@@ -2538,6 +2543,7 @@ MonoBehaviour:
   character: {fileID: 0}
   startingItem: {fileID: 11400000, guid: 87c86d620720a514daee0fe11e5b31f3, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 4
 --- !u!1 &5549926519555531597
 GameObject:
@@ -3432,6 +3438,7 @@ MonoBehaviour:
   character: {fileID: 0}
   startingItem: {fileID: 11400000, guid: 6cb2c7cccbb6a764f8a16288361718dc, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 1
   type: 0
 --- !u!1 &7943859653579237667
 GameObject:
@@ -3527,6 +3534,7 @@ MonoBehaviour:
   character: {fileID: 0}
   startingItem: {fileID: 11400000, guid: 56e53832dc777d447beed0e9e2c29173, type: 2}
   isRightItem: 0
+  linkListenerWeapon: 0
   type: 1
 --- !u!1 &8554679244940728616
 GameObject:

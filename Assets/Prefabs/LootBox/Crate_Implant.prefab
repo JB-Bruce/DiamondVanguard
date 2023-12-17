@@ -455,6 +455,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  outline: {fileID: 7329491546511869641}
 --- !u!54 &8375403733825126042
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -711,6 +712,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6587376649238612528}
+  - component: {fileID: 7329491546511869641}
   m_Layer: 6
   m_Name: Box
   m_TagString: Untagged
@@ -735,6 +737,24 @@ Transform:
   - {fileID: 4080795149519110284}
   m_Father: {fileID: 4107981706896860143}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7329491546511869641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4861012849936777502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 1, b: 0, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &5590504241235145857
 GameObject:
   m_ObjectHideFlags: 0

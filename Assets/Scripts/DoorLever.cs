@@ -25,11 +25,24 @@ public class DoorLever : MonoBehaviour
     [SerializeField] GameObject HImpossibleImage;
     [SerializeField] Button HButton;
 
+    [SerializeField] Outline outline;
+
 
     private void Start()
     {
+        UnSelect();
         cc = CharactersControler.instance;
         ui.transform.GetChild(0).gameObject.SetActive(false);
+    }
+
+    public void Select()
+    {
+        outline.enabled = true;
+    }
+
+    public void UnSelect()
+    {
+        outline.enabled = false;
     }
 
     public void Interact()

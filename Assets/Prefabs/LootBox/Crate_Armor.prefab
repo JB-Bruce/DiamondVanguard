@@ -1,5 +1,57 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1002023670920169730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4585474456752185531}
+  - component: {fileID: 6180173931819207430}
+  m_Layer: 6
+  m_Name: Box
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4585474456752185531
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002023670920169730}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5289620576251380336}
+  - {fileID: 8584555753739088736}
+  m_Father: {fileID: 6243011018646014929}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6180173931819207430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002023670920169730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 1, b: 0, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1107169945225486117
 GameObject:
   m_ObjectHideFlags: 0
@@ -28,14 +80,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107169945225486117}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6, y: 1, z: -6}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 5289620576251380336}
-  - {fileID: 8584555753739088736}
   - {fileID: 39763210541005231}
+  - {fileID: 4585474456752185531}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!111 &3147668562503630790
@@ -70,35 +121,32 @@ MonoBehaviour:
   item: {fileID: 0}
   items:
   - rarity: 0
-    item: {fileID: 11400000, guid: 294983a1de27fa743b0d75b5fecddfbf, type: 2}
-    dropChance: 20
-  - rarity: 0
-    item: {fileID: 11400000, guid: fc203f7a2e3738743aae2d9e79888ba4, type: 2}
-    dropChance: 15
-  - rarity: 0
-    item: {fileID: 11400000, guid: 3c4b5bd2b5e7780468dcd75fd621f1a7, type: 2}
-    dropChance: 6
-  - rarity: 0
-    item: {fileID: 11400000, guid: 07c01146b4e0f28419d03a76a2bc1fca, type: 2}
-    dropChance: 4
-  - rarity: 0
-    item: {fileID: 11400000, guid: 1b0d0f36f5e3db24389f802a00610b59, type: 2}
+    item: {fileID: 11400000, guid: cbdadb476688b23438c918fe40fbdacf, type: 2}
+    dropChance: 25
+  - rarity: 1
+    item: {fileID: 11400000, guid: 46a551dda2cdf42449764b85d9259898, type: 2}
+    dropChance: 25
+  - rarity: 2
+    item: {fileID: 11400000, guid: 092325e947662b44dbbbd0b42c39a866, type: 2}
     dropChance: 25
   - rarity: 0
-    item: {fileID: 11400000, guid: e76f12583bd0ff342b24a4aee0063695, type: 2}
-    dropChance: 6
+    item: {fileID: 11400000, guid: 28c25a8c84311044ba7199d05c550dfc, type: 2}
+    dropChance: 25
+  - rarity: 1
+    item: {fileID: 11400000, guid: 87aad17045ae7fb4a83f0713c785985e, type: 2}
+    dropChance: 25
+  - rarity: 2
+    item: {fileID: 11400000, guid: d83894d3921485c41af3993b205da1dc, type: 2}
+    dropChance: 25
   - rarity: 0
-    item: {fileID: 11400000, guid: 4d2e79a83ac47d045b9f385984667f33, type: 2}
-    dropChance: 4
-  - rarity: 0
-    item: {fileID: 11400000, guid: 89111df696a60fa40ad2f0d2662e185c, type: 2}
-    dropChance: 12
-  - rarity: 0
-    item: {fileID: 11400000, guid: 0be3864ad76a7cc4d8a745dc939bece2, type: 2}
-    dropChance: 4
-  - rarity: 0
-    item: {fileID: 11400000, guid: 7b2d372332eab034d9e56d9fb66c1e02, type: 2}
-    dropChance: 4
+    item: {fileID: 11400000, guid: 018e939892060794f97699e0dc633554, type: 2}
+    dropChance: 25
+  - rarity: 1
+    item: {fileID: 11400000, guid: 60eb10bff045acd4593ff55c6d2fba4e, type: 2}
+    dropChance: 25
+  - rarity: 2
+    item: {fileID: 11400000, guid: 7004986ad3b21f94ab7850d93db43d36, type: 2}
+    dropChance: 25
   isInfinit: 0
   respawnH: 5
   type: 1
@@ -354,6 +402,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  outline: {fileID: 6180173931819207430}
 --- !u!54 &5001156518189053310
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -400,8 +449,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.33, y: 0.38227567, z: 0.40000004}
-  m_Center: {x: 0, y: 0.1, z: 0}
+  m_Size: {x: 0.36970347, y: 0.9719407, z: 0.38411865}
+  m_Center: {x: 0.0039703846, y: 0.48141417, z: 0.00794073}
 --- !u!1 &2529225561540103718
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +524,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d9667bfdfe65c224e99abd8498395b8e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 52149be4f5b8c8345b108123044e075d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -496,7 +545,7 @@ GameObject:
   m_Component:
   - component: {fileID: 39763210541005231}
   m_Layer: 6
-  m_Name: GameObject
+  m_Name: Holo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -547,10 +596,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.020000016, y: 0.020000057, z: 0.020000052}
+  m_LocalScale: {x: 0.020000016, y: 0.020000057, z: 0.02000005}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6243011018646014929}
+  m_Father: {fileID: 4585474456752185531}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1935189531735212886
 MeshFilter:
@@ -731,10 +780,10 @@ Transform:
   m_GameObject: {fileID: 6387629167006286783}
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.3646, z: -0.094800025}
-  m_LocalScale: {x: 0.02000002, y: 0.020000087, z: 0.020000063}
+  m_LocalPosition: {x: 0, y: 0.36460003, z: -0.094799995}
+  m_LocalScale: {x: 0.020000022, y: 0.020000089, z: 0.020000063}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8924982099727624070}
-  m_Father: {fileID: 6243011018646014929}
+  m_Father: {fileID: 4585474456752185531}
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}

@@ -44,8 +44,14 @@ public class LootBox : MonoBehaviour
     public AnimationCurve curve;
     private float timer;
 
+    [SerializeField] Outline outline;
+
     private void Start()
     {
+        timer = Random.Range(0f, 12f);
+
+        UnSelect();
+
         item = CreateItem();
         player = PlayerMovement.instance;
         if(hologram != null)
@@ -64,6 +70,16 @@ public class LootBox : MonoBehaviour
         {
             timer = 0;
         }
+    }
+
+    public void Select()
+    {
+        outline.enabled = true;
+    }
+
+    public void UnSelect()
+    {
+        outline.enabled = false;
     }
 
     public void respawn()

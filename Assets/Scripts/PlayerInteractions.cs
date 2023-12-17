@@ -8,6 +8,8 @@ public class PlayerInteractions : MonoBehaviour
     GameGrid gameGrid;
     Camera cam;
 
+    DoorLever selectedLever = null;
+
 
     private void Start()
     {
@@ -17,16 +19,34 @@ public class PlayerInteractions : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit, (caseRange * gameGrid.cellSpacement)))
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit, (caseRange * gameGrid.cellSpacement)))
+            if (hit.transform.TryGetComponent<DoorLever>(out DoorLever dl))
             {
-                if (hit.transform.TryGetComponent<DoorLever>(out DoorLever dl))
+                if (selectedLever != dl)
                 {
+                    if (selectedLever != null)
+                        selectedLever.UnSelect();
+
+                    selectedLever = dl;
+                    selectedLever.Select();
+                }
+
+                if (Input.GetMouseButtonDown(0))
+                { 
+                    
+                
                     dl.Interact();
                 }
+                return;
             }
+        }
+
+        if (selectedLever != null)
+        {
+            selectedLever.UnSelect();
+            selectedLever = null;
         }
     }
 }

@@ -47,7 +47,7 @@ public class CharactersControler : MonoBehaviour
     public bool HasStats(CharacterEnum character, float life = 0f, float energy = 0f)
     {
         Character newChar = GetCharacterFromEnum(character);
-        return newChar.pv >= life && newChar.energy >= energy;
+        return newChar.pv >= life && newChar.energy >= energy && !newChar.dead;
     }
 
     private Character GetCharacterFromEnum(CharacterEnum character)

@@ -10,6 +10,8 @@ public class PlayerAttack : MonoBehaviour
 
     public static PlayerAttack Instance;
 
+    public HitImpact impact;
+
     private void Awake()
     {
         Instance = this;
@@ -84,7 +86,8 @@ public class PlayerAttack : MonoBehaviour
             }
            if (targetCell.HasEntity())
            {
-                    targetCell.entity.transform.GetComponent<EnemyMovement>().TakeDamage(amount);
+                impact.PlayImpact(distance);
+                targetCell.entity.transform.GetComponent<EnemyMovement>().TakeDamage(amount);
                     return;
            }
         }

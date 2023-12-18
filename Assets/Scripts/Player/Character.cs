@@ -56,6 +56,8 @@ public class Character : MonoBehaviour
 
     public UnityEvent cdRightChangedEvent { get; private set; } = new();
 
+    public ScreenShake damagesScreenShake;
+
     void Start()
     {
         energy = energyMax;
@@ -88,6 +90,7 @@ public class Character : MonoBehaviour
 
         pv -= newAmount;
         pv = Mathf.Clamp(pv, 0, pvMax);
+        damagesScreenShake.start = true;
         if (pv == 0)
         {
             //tuer personage

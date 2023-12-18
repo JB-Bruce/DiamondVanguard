@@ -45,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isOnPause;
 
+    public WalkScreenShake HeadBob;
+
 
     private void Awake()
     {
@@ -87,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
             if (timer == 1f) 
             {
                 isMoving = false;
+                HeadBob.StopBobbing();
             }
         }
         else if (isRotating)
@@ -161,6 +164,8 @@ public class PlayerMovement : MonoBehaviour
         transform.position = cellOn.pos;
 
         isMoving = true;
+
+        HeadBob.StartBobbing();
 
         timer = 0f;
     }

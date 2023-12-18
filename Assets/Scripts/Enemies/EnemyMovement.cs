@@ -45,6 +45,9 @@ public class EnemyMovement : MonoBehaviour
     private float timer;
     private bool dead;
 
+    private bool playMusic;
+    //MusicManager musicManager;
+
     [SerializeField] LayerMask enemyLayer;
 
     [SerializeField] AnimationClip rotationR;
@@ -321,9 +324,10 @@ public class EnemyMovement : MonoBehaviour
         float distanceEnemyPlayer = Vector3.Distance(transform.position, player.transform.position);
         if (distanceEnemyPlayer <= DistancetoCell() && !Physics.Raycast(PlayerMovement.instance.transform.position, transform.position - PlayerMovement.instance.transform.position, distanceEnemyPlayer, enemyLayer))
         {
+            MusicManager.instance.PlayMusic();
             return true;
         }
-
+        StartCoroutine(MusicManager.instance.FadeOutMusic());
         return false;
     }
     void RotateCell()
@@ -383,5 +387,19 @@ public class EnemyMovement : MonoBehaviour
         cellOn = cell;
         isMoving = true;
         animator.SetBool("isWalking", true);
+    }
+
+    void MusicControler()
+    {
+        if (PlayerDetection())
+        {
+            print("player détécté");
+            MusicManager.instance.PlayMusic();
+        }
+        else if (!PlayerDetection())
+        {
+            print("pas détecé");
+            return;
+        }
     }
 }

@@ -58,7 +58,11 @@ public class Character : MonoBehaviour
 
     public UnityEvent equipWeaponREvent { get; private set; } = new();
     public UnityEvent equipWeaponLEvent { get; private set; } = new();
+
+    [Header("VFXs")]
     public ScreenShake damagesScreenShake;
+    public AttackSlash attackSlash;
+    public MuzzleFlashManager fire;
 
     void Start()
     {
@@ -220,12 +224,14 @@ public class Character : MonoBehaviour
                     damages *= distDmgMult;
                     DistanceWeapon distWeapon = newWeapon as DistanceWeapon;
                     pAttack.DistantAttack(damages, distWeapon.shootDistance);
+                    fire.start = true;
                 }
                 else if (newWeapon.itemType == Type.MeleeWeapon)
                 {
                     damages *= cacDmgMult;
                     pAttack.Attack(damages);
-                }
+                    attackSlash.start = true;
+            }
                 else if (newWeapon.itemType == Type.HealWeapon)
                 {
                     damages *= healMult;

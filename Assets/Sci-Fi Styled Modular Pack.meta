@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/models.meta
+guid: 22d12d0c30231314294797976d4eb4bd
+========
 guid: 32180c5d953d96e49919950be01d53b9
+>>>>>>>> 33bbeae (GodRoom V0.7):Assets/Sci-Fi Styled Modular Pack.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

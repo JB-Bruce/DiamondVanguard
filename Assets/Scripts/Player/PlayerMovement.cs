@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] bool startInTheMidle;
 
+    [SerializeField] bool snapToGrid;
+
     [SerializeField] int posX, posY;
 
     [SerializeField] public GameObject pauseCanvas;
@@ -63,9 +65,18 @@ public class PlayerMovement : MonoBehaviour
 
         //center on the grid or set manualy
         if (startInTheMidle)
+        {
             cellOn = grid.GetCell((grid.gridWidth - 1) / 2, (grid.gridHeight - 1) / 2);
+        }
+        else if (snapToGrid)
+        {
+            cellOn = grid.GetClosestCell(transform.position);
+        }
         else
+        {
             cellOn = grid.GetCell(posX, posY);
+        }
+
 
         cellOn.SetEntity(entity);
 

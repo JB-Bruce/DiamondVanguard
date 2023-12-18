@@ -2233,18 +2233,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &449517445 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6282503788465980801, guid: 401c8384e069fb04e9afd0f5a6676d6d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1449689150}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &456500825
 GameObject:
   m_ObjectHideFlags: 0
@@ -3754,7 +3742,6 @@ GameObject:
   - component: {fileID: 668441705}
   - component: {fileID: 668441704}
   - component: {fileID: 668441708}
-  - component: {fileID: 668441707}
   - component: {fileID: 668441709}
   - component: {fileID: 668441710}
   m_Layer: 8
@@ -3851,29 +3838,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668441702}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &668441707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 668441702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c7defa83b491704fad93cdd6730e5ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  linkedDoor: {fileID: 668441708}
-  ui: {fileID: 0}
-  closeTime: 0
-  GBLifeCost: 0
-  GBEnergyCost: 0
-  GBImpossibleImage: {fileID: 0}
-  GBButton: {fileID: 0}
-  HEnergyCost: 0
-  HImpossibleImage: {fileID: 0}
-  HButton: {fileID: 0}
-  outline: {fileID: 449517445}
 --- !u!114 &668441708
 MonoBehaviour:
   m_ObjectHideFlags: 0

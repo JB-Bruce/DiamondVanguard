@@ -52,6 +52,8 @@ public class PlayerMovement : MonoBehaviour
 
     float rotation;
 
+    public WalkScreenShake HeadBob;
+
     private void Awake()
     {
         instance = this;
@@ -103,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
             transform.position = Vector3.Lerp(lastPosition, targetPosition, timer);
             if (timer == 1f)
             {
+                HeadBob.StopBobbing();
                 isMoving = false;
                 TryMove();
             }
@@ -182,6 +185,8 @@ public class PlayerMovement : MonoBehaviour
         cellOn = cell;
 
         isMoving = true;
+
+        HeadBob.StartBobbing();
 
         timer = 0f;
     }

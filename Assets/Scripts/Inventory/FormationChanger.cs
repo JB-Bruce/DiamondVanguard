@@ -43,7 +43,7 @@ public class FormationChanger : MonoBehaviour
             }
 
             // draging personnages from slot
-            if (Input.GetMouseButtonDown(0) && result.tag == "PersoSlot")
+            if (Input.GetMouseButtonDown(0) && result.tag == "PersoSlot" && result.GetComponentInParent<CharacterUIStatsUpdater>().currentCharacter != null)
             {
                 draging = true;
                 image = result;
@@ -74,7 +74,7 @@ public class FormationChanger : MonoBehaviour
                     image.transform.SetParent(LastPanel.transform);
                     image = null;
                 }
-                else if (results.Count > 1 && isInOtherImage)
+                else if (results.Count > 1 && isInOtherImage && CharacterUi2.currentCharacter != null)
                 {
                     ChangeImage();
                     ItemReturn();

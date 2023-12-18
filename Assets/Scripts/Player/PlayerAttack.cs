@@ -77,6 +77,9 @@ public class PlayerAttack : MonoBehaviour
         {
             x = -1; z = 0;
         }
+
+        BulletBehaviour.instance.BulletAdvence(distance, new Vector3(x, 0, z));
+
         for (int i = 1; i < distance+1; i++)
         {
            Cell targetCell = grid.GetCell(playerMovement.cellOn.gridPos.Item1 + i*x, playerMovement.cellOn.gridPos.Item2 + i*z);
@@ -86,7 +89,7 @@ public class PlayerAttack : MonoBehaviour
             }
            if (targetCell.HasEntity())
            {
-                impact.PlayImpact(distance);
+                impact.PlayImpact(distance, targetCell.entity);
                 targetCell.entity.transform.GetComponent<EnemyMovement>().TakeDamage(amount);
                     return;
            }

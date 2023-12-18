@@ -58,6 +58,7 @@ public class Character : MonoBehaviour
 
     public UnityEvent equipWeaponREvent { get; private set; } = new();
     public UnityEvent equipWeaponLEvent { get; private set; } = new();
+    public ScreenShake damagesScreenShake;
 
     void Start()
     {
@@ -91,6 +92,7 @@ public class Character : MonoBehaviour
 
         pv -= newAmount;
         pv = Mathf.Clamp(pv, 0, pvMax);
+        damagesScreenShake.start = true;
         if (pv == 0)
         {
             //tuer personage

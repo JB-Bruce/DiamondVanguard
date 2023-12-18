@@ -10530,6 +10530,7 @@ MonoBehaviour:
   attack: {fileID: 870678328}
   grid: {fileID: 1007887809}
   isOnPause: 0
+  HeadBob: {fileID: 2086948733}
 --- !u!81 &870678332
 AudioListener:
   m_ObjectHideFlags: 0
@@ -10656,27 +10657,27 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.083862305
-      inSlope: -0.18239759
-      outSlope: -0.18239759
+      value: 0.14709473
+      inSlope: -0.40915605
+      outSlope: -0.40915605
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.12756455
-      value: 0.060594838
-      inSlope: -0.12397608
-      outSlope: -0.12397608
+      time: 0.16121104
+      value: 0.08113425
+      inSlope: -0.22324966
+      outSlope: -0.22324966
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.09991396
+      outWeight: 0.091205485
     - serializedVersion: 3
       time: 0.99884033
       value: 0.022880554
-      inSlope: -0.043286275
-      outSlope: -0.043286275
+      inSlope: -0.06954592
+      outSlope: -0.06954592
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -25778,7 +25779,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 2086948728}
-  start: 0
 --- !u!95 &2086948734
 Animator:
   serializedVersion: 5

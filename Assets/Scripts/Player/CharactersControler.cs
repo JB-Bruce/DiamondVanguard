@@ -15,7 +15,17 @@ public class CharactersControler : MonoBehaviour
     [SerializeField] CharacterUIStatsUpdater rightUI;
     [SerializeField] CharacterUIStatsUpdater leftUI;
     [SerializeField] CharacterUIStatsUpdater backUI;
-    
+
+    [SerializeField] public AudioClip massWiffSFX;
+    [SerializeField] public AudioClip massHitSFX;
+    [SerializeField] public AudioClip hitSFX;
+    [SerializeField] public AudioClip slashWiffSFX;
+    [SerializeField] public AudioClip slashhitSFX;
+    [SerializeField] public AudioClip makarovSFX;
+    [SerializeField] public AudioClip shotgunSFX;
+    [SerializeField] public AudioClip sniperSFX;
+    [SerializeField] public AudioClip healSFX;
+
     public static CharactersControler instance;
 
     private void Awake()

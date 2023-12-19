@@ -18,6 +18,8 @@ public class CharactersControler : MonoBehaviour
     
     public static CharactersControler instance;
 
+    public bool invencible;
+
     private void Awake()
     {
         instance = this;
@@ -35,6 +37,19 @@ public class CharactersControler : MonoBehaviour
     private void test() 
     {
         TakeDamage(5);
+    }
+
+    public void SetInvencible(bool invencible)
+    {
+        this.invencible = invencible;
+    }
+
+    public void SetInexhaustible(bool inexhaustible)
+    {
+        grosBras.inexhaustible = inexhaustible;
+        tireur.inexhaustible = inexhaustible;
+        hacker.inexhaustible = inexhaustible;
+        healer.inexhaustible = inexhaustible;
     }
 
     public void ConsumeStats(CharacterEnum character, float life = 0f, float energy = 0f)
@@ -63,6 +78,8 @@ public class CharactersControler : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        if (invencible)
+            return;
         if (healer.dead && hacker.dead && tireur.dead && grosBras.dead)
             return;
 

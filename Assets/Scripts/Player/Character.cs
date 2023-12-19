@@ -231,7 +231,7 @@ public class Character : MonoBehaviour
                     damages *= cacDmgMult;
                     pAttack.Attack(damages);
                     attackSlash.start = true;
-            }
+                }
                 else if (newWeapon.itemType == Type.HealWeapon)
                 {
                     damages *= healMult;

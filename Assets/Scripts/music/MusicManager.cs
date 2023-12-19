@@ -12,6 +12,7 @@ public class MusicManager : MonoBehaviour
     [SerializeField] AudioSource fightMusicLoop2;
     private float volmaxloop1;
     private float volmaxloop2;
+    private int ennemyCount;
 
     private void Awake()
     {
@@ -29,12 +30,31 @@ public class MusicManager : MonoBehaviour
 
     private void Start()
     {
+        ennemyCount = 0;
         volmaxloop1 = fightMusicLoop1.volume;
         volmaxloop2 = fightMusicLoop2.volume;
     }
 
+    public void AddEnnemy()
+    {
+        if(ennemyCount == 0)
+        {
+            PlayMusic();
+        }
+        ennemyCount += 1;
+    }
+    public void RemoveEnnemy()
+    {
+        ennemyCount -= 1;
+        if(ennemyCount == 0)
+        {
+            StartCoroutine(FadeOutMusic());
+        }
+    }
+
     public void PlayMusic()
     {
+
         if (!fightMusicLoop1.isPlaying && !fightMusicLoop2.isPlaying)
         {
             fightMusicLoop1.volume = volmaxloop1;

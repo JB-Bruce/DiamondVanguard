@@ -8,21 +8,39 @@ public class doorDetection : MonoBehaviour
     [SerializeField] Camera playerCam;
     [SerializeField] float maxInteractionRange;
     [SerializeField] string doorTag;
+    private Door selectedDoor = null;
 
     private void Update()
     {
         //object detection
         Vector3 mousePos = playerCam.ScreenToWorldPoint(Input.mousePosition);
-        if (Input.GetMouseButtonDown(0))
+        RaycastHit hit;
+        if (Physics.Raycast(playerCam.ScreenPointToRay(Input.mousePosition), out hit, maxInteractionRange))
         {
-            if (Physics.Raycast(mousePos, playerCam.transform.forward, out RaycastHit hit, maxInteractionRange))
+            if (hit.transform.gameObject.TryGetComponent<Door>(out Door door))
             {
-                if (hit.collider.gameObject.tag == doorTag)
+                if (selectedDoor != door)
                 {
-                    SceneManager.LoadScene("Test_EndLore");
+                    if (selectedDoor != null)
+                        selectedDoor.UnSelect();
+
+                    selectedDoor = door;
+                    selectedDoor.Select();
                 }
+                if (Input.GetMouseButtonDown(0))
+                {
+                    if (hit.collider.gameObject.tag == doorTag)
+                    {
+                        SceneManager.LoadScene(selectedDoor.targetScene);
+                    }
+                }
+                return;
             }
         }
+        if (selectedDoor != null)
+        {
+            selectedDoor.UnSelect();
+            selectedDoor = null;
+        }
     }
-
 }

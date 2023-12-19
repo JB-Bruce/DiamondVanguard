@@ -59,6 +59,8 @@ public class Character : MonoBehaviour
     public UnityEvent equipWeaponREvent { get; private set; } = new();
     public UnityEvent equipWeaponLEvent { get; private set; } = new();
 
+    public bool inexhaustible;
+
     [Header("VFXs")]
     public ScreenShake damagesScreenShake;
     public AttackSlash attackSlash;
@@ -128,6 +130,7 @@ public class Character : MonoBehaviour
         //reger d'energie
         energy += Time.deltaTime * energyGainMult;
         energy = Mathf.Clamp(energy, 0, energyMax);
+        EnergyChangeEvent.Invoke();
         if (currentCDright > 0)
         {
             currentCDright -= Time.deltaTime;
@@ -159,6 +162,7 @@ public class Character : MonoBehaviour
 
     public void ConsumeEnergy(float amount) 
     {
+        if (inexhaustible) return;
         energy -= amount;
         energy = Mathf.Clamp(energy, 0, energyMax);
         EnergyChangeEvent.Invoke();
@@ -178,6 +182,7 @@ public class Character : MonoBehaviour
     {
         if (canLeftWeaponAttack)
         {
+            ConsumeEnergy(leftWeapon.EnergyConso);
             WeaponAttack(leftWeapon);
             canLeftWeaponAttack = false;
             coolDownLeft = leftWeapon.Cooldown;
@@ -194,6 +199,7 @@ public class Character : MonoBehaviour
     {
         if (canRightWeaponAttack)
         {
+            ConsumeEnergy(rightWeapon.EnergyConso);
             WeaponAttack(rightWeapon);
             canRightWeaponAttack = false;
             coolDownRight = rightWeapon.Cooldown;

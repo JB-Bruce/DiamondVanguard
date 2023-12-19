@@ -95,6 +95,19 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    public void SpeedChange(bool flash)
+    {
+        if (flash)
+        {
+            moveSpeed *= 2;
+            rotationSpeed *= 2;
+        }
+        else
+        {
+            moveSpeed /= 2f;
+            rotationSpeed /= 2f;
+        }
+    }
 
     void Update()
     {

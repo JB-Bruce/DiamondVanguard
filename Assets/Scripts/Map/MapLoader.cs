@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class MapLoader : MonoBehaviour
 {
-    private int index = 0;
+    [SerializeField] private int index = 1;
     private GameObject currentMap;
 
     [System.Serializable]
@@ -12,25 +12,26 @@ public class MapLoader : MonoBehaviour
     {
         public GameObject map;
         public Vector2Int mapSpawnPoint;
+        public float rota;
     }
 
     [SerializeField] private List<Maps> maps = new List<Maps>();
     [SerializeField] private GameObject player;
-    private int x = 7; private int y = 1;
 
     private void Start()
     {
         ActiveMap();
+        SetCharacterPosition();
     }
 
     public void ChangeMap()
     {
         currentMap.SetActive(false);
         index += 1;
-        if (index > maps.Count)
+        if (index < maps.Count)
         {
-            ActiveMap();
             SetCharacterPosition();
+            ActiveMap();
         }
         else SceneManager.LoadScene("Test_EndLore");
     }
@@ -44,7 +45,7 @@ public class MapLoader : MonoBehaviour
 
     private void SetCharacterPosition()
     {
-        player.GetComponent<PlayerMovement>().Spawn(maps[index].mapSpawnPoint);
+        player.GetComponent<PlayerMovement>().Spawn(maps[index].mapSpawnPoint, maps[index].rota);
     }
 
 }

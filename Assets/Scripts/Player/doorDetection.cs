@@ -8,6 +8,7 @@ public class doorDetection : MonoBehaviour
     [SerializeField] Camera playerCam;
     [SerializeField] float maxInteractionRange;
     [SerializeField] string doorTag;
+    [SerializeField] MapLoader mapLoader;
 
     private void Update()
     {
@@ -19,7 +20,7 @@ public class doorDetection : MonoBehaviour
             {
                 if (hit.collider.gameObject.tag == doorTag)
                 {
-                    SceneManager.LoadScene("Test_EndLore");
+                    mapLoader.ChangeMap();
                 }
             }
         }

@@ -14,6 +14,7 @@ public class InventoryManager : MonoBehaviour
     private bool draging = false;
     [SerializeField] private GameObject DragNDrop;
     [SerializeField] private GameObject StatsDisplayer;
+    [SerializeField] private AudioSource inventorySFX;
 
 
     private void Update()
@@ -208,5 +209,10 @@ public class InventoryManager : MonoBehaviour
         {
             LastItemContainer.GetComponent<EquipementSlot>().SetHandItem();
         }
+    }
+
+    public void PlaySound()
+    {
+        inventorySFX.Play();
     }
 }

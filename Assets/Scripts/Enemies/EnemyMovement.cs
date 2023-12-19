@@ -45,10 +45,18 @@ public class EnemyMovement : MonoBehaviour
     private float timer;
     private bool dead;
 
+    private bool playMusic;
+    //MusicManager musicManager;
+
     [SerializeField] LayerMask enemyLayer;
 
     [SerializeField] AnimationClip rotationR;
     [SerializeField] AnimationClip rotationL;
+    [SerializeField] AnimationClip punchAnimaton;
+
+    [SerializeField] AudioSource deathSound;
+    [SerializeField] AudioSource attackSound;
+
     void Start()
     {
         grid = GameGrid.instance;
@@ -127,6 +135,7 @@ public class EnemyMovement : MonoBehaviour
             animator.SetBool("isDead", true);
             Destroy(gameObject,2);
             dead = true;
+            deathSound.Play();
         }
     }
 
@@ -232,6 +241,7 @@ public class EnemyMovement : MonoBehaviour
         isAttacking = true;
         cc.TakeDamage(damages);
         animator.SetTrigger("attack");
+        attackSound.Play();
     }
 
     private Cell NextCellToGoToTarget(Cell cell)
@@ -321,9 +331,10 @@ public class EnemyMovement : MonoBehaviour
         float distanceEnemyPlayer = Vector3.Distance(transform.position, player.transform.position);
         if (distanceEnemyPlayer <= DistancetoCell() && !Physics.Raycast(PlayerMovement.instance.transform.position, transform.position - PlayerMovement.instance.transform.position, distanceEnemyPlayer, enemyLayer))
         {
+            MusicManager.instance.PlayMusic();
             return true;
         }
-
+        StartCoroutine(MusicManager.instance.FadeOutMusic());
         return false;
     }
     void RotateCell()

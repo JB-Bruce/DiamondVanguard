@@ -54,6 +54,8 @@ public class PlayerMovement : MonoBehaviour
 
     public WalkScreenShake HeadBob;
 
+    [SerializeField] AudioSource stepSound;
+
     private void Awake()
     {
         instance = this;
@@ -123,6 +125,10 @@ public class PlayerMovement : MonoBehaviour
             timer += Time.deltaTime * moveSpeed;
             timer = Mathf.Clamp01(timer);
             transform.position = Vector3.Lerp(lastPosition, targetPosition, timer);
+            if (!stepSound.isPlaying)
+            {
+                stepSound.Play();
+            }
             if (timer == 1f)
             {
                 HeadBob.StopBobbing();
@@ -140,6 +146,10 @@ public class PlayerMovement : MonoBehaviour
                 isRotating = false;
                 TryRotate();
             }
+        }
+        else
+        {
+            stepSound.Stop();
         }
     }
 

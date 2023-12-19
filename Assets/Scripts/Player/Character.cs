@@ -66,6 +66,9 @@ public class Character : MonoBehaviour
     public AttackSlash attackSlash;
     public MuzzleFlashManager fire;
 
+    [SerializeField] AudioSource audioSource;
+
+
     void Start()
     {
         energy = energyMax;
@@ -103,6 +106,7 @@ public class Character : MonoBehaviour
         {
             //tuer personage
             dead = true;
+            audioSource.PlayOneShot(controler.dyingSFX);
             controler.Die(this);
         }
         PvChangeEvent.Invoke();
@@ -217,6 +221,7 @@ public class Character : MonoBehaviour
             if (newWeapon == null)
             {
                 pAttack.Attack(brutDamages);
+                audioSource.PlayOneShot(controler.hitSFX);
             }
             else
             {
@@ -229,12 +234,26 @@ public class Character : MonoBehaviour
                 {
                     damages *= distDmgMult;
                     DistanceWeapon distWeapon = newWeapon as DistanceWeapon;
+                    if (newWeapon.itemName == "Pistolet")
+                {
+                    audioSource.PlayOneShot(controler.makarovSFX);
+                }
+                    else if (newWeapon.itemName == "Shotgun")
+                {
+                    audioSource.PlayOneShot(controler.shotgunSFX);
+                }
+                    else { audioSource.PlayOneShot(controler.sniperSFX); }
                     pAttack.DistantAttack(damages, distWeapon.shootDistance);
                     fire.start = true;
                 }
                 else if (newWeapon.itemType == Type.MeleeWeapon)
                 {
                     damages *= cacDmgMult;
+                    if (newWeapon.itemName == "Mass" || newWeapon.itemName == "Matraque")
+                {
+                    audioSource.PlayOneShot(controler.massHitSFX);
+                }
+                    else { audioSource.PlayOneShot(controler.slashhitSFX); }
                     pAttack.Attack(damages);
                     attackSlash.start = true;
             }
@@ -242,6 +261,7 @@ public class Character : MonoBehaviour
                 {
                     damages *= healMult;
                     pAttack.Heal(controler, damages);
+                audioSource.PlayOneShot(controler.healSFX);
                 }
             }
     }

@@ -8,6 +8,7 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] private PlayerMovement playerMovement;
     GameGrid grid;
+    [SerializeField] AudioSource wiffVFX;
 
     public static PlayerAttack Instance;
 
@@ -55,6 +56,10 @@ public class PlayerAttack : MonoBehaviour
         {
             targetCell.entity.transform.GetComponent<EnemyMovement>().TakeDamage(amount);
             return;
+        }
+        else
+        {
+            wiffVFX.Play();
         }
 
     }

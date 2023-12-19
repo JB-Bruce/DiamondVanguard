@@ -109,6 +109,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void Spawn(Vector2Int SpawnPoint)
+    {
+        posX = SpawnPoint.x;
+        posY = SpawnPoint.y;
+    }
+
     void Update()
     {
         if (isMoving) 

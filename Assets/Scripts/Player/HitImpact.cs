@@ -11,9 +11,9 @@ public class HitImpact : MonoBehaviour
         impact.SetActive(false);
     }
 
-    public void PlayImpact(int distance)
+    public void PlayImpact(int distance, Entity entity)
     {
-        transform.position = transform.parent.position + new Vector3(0, 0, (distance * 2));
+        transform.position = entity.transform.position;
         impact.SetActive(true);
         Timer = 0;
     }

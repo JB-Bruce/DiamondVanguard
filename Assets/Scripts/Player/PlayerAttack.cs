@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
@@ -11,6 +12,9 @@ public class PlayerAttack : MonoBehaviour
     public static PlayerAttack Instance;
 
     public HitImpact impact;
+
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private Transform bulletStartPos;
 
     private void Awake()
     {
@@ -77,6 +81,10 @@ public class PlayerAttack : MonoBehaviour
         {
             x = -1; z = 0;
         }
+
+        GameObject newBullet = Instantiate(bullet);
+        newBullet.GetComponent<BulletBehaviour>().Init(bulletStartPos.position, new Vector3(x, 0, z), distance * grid.cellSpacement);
+
         for (int i = 1; i < distance+1; i++)
         {
            Cell targetCell = grid.GetCell(playerMovement.cellOn.gridPos.Item1 + i*x, playerMovement.cellOn.gridPos.Item2 + i*z);
@@ -86,7 +94,7 @@ public class PlayerAttack : MonoBehaviour
             }
            if (targetCell.HasEntity())
            {
-                impact.PlayImpact(distance);
+                impact.PlayImpact(distance, targetCell.entity);
                 targetCell.entity.transform.GetComponent<EnemyMovement>().TakeDamage(amount);
                     return;
            }

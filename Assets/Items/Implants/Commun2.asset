@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a1d4ddaa69b3f469259cdd40c43d2d, type: 3}
   m_Name: Commun2
   m_EditorClassIdentifier: 
-  itemName: Commun2
-  icon: {fileID: 21300000, guid: 430d68da6bcc6c34e9733f76449f13e3, type: 3}
+  itemName: 'NeuroFury '
+  icon: {fileID: 21300000, guid: e231d10dd0997ef41907757b74a7a18b, type: 3}
   itemType: 3
+  rarity: 0
   critChance: 0
   critDamage: 0
   HP: 0

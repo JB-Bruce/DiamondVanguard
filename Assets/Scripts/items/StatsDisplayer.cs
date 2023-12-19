@@ -40,7 +40,7 @@ public class StatsDisplayer : MonoBehaviour
     {
         Content.text = "";
         NegativeContent.text = "";
-        Header.text = item.name;
+        Header.text = item.itemName;
         if(item.itemType == Type.MeleeWeapon || item.itemType == Type.HealWeapon)
         {
             Weapons items = (Weapons)item;

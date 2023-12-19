@@ -114,7 +114,6 @@ public class PlayerMovement : MonoBehaviour
         posX = SpawnPoint.x;
         posY = SpawnPoint.y;
         Cell targetCell = grid.GetCell(SpawnPoint.x, SpawnPoint.y);
-        print(targetCell);
         MoveToCell(targetCell);
         transform.rotation = Quaternion.Euler(0, rota, 0);
     }

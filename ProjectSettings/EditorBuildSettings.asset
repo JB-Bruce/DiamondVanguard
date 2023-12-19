@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test_TimesUp.unity
     guid: 1b64bdcce4f99d24c942e579b76ffd75
+  - enabled: 1
+    path: Assets/Scenes/GodRoom.unity
+    guid: 903e20c0657a5fd4ea8149e8faafab51
   m_configObjects: {}

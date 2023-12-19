@@ -1570,70 +1570,6 @@ RectTransform:
   m_AnchoredPosition: {x: 9.4, y: -9.4}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &307386845 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4972167997025983191, guid: 22d2c44fed4ffa743aac7afe4d993905,
-    type: 3}
-  m_PrefabInstance: {fileID: 1648934366}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &307386847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 307386845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b368aad2354049045806867476554b45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameGrid: {fileID: 224382251}
-  cam: {fileID: 344476686}
-  doorRange: 2
-  itemMask:
-    serializedVersion: 2
-    m_Bits: 64
-  targetScene: Test_Menu
---- !u!114 &307386851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 307386845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0, g: 1, b: 0, a: 1}
-  outlineWidth: 10
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
---- !u!65 &307386852
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 307386845}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &322804594
 GameObject:
   m_ObjectHideFlags: 0
@@ -3851,7 +3787,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  outline: {fileID: 0}
+  outline: {fileID: 668441710}
+  targetScene: Test_EndLore
 --- !u!114 &668441709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3861,16 +3798,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 668441702}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b368aad2354049045806867476554b45, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f9ac2cc3045f524ebd60cb76bad53b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameGrid: {fileID: 224382251}
-  cam: {fileID: 344476686}
-  doorRange: 2
-  itemMask:
-    serializedVersion: 2
-    m_Bits: 64
-  targetScene: 
+  playerCam: {fileID: 344476686}
+  maxInteractionRange: 5
+  doorTag: door
 --- !u!114 &668441710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8825,6 +8758,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 321797264036429892, guid: 22d2c44fed4ffa743aac7afe4d993905,
+        type: 3}
+      propertyPath: playerCam
+      value: 
+      objectReference: {fileID: 344476686}
     - target: {fileID: 4972167997025879799, guid: 22d2c44fed4ffa743aac7afe4d993905,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8880,42 +8818,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sci Fi Gates
       objectReference: {fileID: 0}
-    - target: {fileID: 4972167997025983191, guid: 22d2c44fed4ffa743aac7afe4d993905,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4972167997025983193, guid: 22d2c44fed4ffa743aac7afe4d993905,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4972167997025983197, guid: 22d2c44fed4ffa743aac7afe4d993905,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4972167997025983199, guid: 22d2c44fed4ffa743aac7afe4d993905,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4972167997025983191, guid: 22d2c44fed4ffa743aac7afe4d993905,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 307386847}
-    - targetCorrespondingSourceObject: {fileID: 4972167997025983191, guid: 22d2c44fed4ffa743aac7afe4d993905,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 307386852}
-    - targetCorrespondingSourceObject: {fileID: 4972167997025983191, guid: 22d2c44fed4ffa743aac7afe4d993905,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 307386851}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22d2c44fed4ffa743aac7afe4d993905, type: 3}
 --- !u!1 &1650962122
 GameObject:

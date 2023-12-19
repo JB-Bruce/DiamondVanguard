@@ -7,6 +7,12 @@ public class Door : MonoBehaviour
 {
     [SerializeField] Animator animator;
     [SerializeField] Outline outline;
+    [SerializeField] public string targetScene;
+
+    private void Start()
+    {
+        UnSelect();
+    }
 
     public void Open()
     {

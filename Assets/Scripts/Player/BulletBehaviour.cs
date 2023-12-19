@@ -3,62 +3,33 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
-    private float Timer;
     [SerializeField] private TrailRenderer trailRenderer;
-    [SerializeField] private Transform startPos;
-    [SerializeField] private float travelTime;
+    private Vector3 startPos;
+    private Vector3 dir;
+    private float speed;
+    private float distance;
+    private bool isInitialized;
 
-    public static BulletBehaviour instance;
-
-    private void Awake()
+    public void Init(Vector3 startPos, Vector3 dir, int distance, float speed = 50) 
     {
-        if(instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Debug.Log("2 bullet behaviour");
-            Destroy(this);
-            return;
-        }
+        this.startPos = startPos;
+        this.dir = dir;
+        this.speed = speed;
+        this.distance = distance;
+        transform.position = startPos;
+        isInitialized = true;
     }
 
-    private void Start()
-    {
-
-    }
 
     private void Update()
     {
-        Timer += Time.deltaTime;
-        if(Timer > 0.5f)
+        if (!isInitialized)
+            return;
+        print(Vector3.Distance(startPos, transform.position));
+        transform.Translate(dir * speed * Time.deltaTime);
+        if (Vector3.Distance(startPos, transform.position) > distance)
         {
-            ReturnBullet();
+            Destroy(gameObject);
         }
-    }
-
-    private void ReturnBullet()
-    {
-        transform.position = startPos.position;
-        trailRenderer.enabled = false;
-    }
-
-    IEnumerator BulletMove(int distance, Vector3 dir)
-    {
-        trailRenderer.enabled = true;
-        float timer = 0;
-        while(timer < travelTime)
-        {
-            transform.position = Vector3.Lerp(startPos.position, startPos.position + dir * distance * 2  , 0.5f);
-            timer += Time.deltaTime;
-            yield return null;
-        }
-        trailRenderer.enabled = false;
-    }
-
-    public void BulletAdvence(int distance, Vector3 dir)
-    {
-        StartCoroutine(BulletMove(distance, dir));
     }
 }

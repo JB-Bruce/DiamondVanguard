@@ -256,7 +256,7 @@ public class Character : MonoBehaviour
                     else { audioSource.PlayOneShot(controler.slashhitSFX); }
                     pAttack.Attack(damages);
                     attackSlash.start = true;
-            }
+                }
                 else if (newWeapon.itemType == Type.HealWeapon)
                 {
                     damages *= healMult;

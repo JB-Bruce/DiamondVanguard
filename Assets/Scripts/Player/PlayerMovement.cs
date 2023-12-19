@@ -109,6 +109,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void Spawn(Vector2Int SpawnPoint, float rota)
+    {
+        Cell targetCell = grid.GetCell(SpawnPoint.x, SpawnPoint.y);
+        MoveToCell(targetCell);
+        transform.rotation = Quaternion.Euler(0, rota, 0);
+    }
+
     void Update()
     {
         if (isMoving) 

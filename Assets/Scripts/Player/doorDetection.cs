@@ -8,7 +8,11 @@ public class doorDetection : MonoBehaviour
     [SerializeField] Camera playerCam;
     [SerializeField] float maxInteractionRange;
     [SerializeField] string doorTag;
+
+    [SerializeField] MapLoader mapLoader;
+
     private Door selectedDoor = null;
+
 
     private void Update()
     {
@@ -21,6 +25,7 @@ public class doorDetection : MonoBehaviour
             {
                 if (selectedDoor != door)
                 {
+
                     if (selectedDoor != null)
                         selectedDoor.UnSelect();
 
@@ -31,7 +36,7 @@ public class doorDetection : MonoBehaviour
                 {
                     if (hit.collider.gameObject.tag == doorTag)
                     {
-                        SceneManager.LoadScene(selectedDoor.targetScene);
+                          mapLoader.ChangeMap();
                     }
                 }
                 return;

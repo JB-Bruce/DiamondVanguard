@@ -52,6 +52,10 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField] AnimationClip rotationR;
     [SerializeField] AnimationClip rotationL;
+
+    [SerializeField] AudioSource deathSound;
+    [SerializeField] AudioSource attackSound;
+
     void Start()
     {
         grid = GameGrid.instance;
@@ -387,19 +391,5 @@ public class EnemyMovement : MonoBehaviour
         cellOn = cell;
         isMoving = true;
         animator.SetBool("isWalking", true);
-    }
-
-    void MusicControler()
-    {
-        if (PlayerDetection())
-        {
-            print("player détécté");
-            MusicManager.instance.PlayMusic();
-        }
-        else if (!PlayerDetection())
-        {
-            print("pas détecé");
-            return;
-        }
     }
 }

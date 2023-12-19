@@ -6,7 +6,7 @@ public class PlayerInteractions : MonoBehaviour
 {
     [SerializeField] private int caseRange;
     GameGrid gameGrid;
-    Camera cam;
+    [SerializeField] Camera cam;
 
     DoorLever selectedLever = null;
 
@@ -14,7 +14,6 @@ public class PlayerInteractions : MonoBehaviour
     private void Start()
     {
         gameGrid = GameGrid.instance;
-        cam = Camera.main;
     }
 
     private void Update()

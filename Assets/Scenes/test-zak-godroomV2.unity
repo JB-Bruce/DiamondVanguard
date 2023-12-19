@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 4791b39196bf89346ab5e5c8837ab018,
+    type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 69eb92981e2781849b8a4577674ee6a8,
     type: 2}
 --- !u!196 &4
@@ -2207,13 +2208,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322446440}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.36162448, z: 0, w: 0.9323238}
+  m_LocalRotation: {x: 0, y: 0.73135376, z: 0, w: 0.6819984}
   m_LocalPosition: {x: 10.4, y: 3.59, z: -6.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -42.4, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 94, z: 0}
 --- !u!21 &335995934
 Material:
   serializedVersion: 8
@@ -4090,6 +4091,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NeonRed
       objectReference: {fileID: 0}
+    - target: {fileID: 4262863520198647067, guid: 6592f4dd4ac072b4a8a184ebafb9bad1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5177136342998510688, guid: 6592f4dd4ac072b4a8a184ebafb9bad1,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -4192,23 +4198,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8728811155238051584, guid: 6592f4dd4ac072b4a8a184ebafb9bad1,
         type: 3}
+      propertyPath: m_AreaSize.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728811155238051584, guid: 6592f4dd4ac072b4a8a184ebafb9bad1,
+        type: 3}
+      propertyPath: m_BounceIntensity
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728811155238051584, guid: 6592f4dd4ac072b4a8a184ebafb9bad1,
+        type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 0.00011095294
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8728811155238051584, guid: 6592f4dd4ac072b4a8a184ebafb9bad1,
         type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 7.51e-43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8728811155238051584, guid: 6592f4dd4ac072b4a8a184ebafb9bad1,
         type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 4.9e-44
+      value: 3e-45
       objectReference: {fileID: 0}
     - target: {fileID: 8728811155238051584, guid: 6592f4dd4ac072b4a8a184ebafb9bad1,
         type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 0
+      value: 4.3e-44
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5596,6 +5612,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NeonRed (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4262863520198647067, guid: 6592f4dd4ac072b4a8a184ebafb9bad1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5177136342998510688, guid: 6592f4dd4ac072b4a8a184ebafb9bad1,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -5694,27 +5715,37 @@ PrefabInstance:
     - target: {fileID: 8728811155238051584, guid: 6592f4dd4ac072b4a8a184ebafb9bad1,
         type: 3}
       propertyPath: m_Intensity
-      value: 250
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728811155238051584, guid: 6592f4dd4ac072b4a8a184ebafb9bad1,
+        type: 3}
+      propertyPath: m_AreaSize.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728811155238051584, guid: 6592f4dd4ac072b4a8a184ebafb9bad1,
+        type: 3}
+      propertyPath: m_BounceIntensity
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8728811155238051584, guid: 6592f4dd4ac072b4a8a184ebafb9bad1,
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 21.599998
+      value: -10.000001
       objectReference: {fileID: 0}
     - target: {fileID: 8728811155238051584, guid: 6592f4dd4ac072b4a8a184ebafb9bad1,
         type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 7.51e-43
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8728811155238051584, guid: 6592f4dd4ac072b4a8a184ebafb9bad1,
         type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 0.00011097832
+      value: -0.0000011920929
       objectReference: {fileID: 0}
     - target: {fileID: 8728811155238051584, guid: 6592f4dd4ac072b4a8a184ebafb9bad1,
         type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 7.51e-43
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12232,7 +12263,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 3e-45, z: 4.3e-44, w: 0}
+  m_BoundingSphereOverride: {x: 5.251915e-39, y: 5.1134018e-37, z: 9.78048e-39, w: 7.80602e-40}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0

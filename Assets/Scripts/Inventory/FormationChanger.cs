@@ -10,6 +10,7 @@ public class FormationChanger : MonoBehaviour
     private GameObject image;
     private CharacterUIStatsUpdater CharacterUi1;
     private CharacterUIStatsUpdater CharacterUi2;
+    [SerializeField] private Vector2 position;
 
     [SerializeField] EventSystem eventSystem;
     [SerializeField] GraphicRaycaster m_Raycaster;
@@ -91,7 +92,8 @@ public class FormationChanger : MonoBehaviour
     {
         if (image.tag == "PersoSlot")
         {
-            image.transform.position = new Vector3(LastPanel.transform.position.x - 80, LastPanel.transform.position.y, LastPanel.transform.position.z);
+            image.transform.position = new Vector3(LastPanel.transform.position.x + position.x, LastPanel.transform.position.y + position.y, LastPanel.transform.position.z);
+
         }
     }
 

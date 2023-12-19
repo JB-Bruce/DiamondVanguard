@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a1d4ddaa69b3f469259cdd40c43d2d, type: 3}
   m_Name: Rare3
   m_EditorClassIdentifier: 
-  itemName: Rare3
-  icon: {fileID: 21300000, guid: 14bef4043f7268144a41dde01bbdccbc, type: 3}
+  itemName: NanoPulse Cortex - Elite
+  icon: {fileID: 21300000, guid: 6157e8274afa0e94fb99cff40c1d8b30, type: 3}
   itemType: 3
   rarity: 1
   critChance: 10

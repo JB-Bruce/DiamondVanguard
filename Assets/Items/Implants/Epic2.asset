@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a1d4ddaa69b3f469259cdd40c43d2d, type: 3}
   m_Name: Epic2
   m_EditorClassIdentifier: 
-  itemName: Epic2
-  icon: {fileID: 21300000, guid: 24111d086e0c779498112dd50a1fe8e1, type: 3}
+  itemName: NeuroFury - Xtreme
+  icon: {fileID: 21300000, guid: 564b576af01022c48b4fcb275a100077, type: 3}
   itemType: 3
   rarity: 2
   critChance: -0.6

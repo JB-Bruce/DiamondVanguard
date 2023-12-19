@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a1d4ddaa69b3f469259cdd40c43d2d, type: 3}
   m_Name: Commun3
   m_EditorClassIdentifier: 
-  itemName: Commun3
-  icon: {fileID: 21300000, guid: 86c8e69980cf74145ab8a2ae7891a737, type: 3}
+  itemName: NanoPulse Cortex
+  icon: {fileID: 21300000, guid: f28786531fda9de49af2cc8755d6e43f, type: 3}
   itemType: 3
+  rarity: 0
   critChance: 10
   critDamage: 0
   HP: -20

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a1d4ddaa69b3f469259cdd40c43d2d, type: 3}
   m_Name: Epic3
   m_EditorClassIdentifier: 
-  itemName: Epic3
-  icon: {fileID: 21300000, guid: 861a3d93763a2de499a99213fd940526, type: 3}
+  itemName: NanoPulse Cortex - Xtreme
+  icon: {fileID: 21300000, guid: added41d6de1b714884b8752e760c66b, type: 3}
   itemType: 3
   rarity: 2
   critChance: 30

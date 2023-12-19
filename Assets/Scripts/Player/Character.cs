@@ -104,6 +104,7 @@ public class Character : MonoBehaviour
         {
             //tuer personage
             dead = true;
+            audioSource.PlayOneShot(controler.dyingSFX);
             controler.Die(this);
         }
         PvChangeEvent.Invoke();

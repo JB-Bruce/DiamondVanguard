@@ -52,6 +52,7 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField] AnimationClip rotationR;
     [SerializeField] AnimationClip rotationL;
+    [SerializeField] AnimationClip punchAnimaton;
 
     [SerializeField] AudioSource deathSound;
     [SerializeField] AudioSource attackSound;
@@ -134,6 +135,7 @@ public class EnemyMovement : MonoBehaviour
             animator.SetBool("isDead", true);
             Destroy(gameObject,2);
             dead = true;
+            deathSound.Play();
         }
     }
 
@@ -239,6 +241,7 @@ public class EnemyMovement : MonoBehaviour
         isAttacking = true;
         cc.TakeDamage(damages);
         animator.SetTrigger("attack");
+        attackSound.Play();
     }
 
     private Cell NextCellToGoToTarget(Cell cell)

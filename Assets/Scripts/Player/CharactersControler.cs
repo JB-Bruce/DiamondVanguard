@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.TextCore.Text;
 
 public class CharactersControler : MonoBehaviour
 {
@@ -131,32 +132,87 @@ public class CharactersControler : MonoBehaviour
     {
         if (frontUI.currentCharacter != null && isdead == frontUI.currentCharacter)
         {
-            ResetFront();
+            //ResetFront();
+            SwapTopRight();
         }
 
         else if (rightUI.currentCharacter != null && isdead == rightUI.currentCharacter)
         {
-            ResetRight();
+            //ResetRight();
+            SwapRightLeft();
         }
 
         else if (leftUI.currentCharacter != null && isdead == leftUI.currentCharacter)
         {
-            ResetLeft();
+            //ResetLeft();
+            SwapLeftBot();
         }
 
         else if (backUI.currentCharacter != null && isdead == backUI.currentCharacter)
         {
-            ResetBack();
+            //ResetBack();
+            DesactivateUI(backUI);
         }
+    }
+
+    private void SwapTopRight()
+    {
+        
+        Character character1 = frontUI.currentCharacter;
+        Character character2 = rightUI.currentCharacter;
+        frontUI.ResetCharacter();
+        rightUI.ResetCharacter();
+        frontUI.SetNewCharacter(character2);
+        rightUI.SetNewCharacter(character1);
+        if(!leftUI.currentCharacter.dead) 
+        {
+            SwapRightLeft();
+        }
+        else GameOver();
+
+    }
+
+    private void SwapRightLeft()
+    {
+        Character character1 = rightUI.currentCharacter;
+        Character character2 = leftUI.currentCharacter;
+        rightUI.ResetCharacter();
+        leftUI.ResetCharacter();
+        rightUI.SetNewCharacter(character2);
+        leftUI.SetNewCharacter(character1);
+        if (!backUI.currentCharacter.dead)
+        {
+            SwapLeftBot();
+        }
+        else DesactivateUI(leftUI);
+    }
+
+    private void SwapLeftBot()
+    {
+        Character character1 = leftUI.currentCharacter;
+        Character character2 = backUI.currentCharacter;
+        leftUI.ResetCharacter();
+        backUI.ResetCharacter();
+        leftUI.SetNewCharacter(character2);
+        backUI.SetNewCharacter(character1);
+        DesactivateUI(backUI);
+    }
+
+    private void DesactivateUI(CharacterUIStatsUpdater UI)
+    {
+        UI.greyFilter.SetActive(true);
+        UI.rightAttack.interactable = false;
+        UI.leftAttack.interactable = false;
     }
 
     private void ResetFront()
     {
+        //Character character1 = frontUI.currentCharacter;
         frontUI.ResetCharacter();
         if(rightUI.currentCharacter != null && !rightUI.currentCharacter.dead)
         {
-            Character newChar2 = ResetRight();
-            frontUI.SetNewCharacter(newChar2);
+            Character character2 = ResetRight();
+            frontUI.SetNewCharacter(character2);
         }
         else
         {
@@ -166,24 +222,24 @@ public class CharactersControler : MonoBehaviour
 
     private Character ResetRight()
     {
-        Character newChar = rightUI.ResetCharacter();
+        Character character1 = rightUI.ResetCharacter();
         if (leftUI.currentCharacter != null && !leftUI.currentCharacter.dead)
         {
-            Character newChar2 = ResetLeft();
-            rightUI.SetNewCharacter(newChar2);
+            Character character2 = ResetLeft();
+            rightUI.SetNewCharacter(character2);
         }
-        return newChar;
+        return character1;
     }
 
     private Character ResetLeft()
     {
-        Character newChar = leftUI.ResetCharacter();
+        Character character1 = leftUI.ResetCharacter();
         if (backUI.currentCharacter != null && !backUI.currentCharacter.dead)
         {
-            Character newChar2 = ResetBack();
-            leftUI.SetNewCharacter(newChar2);
+            Character character2 = ResetBack();
+            leftUI.SetNewCharacter(character2);
         }
-        return newChar;
+        return character1;
     }
 
     private Character ResetBack()

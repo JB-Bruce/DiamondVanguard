@@ -20,6 +20,8 @@ public class CharacterUIStatsUpdater : MonoBehaviour
     public EquipementSlot leftSlot;
     public EquipementSlot rightSlot;
 
+    public GameObject greyFilter;
+
     private void Start()
     {
         SetUpCharacter(currentCharacter);

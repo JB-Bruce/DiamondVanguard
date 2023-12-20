@@ -1800,6 +1800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66b1c742d70816f4b81c13ab1aa7860c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  position: {x: 0, y: 0}
   eventSystem: {fileID: 252449006}
   m_Raycaster: {fileID: 70409207}
   DragNDrop: {fileID: 1853167473}
@@ -3663,10 +3664,13 @@ MonoBehaviour:
   coolDownLeft: 0
   currentCDleft: 0
   currentCDright: 0
+  inexhaustible: 0
   damagesScreenShake: {fileID: 0}
   attackSlash: {fileID: 0}
   fire: {fileID: 0}
   audioSource: {fileID: 1106182618}
+  hurtSFX: {fileID: 8300000, guid: 2bd1411fe49df4640a8bc05aff5a85f7, type: 3}
+  deathSFX: {fileID: 8300000, guid: 5de6201ac74132a4fb196565ac858e18, type: 3}
 --- !u!1 &333644297
 GameObject:
   m_ObjectHideFlags: 0
@@ -12761,10 +12765,13 @@ MonoBehaviour:
   coolDownLeft: 0
   currentCDleft: 0
   currentCDright: 0
+  inexhaustible: 0
   damagesScreenShake: {fileID: 0}
   attackSlash: {fileID: 0}
   fire: {fileID: 0}
   audioSource: {fileID: 1106182618}
+  hurtSFX: {fileID: 8300000, guid: 564a171e2a1864e44a73afc7560b4388, type: 3}
+  deathSFX: {fileID: 8300000, guid: f97cbbfdac147a64382ff5069c2f725f, type: 3}
 --- !u!4 &1003068644
 Transform:
   m_ObjectHideFlags: 0
@@ -15619,7 +15626,7 @@ MonoBehaviour:
   shotgunSFX: {fileID: 8300000, guid: ea467a2bae0793f4faee2f8db5e45a31, type: 3}
   sniperSFX: {fileID: 8300000, guid: ec3495c6cecb73b4eb002e172925c941, type: 3}
   healSFX: {fileID: 8300000, guid: cba00508a080fbc4c87ec4b738449110, type: 3}
-  dyingSFX: {fileID: 0}
+  invencible: 0
 --- !u!82 &1106182618
 AudioSource:
   m_ObjectHideFlags: 0
@@ -19703,10 +19710,13 @@ MonoBehaviour:
   coolDownLeft: 0
   currentCDleft: 0
   currentCDright: 0
+  inexhaustible: 0
   damagesScreenShake: {fileID: 0}
   attackSlash: {fileID: 0}
   fire: {fileID: 0}
   audioSource: {fileID: 1106182618}
+  hurtSFX: {fileID: 8300000, guid: c962938debfe35e49b5f56bb0ae06ee6, type: 3}
+  deathSFX: {fileID: 8300000, guid: a70c88ca7fecc3e4ab8ad5cbd6feb950, type: 3}
 --- !u!1001 &1444917956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24690,7 +24700,7 @@ PrefabInstance:
     - target: {fileID: 1771743001897355546, guid: 846791f650afd0b4a8eac20f75d71f17,
         type: 3}
       propertyPath: damages
-      value: 0
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1771743001897355546, guid: 846791f650afd0b4a8eac20f75d71f17,
         type: 3}
@@ -28719,10 +28729,13 @@ MonoBehaviour:
   coolDownLeft: 0
   currentCDleft: 0
   currentCDright: 0
+  inexhaustible: 0
   damagesScreenShake: {fileID: 0}
   attackSlash: {fileID: 0}
   fire: {fileID: 0}
   audioSource: {fileID: 1106182618}
+  hurtSFX: {fileID: 8300000, guid: 7df6486987e971844b7d68fa0f64131a, type: 3}
+  deathSFX: {fileID: 8300000, guid: 861691c001efca94abbf5463692f70b9, type: 3}
 --- !u!1 &2082373936
 GameObject:
   m_ObjectHideFlags: 0

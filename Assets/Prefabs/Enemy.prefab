@@ -1579,7 +1579,7 @@ MonoBehaviour:
   moveSpeed: 1
   rotationSpeed: 1
   attackSpeed: 1
-  damages: 0
+  damages: 40
   cellOn:
     entity: {fileID: 0}
   closeCells: []

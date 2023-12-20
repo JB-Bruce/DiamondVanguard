@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class LoreMenu : MonoBehaviour
 {
     [SerializeField] List<GameObject> texts = new();
-    private int indice = 0;
+    private int indice = 1;
     public void NextBtn()
     {
         if (indice >= texts.Count || texts[indice] == null)

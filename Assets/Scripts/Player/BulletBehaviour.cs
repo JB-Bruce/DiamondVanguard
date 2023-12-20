@@ -25,7 +25,6 @@ public class BulletBehaviour : MonoBehaviour
     {
         if (!isInitialized)
             return;
-        print(Vector3.Distance(startPos, transform.position));
         transform.Translate(dir * speed * Time.deltaTime);
         if (Vector3.Distance(startPos, transform.position) > distance)
         {

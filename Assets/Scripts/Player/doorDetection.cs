@@ -11,6 +11,8 @@ public class doorDetection : MonoBehaviour
 
     [SerializeField] MapLoader mapLoader;
 
+    [SerializeField] PlayerMovement player;
+
     private Door selectedDoor = null;
 
 
@@ -34,7 +36,7 @@ public class doorDetection : MonoBehaviour
                 }
                 if (Input.GetMouseButtonDown(0))
                 {
-                    if (hit.collider.gameObject.tag == doorTag)
+                    if (hit.collider.gameObject.tag == doorTag && !player.isInAction)
                     {
                           mapLoader.ChangeMap();
                     }

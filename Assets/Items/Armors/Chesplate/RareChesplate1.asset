@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 387253ba81c63e44c963560d1ba0c612, type: 3}
   m_Name: RareChesplate1
   m_EditorClassIdentifier: 
-  itemName: RareChesplate1
+  itemName: ExoPlate HyperSteel
   icon: {fileID: 21300000, guid: 14cd9b135ba79074e8fa409d3a5b61ea, type: 3}
   itemType: 5
   rarity: 1

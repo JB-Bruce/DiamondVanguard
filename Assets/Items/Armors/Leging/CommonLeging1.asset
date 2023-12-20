@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd101245f19f7354ba59590a7cdd2603, type: 3}
   m_Name: CommonLeging1
   m_EditorClassIdentifier: 
-  itemName: CommonLegnig1
+  itemName: "N\xE9oRunners"
   icon: {fileID: 21300000, guid: 93e96b81c27a2f047b174b8eab111937, type: 3}
   itemType: 6
   rarity: 0

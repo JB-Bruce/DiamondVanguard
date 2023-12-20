@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 387253ba81c63e44c963560d1ba0c612, type: 3}
   m_Name: EpicChesplate1
   m_EditorClassIdentifier: 
-  itemName: EpicChesplate1
+  itemName: 'ExoPlate NanoFibre '
   icon: {fileID: 21300000, guid: fe9609b7d75f458458d393cdd679617a, type: 3}
   itemType: 5
   rarity: 2

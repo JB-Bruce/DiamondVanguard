@@ -116,7 +116,11 @@ public class PlayerMovement : MonoBehaviour
         posX = SpawnPoint.x;
         posY = SpawnPoint.y;
         Cell targetCell = grid.GetCell(SpawnPoint.x, SpawnPoint.y);
-        MoveToCell(targetCell);
+        cellOn.DeleteEntity();
+        targetCell.SetEntity(entity);
+        cellOn = targetCell;
+        timer = 0f;
+        transform.position = cellOn.pos;
         transform.rotation = Quaternion.Euler(0, rota, 0);
     }
 

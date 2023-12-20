@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 387253ba81c63e44c963560d1ba0c612, type: 3}
   m_Name: CommonChesplate1
   m_EditorClassIdentifier: 
-  itemName: CommonChesplate1
+  itemName: ExoPlate
   icon: {fileID: 21300000, guid: 151b5c3acc158f74fad99e745f187615, type: 3}
   itemType: 5
   rarity: 0

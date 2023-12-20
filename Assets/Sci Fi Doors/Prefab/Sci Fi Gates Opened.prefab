@@ -188,7 +188,6 @@ GameObject:
   - component: {fileID: 4972167997025879799}
   - component: {fileID: 4851768856340493923}
   - component: {fileID: 6257460796718785133}
-  - component: {fileID: 321797264036429892}
   - component: {fileID: 6574420934422591633}
   m_Layer: 8
   m_Name: Sci Fi Gates Opened
@@ -252,21 +251,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   outline: {fileID: 6574420934422591633}
   targetScene: GodRoom
---- !u!114 &321797264036429892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4972167997025983191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f9ac2cc3045f524ebd60cb76bad53b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCam: {fileID: 0}
-  maxInteractionRange: 5
-  doorTag: door
 --- !u!114 &6574420934422591633
 MonoBehaviour:
   m_ObjectHideFlags: 0

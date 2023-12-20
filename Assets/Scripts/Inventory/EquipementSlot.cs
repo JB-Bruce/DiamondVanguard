@@ -126,6 +126,9 @@ public class EquipementSlot : ItemContainer
             Implants itemstats = (Implants)item;
             character.pvMax += itemstats.HP;
             character.clampHP();
+            character.PvChangeEvent.Invoke();
+            if (character.pvMax <= 0)
+                character.controler.Die(character);
             character.dgtCritMult += itemstats.critDamage;
             character.tauxCrit += itemstats.critChance;
             character.cacDmgMult += itemstats.cacDamage;
@@ -133,6 +136,7 @@ public class EquipementSlot : ItemContainer
             character.healMult += itemstats.heal;
             character.energyMax += itemstats.energy;
             character.clampEnergy();
+            character.EnergyChangeEvent.Invoke();
             character.def += itemstats.def;
         }
         else if (type == containerType.Helmet || type == containerType.Leging || type == containerType.Chestplate)
@@ -155,6 +159,9 @@ public class EquipementSlot : ItemContainer
             Implants itemstats = (Implants)item;
             character.pvMax -= itemstats.HP;
             character.clampHP();
+            character.PvChangeEvent.Invoke();
+            if (character.pvMax <= 0)
+                character.controler.Die(character);
             character.dgtCritMult -= itemstats.critDamage;
             character.tauxCrit -= itemstats.critChance;
             character.cacDmgMult -= itemstats.cacDamage;
@@ -162,6 +169,7 @@ public class EquipementSlot : ItemContainer
             character.healMult -= itemstats.heal;
             character.energyMax -= itemstats.energy;
             character.clampEnergy();
+            character.EnergyChangeEvent.Invoke();
             character.def -= itemstats.def;
         }
         else if (type == containerType.Helmet || type == containerType.Leging || type == containerType.Chestplate)

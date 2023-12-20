@@ -155,8 +155,8 @@ public class CharactersControler : MonoBehaviour
         frontUI.ResetCharacter();
         if(rightUI.currentCharacter != null && !rightUI.currentCharacter.dead)
         {
-            Character newChar = ResetRight();
-            frontUI.SetNewCharacter(newChar);
+            Character newChar2 = ResetRight();
+            frontUI.SetNewCharacter(newChar2);
         }
         else
         {

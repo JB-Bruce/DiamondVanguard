@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 387253ba81c63e44c963560d1ba0c612, type: 3}
-  m_Name: EpicChesplate1
+  m_Name: RareChesplate2
   m_EditorClassIdentifier: 
-  itemName: 'ExoPlate NanoFibre '
-  icon: {fileID: 21300000, guid: fe9609b7d75f458458d393cdd679617a, type: 3}
+  itemName: Military chesplate Renforced
+  icon: {fileID: 21300000, guid: 249e7ad9fc4fb2a46b668c90accbfedb, type: 3}
   itemType: 5
   rarity: 0
-  HP: 0
-  Defense: 4
-  Energy: 20
+  HP: 24
+  Defense: 3
+  Energy: 0

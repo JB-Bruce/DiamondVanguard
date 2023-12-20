@@ -10,9 +10,29 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1771743001897355546, guid: 846791f650afd0b4a8eac20f75d71f17,
         type: 3}
+      propertyPath: pv
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771743001897355546, guid: 846791f650afd0b4a8eac20f75d71f17,
+        type: 3}
+      propertyPath: damages
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771743001897355546, guid: 846791f650afd0b4a8eac20f75d71f17,
+        type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 2828976693928561880}
+    - target: {fileID: 1771743001897355546, guid: 846791f650afd0b4a8eac20f75d71f17,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771743001897355546, guid: 846791f650afd0b4a8eac20f75d71f17,
+        type: 3}
+      propertyPath: attackSpeed
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 5012731204193716255, guid: 846791f650afd0b4a8eac20f75d71f17,
         type: 3}
       propertyPath: m_LocalPosition.x

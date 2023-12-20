@@ -27,13 +27,13 @@ public class StatsDisplayer : MonoBehaviour
         mousePos = Input.mousePosition;
         transform.position = mousePos;
         if (mousePos.x > 1415)
-        {
-            rectTransform.pivot = new Vector2(1, 1);
-        }
+            rectTransform.pivot = new Vector2(1, rectTransform.pivot.y);
         else
-        {
-            rectTransform.pivot = new Vector2(0, 1);
-        }
+            rectTransform.pivot = new Vector2(0, rectTransform.pivot.y);
+        if (mousePos.y > 230)
+            rectTransform.pivot = new Vector2(rectTransform.pivot.x, 1);
+        else
+            rectTransform.pivot = new Vector2(rectTransform.pivot.x, 0);
     }
 
     public void UpdateTexts(Item item)

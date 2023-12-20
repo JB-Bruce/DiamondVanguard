@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 387253ba81c63e44c963560d1ba0c612, type: 3}
-  m_Name: EpicChesplate1
+  m_Script: {fileID: 11500000, guid: 2fd4c294bd0a72046984d9217202fda2, type: 3}
+  m_Name: EpicHelmet2
   m_EditorClassIdentifier: 
-  itemName: 'ExoPlate NanoFibre '
-  icon: {fileID: 21300000, guid: fe9609b7d75f458458d393cdd679617a, type: 3}
-  itemType: 5
+  itemName: Military helmet NanoFibre
+  icon: {fileID: 21300000, guid: 0d55ee468d3ea414988139f28da9b118, type: 3}
+  itemType: 4
   rarity: 0
-  HP: 0
-  Defense: 4
-  Energy: 20
+  HP: 16
+  Defense: 2
+  Energy: 0

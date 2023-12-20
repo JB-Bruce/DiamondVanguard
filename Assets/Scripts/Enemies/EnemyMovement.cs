@@ -198,6 +198,8 @@ public class EnemyMovement : MonoBehaviour
         {
             hasTarget = false;
             targetCell = NextCellToGoToTarget(player.cellOn);
+            if (targetCell == cellOn)
+                print("SAME CELL");
         }
         else if(!hasTarget)
         {
@@ -244,7 +246,7 @@ public class EnemyMovement : MonoBehaviour
         cc.TakeDamage(damages);
         animator.SetTrigger("attack");
         attackSound.Play();
-        StartCoroutine(MusicManager.instance.FadeOutMusic());
+        //StartCoroutine(MusicManager.instance.FadeOutMusic());
     }
 
     private Cell NextCellToGoToTarget(Cell cell)
@@ -306,6 +308,8 @@ public class EnemyMovement : MonoBehaviour
             }
         }
 
+        if (path.Count < 2)
+            return cellOn;
 
         finalCell = path[1];
 

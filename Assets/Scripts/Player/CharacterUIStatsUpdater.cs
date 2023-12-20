@@ -47,6 +47,11 @@ public class CharacterUIStatsUpdater : MonoBehaviour
         currentCharacter.cdLeftChangedEvent.AddListener(LeftWeaponCoolDownChanged);
         currentCharacter.equipWeaponREvent.AddListener(RWeaponChanged);
         currentCharacter.equipWeaponLEvent.AddListener(LWeaponChanged);
+
+        rightAttack.interactable = currentCharacter.coolDownRight == 0f;
+        rightWeaponCoolDown.transform.localScale = new Vector3(1, (currentCharacter.coolDownRight == 0f ? 0 : currentCharacter.currentCDright / currentCharacter.coolDownRight), 1);
+        leftAttack.interactable = currentCharacter.coolDownLeft == 0f;
+        leftWeaponCoolDown.transform.localScale = new Vector3(1, (currentCharacter.coolDownLeft == 0f ? 0 : currentCharacter.currentCDleft / currentCharacter.coolDownLeft), 1);
     }
 
     public Character ResetCharacter()
@@ -64,6 +69,12 @@ public class CharacterUIStatsUpdater : MonoBehaviour
             currentCharacter.cdLeftChangedEvent.RemoveListener(LeftWeaponCoolDownChanged);
             currentCharacter.equipWeaponREvent.RemoveListener(RWeaponChanged);
             currentCharacter.equipWeaponLEvent.RemoveListener(LWeaponChanged);
+
+            rightAttack.interactable = false;
+            rightWeaponCoolDown.transform.localScale = new Vector3(1, 0, 1);
+            leftAttack.interactable = false;
+            leftWeaponCoolDown.transform.localScale = new Vector3(1, 0, 1);
+
             currentCharacter = null;
         }
         

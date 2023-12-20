@@ -30,6 +30,9 @@ public class MusicManager : MonoBehaviour
 
     private void Start()
     {
+        fightMusicLoop1.Stop();
+        fightMusicLoop2.Stop();
+
         ennemyCount = 0;
         volmaxloop1 = fightMusicLoop1.volume;
         volmaxloop2 = fightMusicLoop2.volume;

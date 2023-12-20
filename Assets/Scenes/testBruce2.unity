@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.08
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.25
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.045070946, g: 0.05642853, b: 0.07673071, a: 0.25}
+  m_IndirectSpecularColor: {r: 0.04319211, g: 0.053973116, b: 0.07445657, a: 0.25}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4714,7 +4714,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -4751,13 +4751,13 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 247
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 4325
+  m_BounceIntensity: 7.02
+  m_ColorTemperature: 1500
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -4772,13 +4772,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: -90, z: -90}
 --- !u!114 &410087042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8253,6 +8253,7 @@ MonoBehaviour:
   m_Raycaster: {fileID: 944718638}
   DragNDrop: {fileID: 200421122}
   StatsDisplayer: {fileID: 0}
+  inventorySFX: {fileID: 0}
 --- !u!4 &725663257
 Transform:
   m_ObjectHideFlags: 0
@@ -19001,6 +19002,11 @@ PrefabInstance:
       propertyPath: factor
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 1171587449479367777, guid: 620b728e33feb6a478ec3d7ecbcb5cd6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1239186650081522156, guid: 620b728e33feb6a478ec3d7ecbcb5cd6,
         type: 3}
       propertyPath: m_Mesh
@@ -19026,10 +19032,25 @@ PrefabInstance:
       propertyPath: factor
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 3175092330732731889, guid: 620b728e33feb6a478ec3d7ecbcb5cd6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3276894169271978157, guid: 620b728e33feb6a478ec3d7ecbcb5cd6,
         type: 3}
       propertyPath: factor
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320778086713953902, guid: 620b728e33feb6a478ec3d7ecbcb5cd6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345521560881740297, guid: 620b728e33feb6a478ec3d7ecbcb5cd6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4528917588938553086, guid: 620b728e33feb6a478ec3d7ecbcb5cd6,
         type: 3}
@@ -19060,6 +19081,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ceiling
+      objectReference: {fileID: 0}
+    - target: {fileID: 5446434934627616987, guid: 620b728e33feb6a478ec3d7ecbcb5cd6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540849660391803836, guid: 620b728e33feb6a478ec3d7ecbcb5cd6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802574495832901603, guid: 620b728e33feb6a478ec3d7ecbcb5cd6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7024485635993519135, guid: 620b728e33feb6a478ec3d7ecbcb5cd6,
         type: 3}
@@ -22605,6 +22641,16 @@ MonoBehaviour:
   rightUI: {fileID: 773365276}
   leftUI: {fileID: 2093055995}
   backUI: {fileID: 360362483}
+  massWiffSFX: {fileID: 0}
+  massHitSFX: {fileID: 0}
+  hitSFX: {fileID: 0}
+  slashWiffSFX: {fileID: 0}
+  slashhitSFX: {fileID: 0}
+  makarovSFX: {fileID: 0}
+  shotgunSFX: {fileID: 0}
+  sniperSFX: {fileID: 0}
+  healSFX: {fileID: 0}
+  dyingSFX: {fileID: 0}
   invencible: 0
 --- !u!21 &2008106442
 Material:
@@ -26283,6 +26329,7 @@ MonoBehaviour:
   damagesScreenShake: {fileID: 0}
   attackSlash: {fileID: 0}
   fire: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &2160601517372994533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26895,6 +26942,7 @@ MonoBehaviour:
   damagesScreenShake: {fileID: 0}
   attackSlash: {fileID: 0}
   fire: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!224 &3140298584344162504
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27392,6 +27440,7 @@ MonoBehaviour:
   damagesScreenShake: {fileID: 0}
   attackSlash: {fileID: 0}
   fire: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!223 &4081576795563042164
 Canvas:
   m_ObjectHideFlags: 0
@@ -27562,6 +27611,7 @@ MonoBehaviour:
   damagesScreenShake: {fileID: 0}
   attackSlash: {fileID: 0}
   fire: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &4220716894590868965
 MonoBehaviour:
   m_ObjectHideFlags: 0

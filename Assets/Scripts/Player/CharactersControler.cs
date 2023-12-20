@@ -25,7 +25,6 @@ public class CharactersControler : MonoBehaviour
     [SerializeField] public AudioClip shotgunSFX;
     [SerializeField] public AudioClip sniperSFX;
     [SerializeField] public AudioClip healSFX;
-    [SerializeField] public AudioClip dyingSFX;
 
     public static CharactersControler instance;
 

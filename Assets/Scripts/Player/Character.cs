@@ -67,6 +67,9 @@ public class Character : MonoBehaviour
     public MuzzleFlashManager fire;
 
     [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip hurtSFX;
+    [SerializeField] AudioClip deathSFX;
+
 
 
     void Start()
@@ -101,12 +104,13 @@ public class Character : MonoBehaviour
 
         pv -= newAmount;
         pv = Mathf.Clamp(pv, 0, pvMax);
-        damagesScreenShake.start = true;
+        audioSource.PlayOneShot(hurtSFX);
+        //damagesScreenShake.start = true;
         if (pv == 0)
         {
             //tuer personage
             dead = true;
-            audioSource.PlayOneShot(controler.dyingSFX);
+            audioSource.PlayOneShot(deathSFX);
             controler.Die(this);
         }
         PvChangeEvent.Invoke();
@@ -119,10 +123,12 @@ public class Character : MonoBehaviour
 
         pv -= amount;
         pv = Mathf.Clamp(pv, 0, pvMax);
+        audioSource.PlayOneShot(hurtSFX);
         if (pv == 0)
         {
             //tuer personage
             dead = true;
+            audioSource.PlayOneShot(deathSFX);
             controler.Die(this);
         }
         PvChangeEvent.Invoke();

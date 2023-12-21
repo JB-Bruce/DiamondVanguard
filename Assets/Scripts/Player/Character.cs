@@ -70,6 +70,8 @@ public class Character : MonoBehaviour
     [SerializeField] AudioClip hurtSFX;
     [SerializeField] AudioClip deathSFX;
 
+    [HideInInspector] public CharacterDamageIndicator CDI;
+
 
 
     void Start()
@@ -102,6 +104,9 @@ public class Character : MonoBehaviour
         if (newAmount <= 0) 
             return;
 
+        if (CDI != null)
+            CDI.TakeDamage(amount);
+
         pv -= newAmount;
         pv = Mathf.Clamp(pv, 0, pvMax);
         audioSource.PlayOneShot(hurtSFX);
@@ -113,6 +118,7 @@ public class Character : MonoBehaviour
             audioSource.PlayOneShot(deathSFX);
             controler.Die(this);
         }
+
         PvChangeEvent.Invoke();
     }
 
@@ -120,6 +126,9 @@ public class Character : MonoBehaviour
     {
         if (amount <= 0)
             return;
+
+        if (CDI != null)
+            CDI.TakeDamage(amount);
 
         pv -= amount;
         pv = Mathf.Clamp(pv, 0, pvMax);
@@ -165,6 +174,9 @@ public class Character : MonoBehaviour
 
     public void Heal(float amount)
     {
+        if (CDI != null)
+            CDI.Heal(pv + amount > pvMax ? pvMax - pv : amount);
+
         pv += amount;
         pv = Mathf.Clamp(pv, 0, pvMax);
         PvChangeEvent.Invoke();

@@ -1,10 +1,14 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] float pv;
+    float pvMax;
     [SerializeField] int startX, startY;
     [SerializeField] bool snapToGrid;
 
@@ -58,6 +62,21 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] AudioSource attackSound;
     bool playerDetected = false;
 
+    [SerializeField] RectTransform rt;
+    [SerializeField] RectTransform fillRect;
+    [SerializeField] List<Image> images = new();
+    float waitTimer;
+    [SerializeField] float lifeShowTime;
+    [SerializeField] float lifeHideTime;
+
+    [SerializeField] RectTransform indicatorParent;
+    [SerializeField] GameObject damageIndicatorPrefab;
+
+    private void Awake()
+    {
+        pvMax = pv;
+    }
+
     void Start()
     {
         grid = GameGrid.instance;
@@ -76,11 +95,32 @@ public class EnemyMovement : MonoBehaviour
         player = PlayerMovement.instance;
         cc = CharactersControler.instance;
 
+        fillRect.localScale = new(1, 1, 1);
+
+        images.ForEach(image => { image.color = new(image.color.r, image.color.g, image.color.b, 0); });
+
         Invoke("GoToCell", moveDelay);
     }
 
     void Update()
     {
+        rt.LookAt(player.transform);
+
+        if(waitTimer > 0)
+        {
+            waitTimer -= Time.deltaTime;
+
+            if(waitTimer <= 0)
+            {
+                waitTimer = 0;
+                images.ForEach(image => { image.color = new(image.color.r, image.color.g, image.color.b, 0); });
+            }
+            else if(waitTimer <= lifeHideTime)
+            {
+                images.ForEach(image => { image.color = new(image.color.r, image.color.g, image.color.b, (waitTimer / lifeHideTime)); });
+            }
+        }
+
         if (!dead)
         {
             if (isMoving)
@@ -130,14 +170,27 @@ public class EnemyMovement : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        if (dead) return;
+
         pv -= amount;
+
+        images.ForEach(image => { image.color = new(image.color.r, image.color.g, image.color.b, 1); });
+        waitTimer = lifeShowTime + lifeHideTime;
+
+        fillRect.localScale = new(pv / pvMax, 1, 1);
+
+        GameObject go = Instantiate(damageIndicatorPrefab, indicatorParent.position, Quaternion.identity, indicatorParent);
+        go.GetComponent<TextMeshProUGUI>().text = "-" + Mathf.RoundToInt(amount).ToString();
+        go.transform.localRotation = Quaternion.Euler(0, 0, 0);
+
         if (pv <= 0)
         {
             animator.SetBool("isDead", true);
-            Destroy(gameObject,2);
+            Destroy(gameObject, 2);
             dead = true;
             deathSound.Play();
             MusicManager.instance.RemoveEnnemy();
+            fillRect.localScale = new(0, 1, 1);
         }
     }
 

@@ -12788,6 +12788,8 @@ Transform:
   - {fileID: 4197455069363319591}
   - {fileID: 1903407279507650056}
   - {fileID: 2009552292698676010}
+  - {fileID: 8484935081958504749}
+  - {fileID: 6990696111207605178}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3768787406013114583
@@ -39979,6 +39981,80 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7538007786114846932}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7603123427010598936
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7963276145105113156}
+    m_Modifications:
+    - target: {fileID: 612570270604016546, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -33.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 612570270604016546, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.120000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 612570270604016546, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 37.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 612570270604016546, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 612570270604016546, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 612570270604016546, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 612570270604016546, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 612570270604016546, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 612570270604016546, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 612570270604016546, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 612570270604371842, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+        type: 3}
+      propertyPath: m_Name
+      value: Sci Fi Gates
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3199ddf8a0bba3d4c8f1b606991babe6, type: 3}
+--- !u!4 &6990696111207605178 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 612570270604016546, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+    type: 3}
+  m_PrefabInstance: {fileID: 7603123427010598936}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7647275703671304983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41001,6 +41077,80 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5012731204193716255, guid: 846791f650afd0b4a8eac20f75d71f17,
     type: 3}
   m_PrefabInstance: {fileID: 8747901091053901653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &9025427964018541199
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7963276145105113156}
+    m_Modifications:
+    - target: {fileID: 612570270604016546, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -33.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 612570270604016546, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.120000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 612570270604016546, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 37.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 612570270604016546, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 612570270604016546, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 612570270604016546, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 612570270604016546, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 612570270604016546, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 612570270604016546, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 612570270604016546, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 612570270604371842, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+        type: 3}
+      propertyPath: m_Name
+      value: Sci Fi Gates
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3199ddf8a0bba3d4c8f1b606991babe6, type: 3}
+--- !u!4 &8484935081958504749 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 612570270604016546, guid: 3199ddf8a0bba3d4c8f1b606991babe6,
+    type: 3}
+  m_PrefabInstance: {fileID: 9025427964018541199}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9067796566595214843
 PrefabInstance:

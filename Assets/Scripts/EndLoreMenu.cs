@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 public class EndLoreMenu : MonoBehaviour
 {
     [SerializeField] List<GameObject> texts = new();
-    private int indice = 0;
+    private int indice = 1;
 
     public void EndBtn()
     {
-        if (indice >= texts.Count-1 || texts[indice] == null)
+        if (indice >= texts.Count || texts[indice] == null)
         {
             SceneManager.LoadScene("Test_Menu");
         }

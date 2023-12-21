@@ -2297,7 +2297,7 @@ MonoBehaviour:
   minMoveDelay: 0
   maxMoveDelay: 3
   moveSpeed: 1.5
-  rotationSpeed: 1.5
+  rotationSpeed: 1
   attackSpeed: 1.5
   damages: 50
   cellOn:

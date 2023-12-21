@@ -2290,16 +2290,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb215cedeb3791f4bb8df9e5171cc7fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pv: 100
+  pv: 80
   startX: 0
   startY: 0
   snapToGrid: 1
   minMoveDelay: 0
   maxMoveDelay: 3
-  moveSpeed: 1.25
-  rotationSpeed: 1
-  attackSpeed: 1.2
-  damages: 30
+  moveSpeed: 1.5
+  rotationSpeed: 1.5
+  attackSpeed: 1.5
+  damages: 50
   cellOn:
     entity: {fileID: 0}
   closeCells: []

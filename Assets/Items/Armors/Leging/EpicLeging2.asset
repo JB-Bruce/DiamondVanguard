@@ -16,6 +16,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: cd1bd7546275bca45b549524f2727634, type: 3}
   itemType: 6
   rarity: 2
-  HP: 24
-  Defense: 3
+  HP: 25
+  Defense: 4
   Energy: 0

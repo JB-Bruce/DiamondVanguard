@@ -8,10 +8,11 @@ public class Door : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] Outline outline;
     [SerializeField] public string targetScene;
+    [SerializeField] bool endDoor;
 
     private void Start()
     {
-        UnSelect();
+        if(endDoor) UnSelect();
     }
 
     public void Open()
@@ -21,11 +22,11 @@ public class Door : MonoBehaviour
 
     public void Select()
     {
-        outline.enabled = true;
+        if(endDoor) outline.enabled = true;
     }
 
     public void UnSelect()
     {
-        outline.enabled = false;
+        if (endDoor) outline.enabled = false;
     }
 }

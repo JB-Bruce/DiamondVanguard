@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8867092324398459250}
-  outline: {fileID: 0}
+  outline: {fileID: 4203967760592651387}
   targetScene: 
 --- !u!95 &8867092324398459250
 Animator:

@@ -548,15 +548,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6039216}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 19f73b613be7c7b4f90e1f651d56547d, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 3df8b821cf8b4044cb73372d8e3ae658, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1302,8 +1302,8 @@ MonoBehaviour:
   leftAttack: {fileID: 3980194780493678594}
   rightWeaponCoolDown: {fileID: 4798239890832417623}
   leftWeaponCoolDown: {fileID: 8654771092456784417}
-  leftSlot: {fileID: 0}
-  rightSlot: {fileID: 0}
+  leftSlot: {fileID: 890345341512151693}
+  rightSlot: {fileID: 4825638964129117191}
   greyFilter: {fileID: 5029653369993821294}
 --- !u!222 &1270382285536677573
 CanvasRenderer:
@@ -1564,15 +1564,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6039216}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 19f73b613be7c7b4f90e1f651d56547d, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 3df8b821cf8b4044cb73372d8e3ae658, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

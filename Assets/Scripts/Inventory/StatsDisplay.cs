@@ -20,8 +20,8 @@ public class StatsDisplay : MonoBehaviour
 
     public void UpdateStats()
     {
-        HP.GetComponent<TextMeshProUGUI>().text = character.pv.ToString();
-        Stamina.GetComponent<TextMeshProUGUI>().text = character.energy.ToString();
+        HP.GetComponent<TextMeshProUGUI>().text = Mathf.Round(character.pv).ToString();
+        Stamina.GetComponent<TextMeshProUGUI>().text = Mathf.Round(character.energy).ToString();
         StaminaRegen.GetComponent<TextMeshProUGUI>().text = character.energyGainMult.ToString();
         Defense.GetComponent<TextMeshProUGUI>().text = character.def.ToString();
         Cac.GetComponent<TextMeshProUGUI>().text = character.cacDmgMult.ToString();

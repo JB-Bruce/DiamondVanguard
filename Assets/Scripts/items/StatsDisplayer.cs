@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Search;
 using UnityEngine;
 
 public class StatsDisplayer : MonoBehaviour
@@ -12,8 +10,16 @@ public class StatsDisplayer : MonoBehaviour
     [SerializeField] TextMeshProUGUI NegativeContent;
     [SerializeField] RectTransform rectTransform;
 
+    [SerializeField] float xRatio;
+    [SerializeField] float yRatio;
+
+    int sWidth;
+    int sHeight;
+
     private void Start()
     {
+        sWidth = Screen.width;
+        sHeight = Screen.height;
         gameObject.SetActive(false);
     }
 
@@ -26,14 +32,24 @@ public class StatsDisplayer : MonoBehaviour
     {
         mousePos = Input.mousePosition;
         transform.position = mousePos;
-        if (mousePos.x > 1415)
+
+        if (mousePos.x > xRatio * sWidth)
+        {
             rectTransform.pivot = new Vector2(1, rectTransform.pivot.y);
+        }
         else
+        {
             rectTransform.pivot = new Vector2(0, rectTransform.pivot.y);
-        if (mousePos.y > 230)
-            rectTransform.pivot = new Vector2(rectTransform.pivot.x, 1);
-        else
+        }
+
+        if(mousePos.y < yRatio * sHeight)
+        {
             rectTransform.pivot = new Vector2(rectTransform.pivot.x, 0);
+        }
+        else
+        {
+            rectTransform.pivot = new Vector2(rectTransform.pivot.x, 1);
+        }
     }
 
     public void UpdateTexts(Item item)

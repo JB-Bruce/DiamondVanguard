@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class EquipementSlot : ItemContainer
 {
@@ -186,13 +183,13 @@ public class EquipementSlot : ItemContainer
         //UpdateWeaponsImage();
     }
 
-    private void CharacterLWeaponListener()
+    public void CharacterLWeaponListener()
     {
         item = character.leftWeapon;
         itemImage.sprite = item.icon;
     }
 
-    private void CharacterRWeaponListener()
+    public void CharacterRWeaponListener()
     {
         item = character.rightWeapon;
         itemImage.sprite = item.icon;

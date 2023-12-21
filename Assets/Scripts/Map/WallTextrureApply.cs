@@ -10,10 +10,6 @@ public class WallTextrureApply : MonoBehaviour
     [SerializeField] private float factor;
     [SerializeField] private bool isMultiplesFaces;
 
-    private void Start()
-    {
-        Apply();
-    }
 
     public void Apply()
     {

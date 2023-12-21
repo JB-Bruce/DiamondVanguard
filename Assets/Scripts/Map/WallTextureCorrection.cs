@@ -4,10 +4,6 @@ public class WallTextureCorrection : MonoBehaviour
 {
     [SerializeField] private float factor;
 
-    private void Start()
-    {
-        Init(factor);
-    }
 
     public void Init(float factor)
     {

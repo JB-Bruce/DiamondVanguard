@@ -201,7 +201,7 @@ MonoBehaviour:
     item: {fileID: 11400000, guid: d0e9065162c2dae4baf4af85505735eb, type: 2}
     dropChance: 100
   isInfinit: 0
-  respawnH: 5
+  respawnH: 1
   type: 2
   hologram: {fileID: 21300000, guid: 2c58e74fd5129d546b9dbb38a9d72541, type: 3}
   hologramRotation: {fileID: 6675062996115990537}
@@ -502,8 +502,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.36970347, y: 0.9719407, z: 0.38411865}
-  m_Center: {x: 0.0039703846, y: 0.48141417, z: 0.00794073}
+  m_Size: {x: 0.36970347, y: 0.6011523, z: 0.38411865}
+  m_Center: {x: 0.0039703846, y: 0.29601997, z: 0.00794073}
 --- !u!1 &3543984293593483947
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,9 +749,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0, g: 1, b: 0, a: 1}
-  outlineWidth: 10
+  outlineMode: 1
+  outlineColor: {r: 0, g: 0.8734226, b: 1, a: 1}
+  outlineWidth: 1.5
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []

@@ -14,10 +14,19 @@ public class WallManager : MonoBehaviour
 
         applyTextures = false;
 
+        ApplyText();
+    }
+
+    private void Start()
+    {
+        ApplyText();
+    }
+
+    private void ApplyText()
+    {
         for (int i = 0; i < transform.childCount; i++)
         {
             transform.GetChild(i).GetComponent<WallTextrureApply>().Apply();
         }
     }
-
 }

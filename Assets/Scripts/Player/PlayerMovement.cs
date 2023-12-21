@@ -1,8 +1,6 @@
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.FilePathAttribute;
 
 public class PlayerMovement : MonoBehaviour
 {

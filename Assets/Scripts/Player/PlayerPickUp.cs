@@ -46,7 +46,7 @@ public class PlayerPickUp : MonoBehaviour
                         inventory.addItem(item);
                         if (lootBox.isInfinit)
                         {
-                            lootBox.respawn();
+                            lootBox.Respawn();
                         }
                         else
                         {

@@ -1,6 +1,12 @@
 fileFormatVersion: 2
-guid: f7732c47dce28bd48afc04f25fb9fed5
+<<<<<<<< HEAD:Assets/Prefabs/Enemy3.prefab.meta
+guid: 8903f7d72b605b5419826e8eb46c50ac
 PrefabImporter:
+========
+guid: 25ce451b0bf24924f9978644462590d8
+folderAsset: yes
+DefaultImporter:
+>>>>>>>> c7c5663 (merge first part):Assets/Scenes/MergeScene.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

@@ -57390,7 +57390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1924011426}
   m_Layer: 0
-  m_Name: Walls19
+  m_Name: Room19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75663,7 +75663,6 @@ Transform:
   - {fileID: 227387536}
   - {fileID: 1123589556}
   - {fileID: 191358980}
-  - {fileID: 3337472617496290856}
   - {fileID: 1277300600}
   - {fileID: 2038387702}
   - {fileID: 2144756777}
@@ -75673,6 +75672,7 @@ Transform:
   - {fileID: 824116962}
   - {fileID: 648605123}
   - {fileID: 1924011426}
+  - {fileID: 3337472617496290856}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &8865684865121011879

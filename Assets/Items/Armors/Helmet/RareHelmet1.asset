@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RareHelmet1
   m_EditorClassIdentifier: 
   itemName: NeuroCap HyperSteel
-  icon: {fileID: 21300000, guid: e156d9d10525add4090e654b387787c7, type: 3}
+  icon: {fileID: 21300000, guid: 309a6f4b1a07cc347b9ce8478ab6ebaa, type: 3}
   itemType: 4
   rarity: 1
   HP: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CommonLeging2
   m_EditorClassIdentifier: 
   itemName: Military Leging
-  icon: {fileID: 21300000, guid: 78716f02c9b8bf3408ed4a68c065a376, type: 3}
+  icon: {fileID: 21300000, guid: 0f5f7684890d3e64db96ba0c6c65ea8f, type: 3}
   itemType: 6
   rarity: 0
   HP: 10

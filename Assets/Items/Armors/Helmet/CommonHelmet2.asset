@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CommonHelmet2
   m_EditorClassIdentifier: 
   itemName: Military helmet
-  icon: {fileID: 21300000, guid: af8854fb6e6ace6419f4d5f30062f990, type: 3}
+  icon: {fileID: 21300000, guid: a820f5429e54c064eb1f90e59ef3234c, type: 3}
   itemType: 4
   rarity: 0
   HP: 10

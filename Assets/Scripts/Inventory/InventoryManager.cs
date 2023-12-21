@@ -111,10 +111,13 @@ public class InventoryManager : MonoBehaviour
                     {
                         item = null;
                         draging = false;
-                        if (LastItemContainer.tag == "Equipement" && (LastItemContainer.GetComponent<EquipementSlot>().item is Armor || LastItemContainer.GetComponent<EquipementSlot>().item is Implants))
+                        if (LastItemContainer.tag == "Equipement")
                         {
-                            LastItemContainer.GetComponent<EquipementSlot>().SubStats();
-                            LastItemContainer.gameObject.GetComponent<ItemContainer>().item = null;
+                            if (LastItemContainer.GetComponent<EquipementSlot>().item is Armor || LastItemContainer.GetComponent<EquipementSlot>().item is Implants)
+                            {
+                                LastItemContainer.GetComponent<EquipementSlot>().SubStats();
+                            }
+                            LastItemContainer.gameObject.GetComponent<EquipementSlot>().SetHandItem();
                             LastItemContainer.GetComponent<ItemContainer>().itemImage.transform.position = LastItemContainer.transform.position;
                         }
                         else

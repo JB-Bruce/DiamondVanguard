@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EpicLeging2
   m_EditorClassIdentifier: 
   itemName: Military Leging NanoFibre
-  icon: {fileID: 21300000, guid: cd1bd7546275bca45b549524f2727634, type: 3}
+  icon: {fileID: 21300000, guid: 437f0dd7b712f7c49ad4b11daa058d8d, type: 3}
   itemType: 6
   rarity: 2
   HP: 25

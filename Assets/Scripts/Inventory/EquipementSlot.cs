@@ -76,7 +76,6 @@ public class EquipementSlot : ItemContainer
 
     public void SetHandItem()
     {
-
         item = startingItem;
         itemImage.sprite = startingItem.icon;
         itemImage.gameObject.SetActive(true);

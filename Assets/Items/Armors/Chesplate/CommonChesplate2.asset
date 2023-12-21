@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CommonChesplate2
   m_EditorClassIdentifier: 
   itemName: Military chesplate
-  icon: {fileID: 21300000, guid: 40994427bfe9501439d35b99d7a88bd1, type: 3}
+  icon: {fileID: 21300000, guid: 860ca08d98616524f932127b1e75a6d0, type: 3}
   itemType: 5
   rarity: 0
   HP: 15

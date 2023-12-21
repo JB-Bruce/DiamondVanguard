@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RareLeging1
   m_EditorClassIdentifier: 
   itemName: "N\xE9oRunners HyperSteel"
-  icon: {fileID: 21300000, guid: f20ee6eb06954bc4d898547f09b327fc, type: 3}
+  icon: {fileID: 21300000, guid: cbc91817cde9fa14f96415a6ce4dce81, type: 3}
   itemType: 6
   rarity: 1
   HP: 0

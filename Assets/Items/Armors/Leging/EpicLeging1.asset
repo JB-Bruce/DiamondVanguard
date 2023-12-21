@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EpicLeging1
   m_EditorClassIdentifier: 
   itemName: "N\xE9oRunners NanoFibre"
-  icon: {fileID: 21300000, guid: 3c7fd630799054d47916dc43136faddc, type: 3}
+  icon: {fileID: 21300000, guid: 440cef767b6eae74c91ccb21ea7e2b52, type: 3}
   itemType: 6
   rarity: 2
   HP: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EpicHelmet1
   m_EditorClassIdentifier: 
   itemName: NeuroCap NanoFibre
-  icon: {fileID: 21300000, guid: 124809bd8bec85e44888efd4bfefb893, type: 3}
+  icon: {fileID: 21300000, guid: 6552063abfa35d4459592807aaefa4b3, type: 3}
   itemType: 4
   rarity: 0
   HP: 0

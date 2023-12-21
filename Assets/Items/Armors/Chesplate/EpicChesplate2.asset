@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EpicChesplate2
   m_EditorClassIdentifier: 
   itemName: Military chesplate NanoFibre
-  icon: {fileID: 21300000, guid: 002061c3628204944b62365c83c9f544, type: 3}
+  icon: {fileID: 21300000, guid: 7f927bbecce624b49a8b6122ad0eb564, type: 3}
   itemType: 5
   rarity: 0
   HP: 35

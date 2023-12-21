@@ -157,7 +157,8 @@ public class CharactersControler : MonoBehaviour
 
     private void SwapTopRight()
     {
-        
+        if (rightUI.currentCharacter.dead) { DesactivateUI(frontUI); GameOver(); return; }
+
         Character character1 = frontUI.currentCharacter;
         Character character2 = rightUI.currentCharacter;
         frontUI.ResetCharacter();
@@ -168,7 +169,7 @@ public class CharactersControler : MonoBehaviour
         {
             SwapRightLeft();
         }
-        else GameOver();
+        else DesactivateUI(rightUI);
 
     }
 

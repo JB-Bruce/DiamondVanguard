@@ -301,7 +301,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 0.2608688}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4490772301696931996
 MonoBehaviour:
@@ -318,6 +318,7 @@ MonoBehaviour:
   animator: {fileID: 8867092324398459250}
   outline: {fileID: 4203967760592651387}
   targetScene: 
+  endDoor: 0
 --- !u!95 &8867092324398459250
 Animator:
   serializedVersion: 5
@@ -556,8 +557,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 54.6
-  m_fontSizeBase: 54.6
+  m_fontSize: 48.1
+  m_fontSizeBase: 48.1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -700,7 +701,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8337312749016543379
 Transform:
   m_ObjectHideFlags: 0
@@ -1119,9 +1120,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- 15 life
+  m_text: '- 51 life
 
-    - 5 energy'
+    - 22 energy'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 475417a6455d7a64c8af60529f0186fc, type: 2}
   m_sharedMaterial: {fileID: -8976213932050060633, guid: 475417a6455d7a64c8af60529f0186fc,
@@ -1312,11 +1313,11 @@ MonoBehaviour:
   linkedDoor: {fileID: 4490772301696931996}
   ui: {fileID: 287223593327188763}
   closeTime: 8
-  GBLifeCost: 15
-  GBEnergyCost: 5
+  GBLifeCost: 51
+  GBEnergyCost: 22
   GBImpossibleImage: {fileID: 8203569898207554928}
   GBButton: {fileID: 6153549029785203690}
-  HEnergyCost: 20
+  HEnergyCost: 69
   HImpossibleImage: {fileID: 4112321206575461934}
   HButton: {fileID: 3217554695619723455}
   outline: {fileID: 4203967760592651387}
@@ -1468,7 +1469,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Choose
+  m_text: Enforce
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 475417a6455d7a64c8af60529f0186fc, type: 2}
   m_sharedMaterial: {fileID: -8976213932050060633, guid: 475417a6455d7a64c8af60529f0186fc,
@@ -2401,8 +2402,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 54.6
-  m_fontSizeBase: 54.6
+  m_fontSize: 48.1
+  m_fontSizeBase: 48.1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2674,7 +2675,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- 20 energy'
+  m_text: '- 69 energy'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 475417a6455d7a64c8af60529f0186fc, type: 2}
   m_sharedMaterial: {fileID: -8976213932050060633, guid: 475417a6455d7a64c8af60529f0186fc,
@@ -2968,7 +2969,7 @@ Transform:
   m_GameObject: {fileID: 5900681323908656323}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.362}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3003,7 +3004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 3
   outlineColor: {r: 0, g: 1, b: 0, a: 1}
-  outlineWidth: 10
+  outlineWidth: 5
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -3443,7 +3444,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Choose
+  m_text: Hack
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 475417a6455d7a64c8af60529f0186fc, type: 2}
   m_sharedMaterial: {fileID: -8976213932050060633, guid: 475417a6455d7a64c8af60529f0186fc,

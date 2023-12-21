@@ -140,6 +140,8 @@ public class EquipementSlot : ItemContainer
         {
             Armor itemstats = (Armor)item;
             character.pvMax += itemstats.HP;
+            character.clampHP();
+            character.PvChangeEvent.Invoke();
             character.energyMax += itemstats.Energy;
             character.def += itemstats.Defense;
         }
@@ -173,6 +175,8 @@ public class EquipementSlot : ItemContainer
         {
             Armor itemstats = (Armor)item;
             character.pvMax -= itemstats.HP;
+            character.clampHP();
+            character.PvChangeEvent.Invoke();
             character.energyMax -= itemstats.Energy;
             character.def -= itemstats.Defense;
         }

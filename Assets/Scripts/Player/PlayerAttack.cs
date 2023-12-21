@@ -29,6 +29,7 @@ public class PlayerAttack : MonoBehaviour
 
     public void Attack (float amount)
     {
+        if (amount < 0) amount = 0;
         float angle = transform.eulerAngles.y;
 
         int x, z;
@@ -66,6 +67,7 @@ public class PlayerAttack : MonoBehaviour
 
     public void DistantAttack(float amount, int distance)
     {
+        if (amount < 0) amount = 0;
         float angle = transform.eulerAngles.y;
 
         int x, z;
@@ -106,8 +108,9 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    public void Heal(CharactersControler group,float ammount)
+    public void Heal(CharactersControler group,float amount)
     {
-        group.HealGroup(ammount);
+        if (amount < 0) amount = 0;
+        group.HealGroup(amount);
     }
 }

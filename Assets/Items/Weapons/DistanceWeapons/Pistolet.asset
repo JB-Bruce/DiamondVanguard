@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pistolet
   m_EditorClassIdentifier: 
   itemName: Pistolet
-  icon: {fileID: 21300000, guid: 92a33c3f7a8c93648a474cfd3bab24c5, type: 3}
+  icon: {fileID: 21300000, guid: f89367fe0efa5bc4685806e7437c437c, type: 3}
   itemType: 1
   rarity: 0
   EnergyConso: 10

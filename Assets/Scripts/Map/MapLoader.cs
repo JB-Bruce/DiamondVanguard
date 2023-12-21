@@ -26,10 +26,10 @@ public class MapLoader : MonoBehaviour
 
     public void ChangeMap()
     {
-        currentMap.SetActive(false);
         index += 1;
         if (index < maps.Count)
         {
+            currentMap.SetActive(false);
             SetCharacterPosition();
             ActiveMap();
         }

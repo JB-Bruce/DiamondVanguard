@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GodRoom.unity
     guid: 903e20c0657a5fd4ea8149e8faafab51
+  - enabled: 1
+    path: Assets/Scenes/FUCKGAME.unity
+    guid: 6da9b6f0d3614d441bbd351c70cf487c
   m_configObjects: {}

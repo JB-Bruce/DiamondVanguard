@@ -144,8 +144,8 @@ MonoBehaviour:
   - rarity: 1
     item: {fileID: 11400000, guid: 60eb10bff045acd4593ff55c6d2fba4e, type: 2}
     dropChance: 25
-  - rarity: 0
-    item: {fileID: 11400000, guid: edc5ea09cf122de41be6d0159bd598dc, type: 2}
+  - rarity: 2
+    item: {fileID: 11400000, guid: 7004986ad3b21f94ab7850d93db43d36, type: 2}
     dropChance: 25
   - rarity: 0
     item: {fileID: 11400000, guid: a48aa4119de7036499abe3f31dc93470, type: 2}
@@ -167,6 +167,9 @@ MonoBehaviour:
     dropChance: 25
   - rarity: 2
     item: {fileID: 11400000, guid: fda6c48ba3f32fd43886e0b2f5125626, type: 2}
+    dropChance: 25
+  - rarity: 0
+    item: {fileID: 11400000, guid: edc5ea09cf122de41be6d0159bd598dc, type: 2}
     dropChance: 25
   - rarity: 2
     item: {fileID: 11400000, guid: 490caf7eae5744345a54c4ab1a225bd7, type: 2}

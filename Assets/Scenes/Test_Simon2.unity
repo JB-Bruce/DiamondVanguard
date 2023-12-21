@@ -2552,6 +2552,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   outline: {fileID: 668441710}
   targetScene: Test_EndLore
+  endDoor: 0
 --- !u!114 &668441709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9292,6 +9293,8 @@ MonoBehaviour:
   Content: {fileID: 160594911}
   NegativeContent: {fileID: 831964445}
   rectTransform: {fileID: 1999204489}
+  xRatio: 0
+  yRatio: 0
 --- !u!114 &1999204493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10541,12 +10544,12 @@ PrefabInstance:
     - target: {fileID: 4352582903734411933, guid: 6902449c96dc6644c855cbfd0ae54019,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4352582903734411933, guid: 6902449c96dc6644c855cbfd0ae54019,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4352582903734411933, guid: 6902449c96dc6644c855cbfd0ae54019,
         type: 3}
@@ -10612,11 +10615,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PausePanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 4589581610326956831, guid: 6902449c96dc6644c855cbfd0ae54019,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7075560862463255484, guid: 6902449c96dc6644c855cbfd0ae54019,
         type: 3}
@@ -11130,6 +11128,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   hurtSFX: {fileID: 0}
   deathSFX: {fileID: 0}
+  CDI: {fileID: 0}
 --- !u!114 &2160601517372994533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11745,6 +11744,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   hurtSFX: {fileID: 0}
   deathSFX: {fileID: 0}
+  CDI: {fileID: 0}
 --- !u!224 &3140298584344162504
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12273,6 +12273,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   hurtSFX: {fileID: 0}
   deathSFX: {fileID: 0}
+  CDI: {fileID: 0}
 --- !u!223 &4081576795563042164
 Canvas:
   m_ObjectHideFlags: 0
@@ -12373,6 +12374,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   hurtSFX: {fileID: 0}
   deathSFX: {fileID: 0}
+  CDI: {fileID: 0}
 --- !u!114 &4220716894590868965
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
 
     public void TutoBtn()
     {
-        SceneManager.LoadScene("GodRoom");
+        SceneManager.LoadScene("MergeScene");
     }
 
     public void CreditsBtn()

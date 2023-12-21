@@ -1695,7 +1695,7 @@ MonoBehaviour:
     entity: {fileID: 0}
   closeCells: []
   index: 0
-  rangeDistance: 4
+  rangeDistance: 6
   animator: {fileID: 2003431984545242471}
   grid: {fileID: 0}
   enemyLayer:

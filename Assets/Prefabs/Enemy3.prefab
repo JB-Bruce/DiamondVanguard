@@ -2304,7 +2304,7 @@ MonoBehaviour:
     entity: {fileID: 0}
   closeCells: []
   index: 0
-  rangeDistance: 4
+  rangeDistance: 6
   animator: {fileID: 3501908258591541584}
   grid: {fileID: 0}
   enemyLayer:

@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Bandage
   icon: {fileID: 21300000, guid: 17e74616306c335408d13b6c89926582, type: 3}
   itemType: 2
+  rarity: 0
   EnergyConso: 20
   Cooldown: 15
-  damages: 10
+  damages: 15

@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Katana
   icon: {fileID: 21300000, guid: 8c29e5979b624d44fa2a47402d5faf23, type: 3}
-  EnergyConso: 20
-  Cooldown: 3
-  damages: 30
+  itemType: 0
+  rarity: 0
+  EnergyConso: 25
+  Cooldown: 2.5
+  damages: 35

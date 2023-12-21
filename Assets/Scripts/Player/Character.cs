@@ -202,7 +202,7 @@ public class Character : MonoBehaviour
 
     public void LeftWeaponAttack()
     {
-        if (canLeftWeaponAttack)
+        if (canLeftWeaponAttack && energy >= leftWeapon.EnergyConso)
         {
             ConsumeEnergy(leftWeapon.EnergyConso);
             WeaponAttack(leftWeapon);
@@ -219,7 +219,7 @@ public class Character : MonoBehaviour
 
     public void RightWeaponAttack()
     {
-        if (canRightWeaponAttack)
+        if (canRightWeaponAttack && energy >= rightWeapon.EnergyConso)
         {
             ConsumeEnergy(rightWeapon.EnergyConso);
             WeaponAttack(rightWeapon);

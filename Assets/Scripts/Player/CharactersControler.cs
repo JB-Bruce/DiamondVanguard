@@ -175,6 +175,8 @@ public class CharactersControler : MonoBehaviour
 
     private void SwapRightLeft()
     {
+        if (leftUI.currentCharacter.dead) { DesactivateUI(rightUI); return; }
+
         Character character1 = rightUI.currentCharacter;
         Character character2 = leftUI.currentCharacter;
         rightUI.ResetCharacter();
@@ -190,6 +192,8 @@ public class CharactersControler : MonoBehaviour
 
     private void SwapLeftBot()
     {
+        if (backUI.currentCharacter.dead) { DesactivateUI(leftUI); return; }
+
         Character character1 = leftUI.currentCharacter;
         Character character2 = backUI.currentCharacter;
         leftUI.ResetCharacter();

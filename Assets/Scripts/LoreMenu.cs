@@ -12,7 +12,7 @@ public class LoreMenu : MonoBehaviour
     {
         if (indice >= texts.Count || texts[indice] == null)
         {
-            SceneManager.LoadScene("Game");
+            SceneManager.LoadScene("FUCKGAME");
         }
         else
         {

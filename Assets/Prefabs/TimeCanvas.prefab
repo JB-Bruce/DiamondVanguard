@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2627766980436528663}
   - component: {fileID: 714756514302461519}
   - component: {fileID: 6821339399364571902}
-  - component: {fileID: 4369148076302724003}
   m_Layer: 5
   m_Name: TimeCanvas
   m_TagString: timer
@@ -118,18 +117,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeObject: {fileID: 7159005208817416576}
   time: 300
---- !u!114 &4369148076302724003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5838377909554011348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a87caa1a5f10e384e94535e4283f4e9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6853475735242797377
 GameObject:
   m_ObjectHideFlags: 0

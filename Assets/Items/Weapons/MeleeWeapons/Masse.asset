@@ -16,6 +16,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: d2978b6143473d1498982218526d4b65, type: 3}
   itemType: 0
   rarity: 0
-  EnergyConso: 50
+  EnergyConso: 65
   Cooldown: 6.5
-  damages: 60
+  damages: 40

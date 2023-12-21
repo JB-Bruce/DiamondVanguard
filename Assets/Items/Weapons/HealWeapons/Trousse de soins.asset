@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Trousse de soins
   icon: {fileID: 21300000, guid: 03ec41416dcb6274fb668e2f36a7e7aa, type: 3}
   itemType: 2
+  rarity: 0
   EnergyConso: 65
-  Cooldown: 30
+  Cooldown: 20
   damages: 60

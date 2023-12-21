@@ -10,6 +10,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Test_Lore");
     }
 
+    public void TutoBtn()
+    {
+        SceneManager.LoadScene("GodRoom");
+    }
+
     public void CreditsBtn()
     {
         SceneManager.LoadScene("Test_Credits");

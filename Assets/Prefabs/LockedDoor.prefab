@@ -1120,9 +1120,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- 51 life
+  m_text: '- 50 life
 
-    - 22 energy'
+    - 20 energy'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 475417a6455d7a64c8af60529f0186fc, type: 2}
   m_sharedMaterial: {fileID: -8976213932050060633, guid: 475417a6455d7a64c8af60529f0186fc,
@@ -1313,11 +1313,11 @@ MonoBehaviour:
   linkedDoor: {fileID: 4490772301696931996}
   ui: {fileID: 287223593327188763}
   closeTime: 8
-  GBLifeCost: 51
-  GBEnergyCost: 22
+  GBLifeCost: 50
+  GBEnergyCost: 20
   GBImpossibleImage: {fileID: 8203569898207554928}
   GBButton: {fileID: 6153549029785203690}
-  HEnergyCost: 69
+  HEnergyCost: 70
   HImpossibleImage: {fileID: 4112321206575461934}
   HButton: {fileID: 3217554695619723455}
   outline: {fileID: 4203967760592651387}
@@ -2675,7 +2675,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- 69 energy'
+  m_text: '- 70 energy'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 475417a6455d7a64c8af60529f0186fc, type: 2}
   m_sharedMaterial: {fileID: -8976213932050060633, guid: 475417a6455d7a64c8af60529f0186fc,

@@ -42,9 +42,15 @@ public class LootBox : MonoBehaviour
 
     [SerializeField] Outline outline;
 
+    Vector3 spawnPos;
+    Quaternion spawnRot;
+
     private void Start()
     {
         timer = Random.Range(0f, 12f);
+
+        spawnPos = transform.position;
+        spawnRot = transform.rotation;
 
         UnSelect();
 
@@ -78,10 +84,11 @@ public class LootBox : MonoBehaviour
         outline.enabled = false;
     }
 
-    public void respawn()
+    public void Respawn()
     {
-        Vector3 newPos = new Vector3(gameObject.transform.position.x , gameObject.transform.position.y + respawnH, gameObject.transform.position.z);
-        gameObject.transform.position = newPos;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        transform.position = spawnPos + new Vector3(0f, respawnH, 0f);
+        transform.rotation = spawnRot;
         item = CreateItem();
     }
 

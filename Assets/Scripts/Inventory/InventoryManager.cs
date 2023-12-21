@@ -19,6 +19,8 @@ public class InventoryManager : MonoBehaviour
 
     private void Update()
     {
+        StatsDisplayer.gameObject.SetActive(false);
+
         if (inventory.gameObject.activeInHierarchy)
         {
             Vector3 MousePos = Input.mousePosition;

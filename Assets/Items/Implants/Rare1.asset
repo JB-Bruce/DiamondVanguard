@@ -17,11 +17,11 @@ MonoBehaviour:
   itemType: 3
   rarity: 1
   critChance: 0
-  critDamage: -0.6
-  HP: 0
-  healing: 0.5
-  cacDamage: -0.2
-  distanceDamage: 0
-  heal: 0
+  critDamage: 0
+  HP: 15
+  healing: 0
+  cacDamage: -0.4
+  distanceDamage: -0.4
+  heal: -0.4
   energy: 20
   def: 0

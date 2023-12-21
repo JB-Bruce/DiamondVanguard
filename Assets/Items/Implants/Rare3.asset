@@ -16,12 +16,12 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 6157e8274afa0e94fb99cff40c1d8b30, type: 3}
   itemType: 3
   rarity: 1
-  critChance: 10
-  critDamage: 0.8
-  HP: -40
-  healing: -0.2
+  critChance: 15
+  critDamage: 0.5
+  HP: -10
+  healing: 0
   cacDamage: 0
   distanceDamage: 0
-  heal: 0
+  heal: -0.1
   energy: 0
   def: 0

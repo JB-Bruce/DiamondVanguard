@@ -18,10 +18,10 @@ MonoBehaviour:
   rarity: 0
   critChance: 0
   critDamage: 0
-  HP: 0
+  HP: -5
   healing: 0
-  cacDamage: -0.2
-  distanceDamage: 0.25
-  heal: 0
+  cacDamage: 0.2
+  distanceDamage: 0.2
+  heal: 0.2
   energy: 0
-  def: 0
+  def: -1

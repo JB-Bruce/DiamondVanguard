@@ -17,5 +17,5 @@ MonoBehaviour:
   itemType: 6
   rarity: 2
   HP: 0
-  Defense: 3
-  Energy: 15
+  Defense: 2
+  Energy: 25

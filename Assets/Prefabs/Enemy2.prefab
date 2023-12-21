@@ -11,12 +11,12 @@ PrefabInstance:
     - target: {fileID: 1771743001897355546, guid: 846791f650afd0b4a8eac20f75d71f17,
         type: 3}
       propertyPath: pv
-      value: 160
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 1771743001897355546, guid: 846791f650afd0b4a8eac20f75d71f17,
         type: 3}
       propertyPath: damages
-      value: 60
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 1771743001897355546, guid: 846791f650afd0b4a8eac20f75d71f17,
         type: 3}
@@ -26,12 +26,17 @@ PrefabInstance:
     - target: {fileID: 1771743001897355546, guid: 846791f650afd0b4a8eac20f75d71f17,
         type: 3}
       propertyPath: moveSpeed
-      value: 0.75
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1771743001897355546, guid: 846791f650afd0b4a8eac20f75d71f17,
         type: 3}
       propertyPath: attackSpeed
-      value: 0.75
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771743001897355546, guid: 846791f650afd0b4a8eac20f75d71f17,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5012731204193716255, guid: 846791f650afd0b4a8eac20f75d71f17,
         type: 3}
